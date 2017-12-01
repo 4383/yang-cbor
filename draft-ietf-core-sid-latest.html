@@ -581,8 +581,9 @@ module ietf-sid-file {
 
   typedef schema-node-path {
     type string {
-      pattern '/[a-zA-Z_][a-zA-Z0-9\-_.]*:[a-zA-Z_][a-zA-Z0-9\-_.]*' +
-              '(/[a-zA-Z_][a-zA-Z0-9\-_.]*(:[a-zA-Z_][a-zA-Z0-9\-_.]*)?)*';
+      pattern
+        '/[a-zA-Z_][a-zA-Z0-9\-_.]*:[a-zA-Z_][a-zA-Z0-9\-_.]*' +
+        '(/[a-zA-Z_][a-zA-Z0-9\-_.]*(:[a-zA-Z_][a-zA-Z0-9\-_.]*)?)*';
     }
     description
       "Identifies a schema-node path string for use in the
@@ -831,7 +832,7 @@ module ietf-sid-file {
 <td class="left">1300</td>
 <td class="left">50</td>
 <td class="left">ietf-sid-file</td>
-<td class="left">[I-D.ieft-core-sid]</td>
+<td class="left">RFCXXXX</td>
 </tr>
 <tr>
 <td class="left">1500</td>
@@ -859,6 +860,7 @@ module ietf-sid-file {
 </tr>
 </tbody>
 </table>
+<p id="rfc.section.6.1.2.p.3">// RFC Ed.: replace XXXX with RFC number assigned to this draft.</p>
 <h1 id="rfc.section.6.2">
 <a href="#rfc.section.6.2">6.2.</a> <a href="#module-registry" id="module-registry">&#8220;YANG module assignment&#8221; registry</a>
 </h1>
@@ -1071,7 +1073,8 @@ module ietf-sid-file {
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:set-current-datetime/current-datetime",
+      "identifier": "/ietf-system:set-current-datetime/
+                     current-datetime",
       "sid": 1716
     },
     {
@@ -1106,7 +1109,8 @@ module ietf-sid-file {
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system-state/clock/current-datetime",
+      "identifier": "/ietf-system:system-state/clock/
+                     current-datetime",
       "sid": 1723
     },
     {
@@ -1146,37 +1150,44 @@ module ietf-sid-file {
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system/authentication/user-authentication-order",
+      "identifier": "/ietf-system:system/authentication/
+                     user-authentication-order",
       "sid": 1731
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system/authentication/user/authorized-key",
+      "identifier": "/ietf-system:system/authentication/user/
+                     authorized-key",
       "sid": 1732
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system/authentication/user/authorized-key/algorithm",
+      "identifier": "/ietf-system:system/authentication/user/
+                     authorized-key/algorithm",
       "sid": 1733
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system/authentication/user/authorized-key/key-data",
+      "identifier": "/ietf-system:system/authentication/user/
+                     authorized-key/key-data",
       "sid": 1734
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system/authentication/user/authorized-key/name",
+      "identifier": "/ietf-system:system/authentication/user/
+                     authorized-key/name",
       "sid": 1735
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system/authentication/user/name",
+      "identifier": "/ietf-system:system/authentication/user/
+                     name",
       "sid": 1736
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system/authentication/user/password",
+      "identifier": "/ietf-system:system/authentication/user/
+                     password",
       "sid": 1737
     },
     {
@@ -1211,12 +1222,14 @@ module ietf-sid-file {
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system/dns-resolver/options/attempts",
+      "identifier": "/ietf-system:system/dns-resolver/options/
+                     attempts",
       "sid": 1744
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system/dns-resolver/options/timeout",
+      "identifier": "/ietf-system:system/dns-resolver/options/
+                     timeout",
       "sid": 1745
     },
     {
@@ -1236,17 +1249,20 @@ module ietf-sid-file {
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system/dns-resolver/server/udp-and-tcp",
+      "identifier": "/ietf-system:system/dns-resolver/server/
+                     udp-and-tcp",
       "sid": 1749
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system/dns-resolver/server/udp-and-tcp/address",
+      "identifier": "/ietf-system:system/dns-resolver/server/
+                     udp-and-tcp/address",
       "sid": 1750
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system/dns-resolver/server/udp-and-tcp/port",
+      "identifier": "/ietf-system:system/dns-resolver/server/
+                     udp-and-tcp/port",
       "sid": 1751
     },
     {
@@ -1276,7 +1292,8 @@ module ietf-sid-file {
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system/ntp/server/association-type",
+      "identifier": "/ietf-system:system/ntp/server/
+                     association-type",
       "sid": 1757
     },
     {
@@ -1336,7 +1353,8 @@ module ietf-sid-file {
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system/radius/server/authentication-type",
+      "identifier": "/ietf-system:system/radius/server/
+                     authentication-type",
       "sid": 1769
     },
     {
@@ -1351,17 +1369,20 @@ module ietf-sid-file {
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system/radius/server/udp/address",
+      "identifier": "/ietf-system:system/radius/server/udp/
+                     address",
       "sid": 1772
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system/radius/server/udp/authentication-port",
+      "identifier": "/ietf-system:system/radius/server/udp/
+                     authentication-port",
       "sid": 1773
     },
     {
       "namespace": "data",
-      "identifier": "/ietf-system:system/radius/server/udp/shared-secret",
+      "identifier": "/ietf-system:system/radius/server/udp/
+                     shared-secret",
       "sid": 1774
     }
   ]

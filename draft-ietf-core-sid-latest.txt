@@ -78,7 +78,7 @@ Table of Contents
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .  14
      8.2.  Informative References  . . . . . . . . . . . . . . . . .  15
    Appendix A.  ".sid" file example  . . . . . . . . . . . . . . . .  16
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  24
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  25
 
 1.  Introduction
 
@@ -384,8 +384,8 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
    module defined the structure of this file, encoding is performed
    using the rules defined in [RFC7951].
 
-<CODE BEGINS> file "ietf-sid-file@2017-11-26.yang"
-module ietf-sid-file {
+   <CODE BEGINS> file "ietf-sid-file@2017-11-26.yang"
+   module ietf-sid-file {
 
 
 
@@ -394,54 +394,54 @@ Veillette & Pelov         Expires June 4, 2018                  [Page 7]
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
-  namespace "urn:ietf:params:xml:ns:yang:ietf-sid-file";
-  prefix sid;
+     namespace "urn:ietf:params:xml:ns:yang:ietf-sid-file";
+     prefix sid;
 
-  import ietf-yang-types {
-    prefix yang;
-  }
+     import ietf-yang-types {
+       prefix yang;
+     }
 
-  import ietf-comi {
-    prefix comi;
-  }
+     import ietf-comi {
+       prefix comi;
+     }
 
-  organization
-    "IETF Core Working Group";
+     organization
+       "IETF Core Working Group";
 
-  contact
-    "Michel Veillette
-     <mailto:michel.veillette@trilliantinc.com>
+     contact
+       "Michel Veillette
+        <mailto:michel.veillette@trilliantinc.com>
 
-     Andy Bierman
-     <mailto:andy@yumaworks.com>
+        Andy Bierman
+        <mailto:andy@yumaworks.com>
 
-     Alexander Pelov
-     <mailto:a@ackl.io>";
+        Alexander Pelov
+        <mailto:a@ackl.io>";
 
-  description
-    "This module defines the structure of the .sid files.
+     description
+       "This module defines the structure of the .sid files.
 
-     Each .sid file contains the mapping between the different
-     string identifiers defined by a YANG module and a
-     corresponding numeric value called SID.";
+        Each .sid file contains the mapping between the different
+        string identifiers defined by a YANG module and a
+        corresponding numeric value called SID.";
 
-  revision 2017-11-26 {
-    description
-      "Initial revision.";
-    reference
-      "[I-D.ietf-core-sid] YANG Schema Item iDentifier (SID)";
-  }
+     revision 2017-11-26 {
+       description
+         "Initial revision.";
+       reference
+         "[I-D.ietf-core-sid] YANG Schema Item iDentifier (SID)";
+     }
 
-  typedef revision-identifier {
-    type string {
-      pattern '\d{4}-\d{2}-\d{2}';
-    }
-    description
-      "Represents a date in YYYY-MM-DD format.";
-  }
+     typedef revision-identifier {
+       type string {
+         pattern '\d{4}-\d{2}-\d{2}';
+       }
+       description
+         "Represents a date in YYYY-MM-DD format.";
+     }
 
-  typedef schema-node-path {
-    type string {
+     typedef schema-node-path {
+       type string {
 
 
 
@@ -450,54 +450,54 @@ Veillette & Pelov         Expires June 4, 2018                  [Page 8]
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
-      pattern '/[a-zA-Z_][a-zA-Z0-9\-_.]*:[a-zA-Z_][a-zA-Z0-9\-_.]*' +
-              '(/[a-zA-Z_][a-zA-Z0-9\-_.]*(:[a-zA-Z_][a-zA-Z0-9\-_.]*)?)*';
-    }
-    description
-      "Identifies a schema-node path string for use in the
-       SID registry. This string format follows the rules
-       for an instance-identifier, as defined in RFC 7959,
-       except that no predicates are allowed.
+         pattern
+           '/[a-zA-Z_][a-zA-Z0-9\-_.]*:[a-zA-Z_][a-zA-Z0-9\-_.]*' +
+           '(/[a-zA-Z_][a-zA-Z0-9\-_.]*(:[a-zA-Z_][a-zA-Z0-9\-_.]*)?)*';
+       }
+       description
+         "Identifies a schema-node path string for use in the
+          SID registry. This string format follows the rules
+          for an instance-identifier, as defined in RFC 7959,
+          except that no predicates are allowed.
 
-       This format is intended to support the YANG 1.1 ABNF
-       for a schema node identifier, except module names
-       are used instead of prefixes, as specified in RFC 7951.";
-    reference
-      "RFC 7950, The YANG 1.1 Data Modeling Language;
-       Section 6.5: Schema Node Identifier;
-       RFC 7951, JSON Encoding of YANG Data;
-       Section 6.11: The instance-identifier type";
-  }
+          This format is intended to support the YANG 1.1 ABNF
+          for a schema node identifier, except module names
+          are used instead of prefixes, as specified in RFC 7951.";
+       reference
+         "RFC 7950, The YANG 1.1 Data Modeling Language;
+          Section 6.5: Schema Node Identifier;
+          RFC 7951, JSON Encoding of YANG Data;
+          Section 6.11: The instance-identifier type";
+     }
 
-  leaf module-name {
-    type yang:yang-identifier;
-    description
-      "Name of the YANG module associated with this .sid file.";
-  }
+     leaf module-name {
+       type yang:yang-identifier;
+       description
+         "Name of the YANG module associated with this .sid file.";
+     }
 
-  leaf module-revision {
-    type revision-identifier;
-    description
-      "Revision of the YANG module associated with this .sid file.
-       This leaf is not present if no revision statement is
-       defined in the YANG module.";
-  }
+     leaf module-revision {
+       type revision-identifier;
+       description
+         "Revision of the YANG module associated with this .sid file.
+          This leaf is not present if no revision statement is
+          defined in the YANG module.";
+     }
 
-  list assigment-ranges {
-    key "entry-point";
-    description
-      "SID range(s) allocated to the YANG module identified by
-       'module-name' and 'module-revision'.";
+     list assigment-ranges {
+       key "entry-point";
+       description
+         "SID range(s) allocated to the YANG module identified by
+          'module-name' and 'module-revision'.";
 
-    leaf entry-point {
-      type comi:sid;
-      mandatory true;
-      description
-        "Lowest SID available for assignment.";
-    }
+       leaf entry-point {
+         type comi:sid;
+         mandatory true;
+         description
+           "Lowest SID available for assignment.";
+       }
 
-    leaf size {
-      type uint64;
+       leaf size {
 
 
 
@@ -506,54 +506,54 @@ Veillette & Pelov         Expires June 4, 2018                  [Page 9]
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
-      mandatory true;
-      description
-        "Number of SIDs available for assignment.";
-    }
-  }
+         type uint64;
+         mandatory true;
+         description
+           "Number of SIDs available for assignment.";
+       }
+     }
 
-  list items {
-    key "namespace identifier";
-    description
-      "Each entry within this list defined the mapping between
-       a YANG item string identifier and a SID. This list MUST
-       include a mapping entry for each YANG item defined by
-       the YANG module identified by 'module-name' and
-       'module-revision'.";
+     list items {
+       key "namespace identifier";
+       description
+         "Each entry within this list defined the mapping between
+          a YANG item string identifier and a SID. This list MUST
+          include a mapping entry for each YANG item defined by
+          the YANG module identified by 'module-name' and
+          'module-revision'.";
 
-    leaf namespace {
-      type enumeration {
-        enum module {
-          value 0;
-          description
-            "All module and submodule names share the same
-             global module identifier namespace.";
-        }
-        enum identity {
-          value 1;
-          description
-            "All identity names defined in a module and its
-             submodules share the same identity identifier
-             namespace.";
-        }
-        enum feature {
-          value 2;
-          description
-            "All feature names defined in a module and its
-             submodules share the same feature identifier
-             namespace.";
-        }
-        enum data {
-          value 3;
-          description
-            "The namespace for all data nodes, as defined in YANG.";
-        }
-      }
-      description
-        "Namespace of the YANG item for this mapping entry.";
-    }
+       leaf namespace {
+         type enumeration {
+           enum module {
+             value 0;
+             description
+               "All module and submodule names share the same
+                global module identifier namespace.";
+           }
+           enum identity {
+             value 1;
+             description
+               "All identity names defined in a module and its
+                submodules share the same identity identifier
+                namespace.";
+           }
+           enum feature {
+             value 2;
+             description
+               "All feature names defined in a module and its
+                submodules share the same feature identifier
+                namespace.";
+           }
+           enum data {
+             value 3;
+             description
+               "The namespace for all data nodes, as defined in YANG.";
+           }
+         }
+         description
+           "Namespace of the YANG item for this mapping entry.";
+       }
 
-    leaf identifier {
 
 
 
@@ -562,31 +562,32 @@ Veillette & Pelov         Expires June 4, 2018                 [Page 10]
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
-      type union {
-        type yang:yang-identifier;
-        type schema-node-path;
-      }
-      description
-        "String identifier of the YANG item for this mapping entry.
+       leaf identifier {
+         type union {
+           type yang:yang-identifier;
+           type schema-node-path;
+         }
+         description
+           "String identifier of the YANG item for this mapping entry.
 
-         If the corresponding 'namespace' field is 'module',
-         'feature', or 'identity', then this field MUST
-         contain a valid YANG identifier string.
+            If the corresponding 'namespace' field is 'module',
+            'feature', or 'identity', then this field MUST
+            contain a valid YANG identifier string.
 
-         If the corresponding 'namespace' field is 'data',
-         then this field MUST contain a valid schema node
-         path.";
+            If the corresponding 'namespace' field is 'data',
+            then this field MUST contain a valid schema node
+            path.";
+        }
+
+       leaf sid {
+         type comi:sid;
+         mandatory true;
+         description
+           "SID assigned to the YANG item for this mapping entry.";
+       }
      }
-
-    leaf sid {
-      type comi:sid;
-      mandatory true;
-      description
-        "SID assigned to the YANG item for this mapping entry.";
-    }
-  }
-}
-<CODE ENDS>
+   }
+   <CODE ENDS>
 
 5.  Security Considerations
 
@@ -609,7 +610,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
    o  The entry point (first entry) of the registered SID range.
 
-   o  The size of the registered SID range.
 
 
 
@@ -617,6 +617,8 @@ Veillette & Pelov         Expires June 4, 2018                 [Page 11]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
+
+   o  The size of the registered SID range.
 
    o  The contact information of the requesting organization including:
 
@@ -664,8 +666,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
    o  The range of 100,000 to 999,999 is reserved for standardized YANG
       modules.  The IANA policy for future additions to this sub-
-      registry is "Specification Required" [RFC5226].  Allocation within
-
 
 
 
@@ -674,6 +674,7 @@ Veillette & Pelov         Expires June 4, 2018                 [Page 12]
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
+      registry is "Specification Required" [RFC5226].  Allocation within
       this range requires publishing of the associated ".yang" and
       ".sid" files in the YANG module registry.
 
@@ -711,15 +712,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
    | 1150        | 50   | ietf-inet-types  | [RFC6021]            |
    | 1200        | 50   | iana-crypt-hash  | [RFC7317]            |
    | 1250        | 50   | ietf-netconf-acm | [RFC6536]            |
-   | 1300        | 50   | ietf-sid-file    | [I-D.ieft-core-sid]  |
+   | 1300        | 50   | ietf-sid-file    | RFCXXXX              |
    | 1500        | 100  | ietf-interfaces  | [RFC7223]            |
    | 1600        | 100  | ietf-ip          | [RFC7277]            |
    | 1700        | 100  | ietf-system      | [RFC7317]            |
    | 1800        | 400  | iana-if-type     | [RFC7224]            |
    +-------------+------+------------------+----------------------+
 
-
-
+   // RFC Ed.: replace XXXX with RFC number assigned to this draft.
 
 
 
@@ -873,23 +873,23 @@ Appendix A.  ".sid" file example
 
    o  iana-crypt-hash@2014-04-04.yang
 
-{
-  "assignment-ranges": [
-    {
-      "entry-point": 1700,
-      "size": 100
-    }
-  ],
-  "module-name": "ietf-system",
-  "module-revision": "2014-08-06",
-  "items": [
-    {
-      "namespace": "module",
-      "identifier": "ietf-system",
-      "sid": 1700
-    },
-    {
-      "namespace": "identity",
+   {
+     "assignment-ranges": [
+       {
+         "entry-point": 1700,
+         "size": 100
+       }
+     ],
+     "module-name": "ietf-system",
+     "module-revision": "2014-08-06",
+     "items": [
+       {
+         "namespace": "module",
+         "identifier": "ietf-system",
+         "sid": 1700
+       },
+       {
+         "namespace": "identity",
 
 
 
@@ -898,54 +898,54 @@ Veillette & Pelov         Expires June 4, 2018                 [Page 16]
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
-      "identifier": "authentication-method",
-      "sid": 1701
-    },
-    {
-      "namespace": "identity",
-      "identifier": "local-users",
-      "sid": 1702
-    },
-    {
-      "namespace": "identity",
-      "identifier": "radius",
-      "sid": 1703
-    },
-    {
-      "namespace": "identity",
-      "identifier": "radius-authentication-type",
-      "sid": 1704
-    },
-    {
-      "namespace": "identity",
-      "identifier": "radius-chap",
-      "sid": 1705
-    },
-    {
-      "namespace": "identity",
-      "identifier": "radius-pap",
-      "sid": 1706
-    },
-    {
-      "namespace": "feature",
-      "identifier": "authentication",
-      "sid": 1707
-    },
-    {
-      "namespace": "feature",
-      "identifier": "dns-udp-tcp-port",
-      "sid": 1708
-    },
-    {
-      "namespace": "feature",
-      "identifier": "local-users",
-      "sid": 1709
-    },
-    {
-      "namespace": "feature",
-      "identifier": "ntp",
-      "sid": 1710
-    },
+         "identifier": "authentication-method",
+         "sid": 1701
+       },
+       {
+         "namespace": "identity",
+         "identifier": "local-users",
+         "sid": 1702
+       },
+       {
+         "namespace": "identity",
+         "identifier": "radius",
+         "sid": 1703
+       },
+       {
+         "namespace": "identity",
+         "identifier": "radius-authentication-type",
+         "sid": 1704
+       },
+       {
+         "namespace": "identity",
+         "identifier": "radius-chap",
+         "sid": 1705
+       },
+       {
+         "namespace": "identity",
+         "identifier": "radius-pap",
+         "sid": 1706
+       },
+       {
+         "namespace": "feature",
+         "identifier": "authentication",
+         "sid": 1707
+       },
+       {
+         "namespace": "feature",
+         "identifier": "dns-udp-tcp-port",
+         "sid": 1708
+       },
+       {
+         "namespace": "feature",
+         "identifier": "local-users",
+         "sid": 1709
+       },
+       {
+         "namespace": "feature",
+         "identifier": "ntp",
+         "sid": 1710
+       },
 
 
 
@@ -954,54 +954,54 @@ Veillette & Pelov         Expires June 4, 2018                 [Page 17]
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
-    {
-      "namespace": "feature",
-      "identifier": "ntp-udp-port",
-      "sid": 1711
-    },
-    {
-      "namespace": "feature",
-      "identifier": "radius",
-      "sid": 1712
-    },
-    {
-      "namespace": "feature",
-      "identifier": "radius-authentication",
-      "sid": 1713
-    },
-    {
-      "namespace": "feature",
-      "identifier": "timezone-name",
-      "sid": 1714
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:set-current-datetime",
-      "sid": 1715
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:set-current-datetime/current-datetime",
-      "sid": 1716
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system",
-      "sid": 1717
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system-restart",
-      "sid": 1718
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system-shutdown",
-      "sid": 1719
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system-state",
+       {
+         "namespace": "feature",
+         "identifier": "ntp-udp-port",
+         "sid": 1711
+       },
+       {
+         "namespace": "feature",
+         "identifier": "radius",
+         "sid": 1712
+       },
+       {
+         "namespace": "feature",
+         "identifier": "radius-authentication",
+         "sid": 1713
+       },
+       {
+         "namespace": "feature",
+         "identifier": "timezone-name",
+         "sid": 1714
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:set-current-datetime",
+         "sid": 1715
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:set-current-datetime/
+                        current-datetime",
+         "sid": 1716
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system",
+         "sid": 1717
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system-restart",
+         "sid": 1718
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system-shutdown",
+         "sid": 1719
+       },
+       {
+         "namespace": "data",
 
 
 
@@ -1010,54 +1010,54 @@ Veillette & Pelov         Expires June 4, 2018                 [Page 18]
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
-      "sid": 1720
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system-state/clock",
-      "sid": 1721
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system-state/clock/boot-datetime",
-      "sid": 1722
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system-state/clock/current-datetime",
-      "sid": 1723
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system-state/platform",
-      "sid": 1724
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system-state/platform/machine",
-      "sid": 1725
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system-state/platform/os-name",
-      "sid": 1726
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system-state/platform/os-release",
-      "sid": 1727
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system-state/platform/os-version",
-      "sid": 1728
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/authentication",
-      "sid": 1729
-    },
-    {
+         "identifier": "/ietf-system:system-state",
+         "sid": 1720
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system-state/clock",
+         "sid": 1721
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system-state/clock/boot-datetime",
+         "sid": 1722
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system-state/clock/
+                        current-datetime",
+         "sid": 1723
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system-state/platform",
+         "sid": 1724
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system-state/platform/machine",
+         "sid": 1725
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system-state/platform/os-name",
+         "sid": 1726
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system-state/platform/os-release",
+         "sid": 1727
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system-state/platform/os-version",
+         "sid": 1728
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/authentication",
+         "sid": 1729
 
 
 
@@ -1066,54 +1066,54 @@ Veillette & Pelov         Expires June 4, 2018                 [Page 19]
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
-      "namespace": "data",
-      "identifier": "/ietf-system:system/authentication/user",
-      "sid": 1730
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/authentication/user-authentication-order",
-      "sid": 1731
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/authentication/user/authorized-key",
-      "sid": 1732
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/authentication/user/authorized-key/algorithm",
-      "sid": 1733
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/authentication/user/authorized-key/key-data",
-      "sid": 1734
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/authentication/user/authorized-key/name",
-      "sid": 1735
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/authentication/user/name",
-      "sid": 1736
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/authentication/user/password",
-      "sid": 1737
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/clock",
-      "sid": 1738
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/clock/timezone-name",
-      "sid": 1739
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/authentication/user",
+         "sid": 1730
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/authentication/
+                        user-authentication-order",
+         "sid": 1731
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/authentication/user/
+                        authorized-key",
+         "sid": 1732
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/authentication/user/
+                        authorized-key/algorithm",
+         "sid": 1733
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/authentication/user/
+                        authorized-key/key-data",
+         "sid": 1734
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/authentication/user/
+                        authorized-key/name",
+         "sid": 1735
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/authentication/user/
+                        name",
+         "sid": 1736
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/authentication/user/
+                        password",
+         "sid": 1737
+       },
 
 
 
@@ -1122,54 +1122,54 @@ Veillette & Pelov         Expires June 4, 2018                 [Page 20]
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/clock/timezone-utc-offset",
-      "sid": 1740
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/contact",
-      "sid": 1741
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/dns-resolver",
-      "sid": 1742
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/dns-resolver/options",
-      "sid": 1743
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/dns-resolver/options/attempts",
-      "sid": 1744
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/dns-resolver/options/timeout",
-      "sid": 1745
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/dns-resolver/search",
-      "sid": 1746
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/dns-resolver/server",
-      "sid": 1747
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/dns-resolver/server/name",
-      "sid": 1748
-    },
-    {
-      "namespace": "data",
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/clock",
+         "sid": 1738
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/clock/timezone-name",
+         "sid": 1739
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/clock/timezone-utc-offset",
+         "sid": 1740
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/contact",
+         "sid": 1741
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/dns-resolver",
+         "sid": 1742
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/dns-resolver/options",
+         "sid": 1743
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/dns-resolver/options/
+                        attempts",
+         "sid": 1744
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/dns-resolver/options/
+                        timeout",
+         "sid": 1745
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/dns-resolver/search",
+         "sid": 1746
+       },
+       {
 
 
 
@@ -1178,54 +1178,54 @@ Veillette & Pelov         Expires June 4, 2018                 [Page 21]
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
-      "identifier": "/ietf-system:system/dns-resolver/server/udp-and-tcp",
-      "sid": 1749
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/dns-resolver/server/udp-and-tcp/address",
-      "sid": 1750
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/dns-resolver/server/udp-and-tcp/port",
-      "sid": 1751
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/hostname",
-      "sid": 1752
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/location",
-      "sid": 1753
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/ntp",
-      "sid": 1754
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/ntp/enabled",
-      "sid": 1755
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/ntp/server",
-      "sid": 1756
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/ntp/server/association-type",
-      "sid": 1757
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/ntp/server/iburst",
-      "sid": 1758
-    },
+         "namespace": "data",
+         "identifier": "/ietf-system:system/dns-resolver/server",
+         "sid": 1747
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/dns-resolver/server/name",
+         "sid": 1748
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/dns-resolver/server/
+                        udp-and-tcp",
+         "sid": 1749
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/dns-resolver/server/
+                        udp-and-tcp/address",
+         "sid": 1750
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/dns-resolver/server/
+                        udp-and-tcp/port",
+         "sid": 1751
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/hostname",
+         "sid": 1752
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/location",
+         "sid": 1753
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/ntp",
+         "sid": 1754
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/ntp/enabled",
+         "sid": 1755
+       },
+       {
 
 
 
@@ -1234,54 +1234,54 @@ Veillette & Pelov         Expires June 4, 2018                 [Page 22]
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/ntp/server/name",
-      "sid": 1759
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/ntp/server/prefer",
-      "sid": 1760
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/ntp/server/udp",
-      "sid": 1761
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/ntp/server/udp/address",
-      "sid": 1762
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/ntp/server/udp/port",
-      "sid": 1763
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/radius",
-      "sid": 1764
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/radius/options",
-      "sid": 1765
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/radius/options/attempts",
-      "sid": 1766
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/radius/options/timeout",
-      "sid": 1767
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/radius/server",
+         "namespace": "data",
+         "identifier": "/ietf-system:system/ntp/server",
+         "sid": 1756
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/ntp/server/
+                        association-type",
+         "sid": 1757
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/ntp/server/iburst",
+         "sid": 1758
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/ntp/server/name",
+         "sid": 1759
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/ntp/server/prefer",
+         "sid": 1760
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/ntp/server/udp",
+         "sid": 1761
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/ntp/server/udp/address",
+         "sid": 1762
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/ntp/server/udp/port",
+         "sid": 1763
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/radius",
+         "sid": 1764
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/radius/options",
 
 
 
@@ -1290,40 +1290,67 @@ Veillette & Pelov         Expires June 4, 2018                 [Page 23]
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
-      "sid": 1768
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/radius/server/authentication-type",
-      "sid": 1769
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/radius/server/name",
-      "sid": 1770
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/radius/server/udp",
-      "sid": 1771
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/radius/server/udp/address",
-      "sid": 1772
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/radius/server/udp/authentication-port",
-      "sid": 1773
-    },
-    {
-      "namespace": "data",
-      "identifier": "/ietf-system:system/radius/server/udp/shared-secret",
-      "sid": 1774
-    }
-  ]
-}
+         "sid": 1765
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/radius/options/attempts",
+         "sid": 1766
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/radius/options/timeout",
+         "sid": 1767
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/radius/server",
+         "sid": 1768
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/radius/server/
+                        authentication-type",
+         "sid": 1769
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/radius/server/name",
+         "sid": 1770
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/radius/server/udp",
+         "sid": 1771
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/radius/server/udp/
+                        address",
+         "sid": 1772
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/radius/server/udp/
+                        authentication-port",
+         "sid": 1773
+       },
+       {
+         "namespace": "data",
+         "identifier": "/ietf-system:system/radius/server/udp/
+
+
+
+Veillette & Pelov         Expires June 4, 2018                 [Page 24]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
+
+
+                        shared-secret",
+         "sid": 1774
+       }
+     ]
+   }
 
 Authors' Addresses
 
@@ -1337,15 +1364,6 @@ Authors' Addresses
    Email: michel.veillette@trilliantinc.com
 
 
-
-
-
-
-Veillette & Pelov         Expires June 4, 2018                 [Page 24]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
-
-
    Alexander Pelov (editor)
    Acklio
    2bis rue de la Chataigneraie
@@ -1353,24 +1371,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
    France
 
    Email: a@ackl.io
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
