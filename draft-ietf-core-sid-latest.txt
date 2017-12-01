@@ -5,8 +5,8 @@
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
 Intended status: Standards Track                           A. Pelov, Ed.
-Expires: June 2, 2018                                             Acklio
-                                                       November 29, 2017
+Expires: June 4, 2018                                             Acklio
+                                                       December 01, 2017
 
 
                    YANG Schema Item iDentifier (SID)
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on June 2, 2018.
+   This Internet-Draft will expire on June 4, 2018.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Veillette & Pelov         Expires June 2, 2018                  [Page 1]
+Veillette & Pelov         Expires June 4, 2018                  [Page 1]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -72,7 +72,7 @@ Table of Contents
      6.1.  "SID mega-range" registry . . . . . . . . . . . . . . . .  11
        6.1.1.  IANA SID Mega-Range Registry  . . . . . . . . . . . .  12
        6.1.2.  IANA "RFC SID range assignment" sub-registries  . . .  13
-     6.2.  "YANG module assignment" registry . . . . . . . . . . . .  13
+     6.2.  "YANG module assignment" registry . . . . . . . . . . . .  14
    7.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  14
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  14
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .  14
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Veillette & Pelov         Expires June 2, 2018                  [Page 2]
+Veillette & Pelov         Expires June 4, 2018                  [Page 2]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
    SIDs to deltas and back to SIDs is a stateless process.  Each
@@ -165,9 +165,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
 
 
 
-Veillette & Pelov         Expires June 2, 2018                  [Page 3]
+Veillette & Pelov         Expires June 4, 2018                  [Page 3]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
    o  module
@@ -221,9 +221,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
 
 
 
-Veillette & Pelov         Expires June 2, 2018                  [Page 4]
+Veillette & Pelov         Expires June 4, 2018                  [Page 4]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
    files.  Generation of ".sid" files SHOULD be performed using an
@@ -277,9 +277,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
 
 
 
-Veillette & Pelov         Expires June 2, 2018                  [Page 5]
+Veillette & Pelov         Expires June 4, 2018                  [Page 5]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
    Each time a YANG module or one of its imported module(s) or included
@@ -333,9 +333,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
 
 
 
-Veillette & Pelov         Expires June 2, 2018                  [Page 6]
+Veillette & Pelov         Expires June 4, 2018                  [Page 6]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
           +---------------+
@@ -389,9 +389,9 @@ module ietf-sid-file {
 
 
 
-Veillette & Pelov         Expires June 2, 2018                  [Page 7]
+Veillette & Pelov         Expires June 4, 2018                  [Page 7]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
   namespace "urn:ietf:params:xml:ns:yang:ietf-sid-file";
@@ -445,9 +445,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
 
 
 
-Veillette & Pelov         Expires June 2, 2018                  [Page 8]
+Veillette & Pelov         Expires June 4, 2018                  [Page 8]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
       pattern '/[a-zA-Z_][a-zA-Z0-9\-_.]*:[a-zA-Z_][a-zA-Z0-9\-_.]*' +
@@ -501,9 +501,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
 
 
 
-Veillette & Pelov         Expires June 2, 2018                  [Page 9]
+Veillette & Pelov         Expires June 4, 2018                  [Page 9]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
       mandatory true;
@@ -557,9 +557,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
 
 
 
-Veillette & Pelov         Expires June 2, 2018                 [Page 10]
+Veillette & Pelov         Expires June 4, 2018                 [Page 10]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
       type union {
@@ -613,9 +613,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
 
 
 
-Veillette & Pelov         Expires June 2, 2018                 [Page 11]
+Veillette & Pelov         Expires June 4, 2018                 [Page 11]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
    o  The contact information of the requesting organization including:
@@ -669,9 +669,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
 
 
 
-Veillette & Pelov         Expires June 2, 2018                 [Page 12]
+Veillette & Pelov         Expires June 4, 2018                 [Page 12]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
       this range requires publishing of the associated ".yang" and
@@ -703,17 +703,32 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
 
    Initial entries in this registry are as follows:
 
-   +------------+------+-----------------+-----------------------------+
-   | Entry      | Size | Module name     | RFC number                  |
-   | Point      |      |                 |                             |
-   +------------+------+-----------------+-----------------------------+
-   | 1000       | 100  |                 | Reserved for                |
-   |            |      |                 | [I-D.ietf-core-comi]        |
-   | 1100       | 400  | iana-if-type    | [RFC7224]                   |
-   | 1500       | 100  | ietf-interfaces | [RFC7223]                   |
-   | 1600       | 100  | ietf-ip         | [RFC7277]                   |
-   | 1700       | 100  | ietf-system     | [RFC7317]                   |
-   +------------+------+-----------------+-----------------------------+
+   +-------------+------+------------------+----------------------+
+   | Entry Point | Size | Module name      | RFC number           |
+   +-------------+------+------------------+----------------------+
+   | 1000        | 100  | ietf-comi        | [I-D.ietf-core-comi] |
+   | 1100        | 50   | ietf-yang-types  | [RFC6021]            |
+   | 1150        | 50   | ietf-inet-types  | [RFC6021]            |
+   | 1200        | 50   | iana-crypt-hash  | [RFC7317]            |
+   | 1250        | 50   | ietf-netconf-acm | [RFC6536]            |
+   | 1300        | 50   | ietf-sid-file    | [I-D.ieft-core-sid]  |
+   | 1500        | 100  | ietf-interfaces  | [RFC7223]            |
+   | 1600        | 100  | ietf-ip          | [RFC7277]            |
+   | 1700        | 100  | ietf-system      | [RFC7317]            |
+   | 1800        | 400  | iana-if-type     | [RFC7224]            |
+   +-------------+------+------------------+----------------------+
+
+
+
+
+
+
+
+
+Veillette & Pelov         Expires June 4, 2018                 [Page 13]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
+
 
 6.2.  "YANG module assignment" registry
 
@@ -721,14 +736,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
    is used to track which YANG modules have been assigned and the
    specific YANG items assignment.  Each entry in this sub-registry must
    include:
-
-
-
-
-Veillette & Pelov         Expires June 2, 2018                 [Page 13]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
-
 
    o  The YANG module name
 
@@ -768,6 +775,17 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
 
 8.1.  Normative References
 
+
+
+
+
+
+
+Veillette & Pelov         Expires June 4, 2018                 [Page 14]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
+
+
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
@@ -776,15 +794,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
    [RFC7049]  Bormann, C. and P. Hoffman, "Concise Binary Object
               Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
               October 2013, <https://www.rfc-editor.org/info/rfc7049>.
-
-
-
-
-
-Veillette & Pelov         Expires June 2, 2018                 [Page 14]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
-
 
    [RFC7950]  Bjorklund, M., Ed., "The YANG 1.1 Data Modeling Language",
               RFC 7950, DOI 10.17487/RFC7950, August 2016,
@@ -806,14 +815,32 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
               DOI 10.17487/RFC5226, May 2008,
               <https://www.rfc-editor.org/info/rfc5226>.
 
+   [RFC6021]  Schoenwaelder, J., Ed., "Common YANG Data Types",
+              RFC 6021, DOI 10.17487/RFC6021, October 2010,
+              <https://www.rfc-editor.org/info/rfc6021>.
+
    [RFC6241]  Enns, R., Ed., Bjorklund, M., Ed., Schoenwaelder, J., Ed.,
               and A. Bierman, Ed., "Network Configuration Protocol
               (NETCONF)", RFC 6241, DOI 10.17487/RFC6241, June 2011,
               <https://www.rfc-editor.org/info/rfc6241>.
 
+   [RFC6536]  Bierman, A. and M. Bjorklund, "Network Configuration
+              Protocol (NETCONF) Access Control Model", RFC 6536,
+              DOI 10.17487/RFC6536, March 2012,
+              <https://www.rfc-editor.org/info/rfc6536>.
+
    [RFC7223]  Bjorklund, M., "A YANG Data Model for Interface
               Management", RFC 7223, DOI 10.17487/RFC7223, May 2014,
               <https://www.rfc-editor.org/info/rfc7223>.
+
+
+
+
+
+Veillette & Pelov         Expires June 4, 2018                 [Page 15]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
+
 
    [RFC7224]  Bjorklund, M., "IANA Interface Type YANG Module",
               RFC 7224, DOI 10.17487/RFC7224, May 2014,
@@ -830,17 +857,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
    [RFC8040]  Bierman, A., Bjorklund, M., and K. Watsen, "RESTCONF
               Protocol", RFC 8040, DOI 10.17487/RFC8040, January 2017,
               <https://www.rfc-editor.org/info/rfc8040>.
-
-
-
-
-
-
-
-Veillette & Pelov         Expires June 2, 2018                 [Page 15]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
-
 
 Appendix A.  ".sid" file example
 
@@ -874,6 +890,14 @@ Appendix A.  ".sid" file example
     },
     {
       "namespace": "identity",
+
+
+
+Veillette & Pelov         Expires June 4, 2018                 [Page 16]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
+
+
       "identifier": "authentication-method",
       "sid": 1701
     },
@@ -890,14 +914,6 @@ Appendix A.  ".sid" file example
     {
       "namespace": "identity",
       "identifier": "radius-authentication-type",
-
-
-
-Veillette & Pelov         Expires June 2, 2018                 [Page 16]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
-
-
       "sid": 1704
     },
     {
@@ -930,6 +946,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
       "identifier": "ntp",
       "sid": 1710
     },
+
+
+
+Veillette & Pelov         Expires June 4, 2018                 [Page 17]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
+
+
     {
       "namespace": "feature",
       "identifier": "ntp-udp-port",
@@ -946,14 +970,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
       "sid": 1713
     },
     {
-
-
-
-Veillette & Pelov         Expires June 2, 2018                 [Page 17]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
-
-
       "namespace": "feature",
       "identifier": "timezone-name",
       "sid": 1714
@@ -986,6 +1002,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
     {
       "namespace": "data",
       "identifier": "/ietf-system:system-state",
+
+
+
+Veillette & Pelov         Expires June 4, 2018                 [Page 18]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
+
+
       "sid": 1720
     },
     {
@@ -1002,14 +1026,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
       "namespace": "data",
       "identifier": "/ietf-system:system-state/clock/current-datetime",
       "sid": 1723
-
-
-
-Veillette & Pelov         Expires June 2, 2018                 [Page 18]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
-
-
     },
     {
       "namespace": "data",
@@ -1042,6 +1058,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
       "sid": 1729
     },
     {
+
+
+
+Veillette & Pelov         Expires June 4, 2018                 [Page 19]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
+
+
       "namespace": "data",
       "identifier": "/ietf-system:system/authentication/user",
       "sid": 1730
@@ -1058,14 +1082,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
     },
     {
       "namespace": "data",
-
-
-
-Veillette & Pelov         Expires June 2, 2018                 [Page 19]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
-
-
       "identifier": "/ietf-system:system/authentication/user/authorized-key/algorithm",
       "sid": 1733
     },
@@ -1098,6 +1114,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
       "namespace": "data",
       "identifier": "/ietf-system:system/clock/timezone-name",
       "sid": 1739
+
+
+
+Veillette & Pelov         Expires June 4, 2018                 [Page 20]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
+
+
     },
     {
       "namespace": "data",
@@ -1114,14 +1138,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
       "identifier": "/ietf-system:system/dns-resolver",
       "sid": 1742
     },
-
-
-
-Veillette & Pelov         Expires June 2, 2018                 [Page 20]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
-
-
     {
       "namespace": "data",
       "identifier": "/ietf-system:system/dns-resolver/options",
@@ -1154,6 +1170,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
     },
     {
       "namespace": "data",
+
+
+
+Veillette & Pelov         Expires June 4, 2018                 [Page 21]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
+
+
       "identifier": "/ietf-system:system/dns-resolver/server/udp-and-tcp",
       "sid": 1749
     },
@@ -1170,14 +1194,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
     {
       "namespace": "data",
       "identifier": "/ietf-system:system/hostname",
-
-
-
-Veillette & Pelov         Expires June 2, 2018                 [Page 21]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
-
-
       "sid": 1752
     },
     {
@@ -1210,6 +1226,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
       "identifier": "/ietf-system:system/ntp/server/iburst",
       "sid": 1758
     },
+
+
+
+Veillette & Pelov         Expires June 4, 2018                 [Page 22]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
+
+
     {
       "namespace": "data",
       "identifier": "/ietf-system:system/ntp/server/name",
@@ -1226,14 +1250,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
       "sid": 1761
     },
     {
-
-
-
-Veillette & Pelov         Expires June 2, 2018                 [Page 22]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
-
-
       "namespace": "data",
       "identifier": "/ietf-system:system/ntp/server/udp/address",
       "sid": 1762
@@ -1266,6 +1282,14 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
     {
       "namespace": "data",
       "identifier": "/ietf-system:system/radius/server",
+
+
+
+Veillette & Pelov         Expires June 4, 2018                 [Page 23]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
+
+
       "sid": 1768
     },
     {
@@ -1282,14 +1306,6 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
       "namespace": "data",
       "identifier": "/ietf-system:system/radius/server/udp",
       "sid": 1771
-
-
-
-Veillette & Pelov         Expires June 2, 2018                 [Page 23]
-
-Internet-Draft      YANG Schema Item iDentifier (SID)      November 2017
-
-
     },
     {
       "namespace": "data",
@@ -1321,6 +1337,15 @@ Authors' Addresses
    Email: michel.veillette@trilliantinc.com
 
 
+
+
+
+
+Veillette & Pelov         Expires June 4, 2018                 [Page 24]
+
+Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
+
+
    Alexander Pelov (editor)
    Acklio
    2bis rue de la Chataigneraie
@@ -1341,4 +1366,35 @@ Authors' Addresses
 
 
 
-Veillette & Pelov         Expires June 2, 2018                 [Page 24]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Veillette & Pelov         Expires June 4, 2018                 [Page 25]

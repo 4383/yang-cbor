@@ -5,14 +5,14 @@
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
 Intended status: Standards Track                           A. Pelov, Ed.
-Expires: June 2, 2018                                             Acklio
+Expires: June 4, 2018                                             Acklio
                                                              A. Somaraju
                                                    Tridonic GmbH & Co KG
                                                                R. Turner
                                                               Landis+Gyr
                                                              A. Minaburo
                                                                   Acklio
-                                                       November 29, 2017
+                                                       December 01, 2017
 
 
                 CBOR Encoding of Data Modeled with YANG
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on June 2, 2018.
+   This Internet-Draft will expire on June 4, 2018.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Veillette, et al.         Expires June 2, 2018                  [Page 1]
+Veillette, et al.         Expires June 4, 2018                  [Page 1]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    publication of this document.  Please review these documents
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Veillette, et al.         Expires June 2, 2018                  [Page 2]
+Veillette, et al.         Expires June 4, 2018                  [Page 2]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  30
@@ -165,9 +165,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                  [Page 3]
+Veillette, et al.         Expires June 4, 2018                  [Page 3]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    o  RPC
@@ -221,9 +221,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                  [Page 4]
+Veillette, et al.         Expires June 4, 2018                  [Page 4]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    o  RPCs and associated input(s) and output(s)
@@ -277,9 +277,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                  [Page 5]
+Veillette, et al.         Expires June 4, 2018                  [Page 5]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    +----------+------+--------------------------+-----------+----------+
@@ -333,9 +333,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                  [Page 6]
+Veillette, et al.         Expires June 4, 2018                  [Page 6]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    schema node is encoded in CBOR.  Identification of this value needs
@@ -389,9 +389,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                  [Page 7]
+Veillette, et al.         Expires June 4, 2018                  [Page 7]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
 4.2.1.  SIDs as keys
@@ -445,9 +445,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                  [Page 8]
+Veillette, et al.         Expires June 4, 2018                  [Page 8]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    {
@@ -501,9 +501,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                  [Page 9]
+Veillette, et al.         Expires June 4, 2018                  [Page 9]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
 4.2.2.  Member names as keys
@@ -557,9 +557,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 10]
+Veillette, et al.         Expires June 4, 2018                 [Page 10]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    typedef domain-name {
@@ -613,9 +613,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 11]
+Veillette, et al.         Expires June 4, 2018                 [Page 11]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    list server {
@@ -669,9 +669,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 12]
+Veillette, et al.         Expires June 4, 2018                 [Page 12]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    [
@@ -725,9 +725,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 13]
+Veillette, et al.         Expires June 4, 2018                 [Page 13]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
 4.4.2.  Member names as keys
@@ -781,9 +781,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 14]
+Veillette, et al.         Expires June 4, 2018                 [Page 14]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    82                                            # array(2)
@@ -837,9 +837,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 15]
+Veillette, et al.         Expires June 4, 2018                 [Page 15]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    o  The CBOR array MUST contain either unique scalar values (as a
@@ -893,9 +893,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 16]
+Veillette, et al.         Expires June 4, 2018                 [Page 16]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
 4.6.  The 'anyxml' Data Node
@@ -949,9 +949,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 17]
+Veillette, et al.         Expires June 4, 2018                 [Page 17]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
 5.2.  The integer Types
@@ -1005,9 +1005,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 18]
+Veillette, et al.         Expires June 4, 2018                 [Page 18]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    The following example shows the encoding of a 'name' leaf instance
@@ -1061,9 +1061,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 19]
+Veillette, et al.         Expires June 4, 2018                 [Page 19]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    leaf oper-status {
@@ -1117,9 +1117,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 20]
+Veillette, et al.         Expires June 4, 2018                 [Page 20]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    CBOR encoding: 41 05
@@ -1173,9 +1173,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 21]
+Veillette, et al.         Expires June 4, 2018                 [Page 21]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    typedef interface-state-ref {
@@ -1229,9 +1229,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 22]
+Veillette, et al.         Expires June 4, 2018                 [Page 22]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    identity interface-type {
@@ -1285,9 +1285,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 23]
+Veillette, et al.         Expires June 4, 2018                 [Page 23]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    Definition example from [RFC7277]:
@@ -1341,9 +1341,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 24]
+Veillette, et al.         Expires June 4, 2018                 [Page 24]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    typedef ipv4-address {
@@ -1397,9 +1397,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 25]
+Veillette, et al.         Expires June 4, 2018                 [Page 25]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    In the case of a data node member of a YANG list, a SID is combined
@@ -1453,9 +1453,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 26]
+Veillette, et al.         Expires June 4, 2018                 [Page 26]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    "/system/authentication/user/authorized-key/key-data" (SID 1730) for
@@ -1509,9 +1509,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 27]
+Veillette, et al.         Expires June 4, 2018                 [Page 27]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    CBOR encoding:
@@ -1565,9 +1565,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 28]
+Veillette, et al.         Expires June 4, 2018                 [Page 28]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    78 33
@@ -1621,9 +1621,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 29]
+Veillette, et al.         Expires June 4, 2018                 [Page 29]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
 9.  References
@@ -1677,9 +1677,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 30]
+Veillette, et al.         Expires June 4, 2018                 [Page 30]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    [RFC7277]  Bjorklund, M., "A YANG Data Model for IP Management",
@@ -1733,9 +1733,9 @@ Authors' Addresses
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 31]
+Veillette, et al.         Expires June 4, 2018                 [Page 31]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   December 2017
 
 
    Randy Turner
@@ -1789,4 +1789,4 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG   November 2017
 
 
 
-Veillette, et al.         Expires June 2, 2018                 [Page 32]
+Veillette, et al.         Expires June 4, 2018                 [Page 32]
