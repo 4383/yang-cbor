@@ -4,8 +4,8 @@
 
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
-Intended status: Standards Track                       December 01, 2017
-Expires: June 4, 2018
+Intended status: Standards Track                       December 06, 2017
+Expires: June 9, 2018
 
 
                     Constrained YANG Module Library
@@ -34,7 +34,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on June 4, 2018.
+   This Internet-Draft will expire on June 9, 2018.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Veillette                 Expires June 4, 2018                  [Page 1]
+Veillette                 Expires June 9, 2018                  [Page 1]
 
 Internet-Draft       Constrained YANG Module Library       December 2017
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Veillette                 Expires June 4, 2018                  [Page 2]
+Veillette                 Expires June 9, 2018                  [Page 2]
 
 Internet-Draft       Constrained YANG Module Library       December 2017
 
@@ -165,7 +165,7 @@ Internet-Draft       Constrained YANG Module Library       December 2017
 
 
 
-Veillette                 Expires June 4, 2018                  [Page 3]
+Veillette                 Expires June 9, 2018                  [Page 3]
 
 Internet-Draft       Constrained YANG Module Library       December 2017
 
@@ -221,7 +221,7 @@ Internet-Draft       Constrained YANG Module Library       December 2017
 
 
 
-Veillette                 Expires June 4, 2018                  [Page 4]
+Veillette                 Expires June 9, 2018                  [Page 4]
 
 Internet-Draft       Constrained YANG Module Library       December 2017
 
@@ -277,7 +277,7 @@ Internet-Draft       Constrained YANG Module Library       December 2017
 
 
 
-Veillette                 Expires June 4, 2018                  [Page 5]
+Veillette                 Expires June 9, 2018                  [Page 5]
 
 Internet-Draft       Constrained YANG Module Library       December 2017
 
@@ -333,7 +333,7 @@ Internet-Draft       Constrained YANG Module Library       December 2017
 
 
 
-Veillette                 Expires June 4, 2018                  [Page 6]
+Veillette                 Expires June 9, 2018                  [Page 6]
 
 Internet-Draft       Constrained YANG Module Library       December 2017
 
@@ -389,7 +389,7 @@ Internet-Draft       Constrained YANG Module Library       December 2017
 
 
 
-Veillette                 Expires June 4, 2018                  [Page 7]
+Veillette                 Expires June 9, 2018                  [Page 7]
 
 Internet-Draft       Constrained YANG Module Library       December 2017
 
@@ -445,7 +445,7 @@ Internet-Draft       Constrained YANG Module Library       December 2017
 
 
 
-Veillette                 Expires June 4, 2018                  [Page 8]
+Veillette                 Expires June 9, 2018                  [Page 8]
 
 Internet-Draft       Constrained YANG Module Library       December 2017
 
@@ -501,7 +501,7 @@ Internet-Draft       Constrained YANG Module Library       December 2017
 
 
 
-Veillette                 Expires June 4, 2018                  [Page 9]
+Veillette                 Expires June 9, 2018                  [Page 9]
 
 Internet-Draft       Constrained YANG Module Library       December 2017
 
@@ -557,7 +557,7 @@ Internet-Draft       Constrained YANG Module Library       December 2017
 
 
 
-Veillette                 Expires June 4, 2018                 [Page 10]
+Veillette                 Expires June 9, 2018                 [Page 10]
 
 Internet-Draft       Constrained YANG Module Library       December 2017
 
@@ -597,8 +597,8 @@ Internet-Draft       Constrained YANG Module Library       December 2017
 
    [I-D.ietf-core-comi]
               Veillette, M., Stok, P., Pelov, A., and A. Bierman, "CoAP
-              Management Interface", draft-ietf-core-comi-01 (work in
-              progress), July 2017.
+              Management Interface", draft-ietf-core-comi-02 (work in
+              progress), December 2017.
 
    [I-D.ietf-core-yang-cbor]
               Veillette, M., Pelov, A., Somaraju, A., Turner, R., and A.
@@ -613,7 +613,7 @@ Internet-Draft       Constrained YANG Module Library       December 2017
 
 
 
-Veillette                 Expires June 4, 2018                 [Page 11]
+Veillette                 Expires June 9, 2018                 [Page 11]
 
 Internet-Draft       Constrained YANG Module Library       December 2017
 
@@ -669,4 +669,4 @@ Author's Address
 
 
 
-Veillette                 Expires June 4, 2018                 [Page 12]
+Veillette                 Expires June 9, 2018                 [Page 12]

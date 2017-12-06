@@ -5,8 +5,8 @@
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
 Intended status: Standards Track                           A. Pelov, Ed.
-Expires: June 4, 2018                                             Acklio
-                                                       December 01, 2017
+Expires: June 9, 2018                                             Acklio
+                                                       December 06, 2017
 
 
                    YANG Schema Item iDentifier (SID)
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on June 4, 2018.
+   This Internet-Draft will expire on June 9, 2018.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Veillette & Pelov         Expires June 4, 2018                  [Page 1]
+Veillette & Pelov         Expires June 9, 2018                  [Page 1]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Veillette & Pelov         Expires June 4, 2018                  [Page 2]
+Veillette & Pelov         Expires June 9, 2018                  [Page 2]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -165,7 +165,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                  [Page 3]
+Veillette & Pelov         Expires June 9, 2018                  [Page 3]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -221,7 +221,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                  [Page 4]
+Veillette & Pelov         Expires June 9, 2018                  [Page 4]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -277,7 +277,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                  [Page 5]
+Veillette & Pelov         Expires June 9, 2018                  [Page 5]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -333,7 +333,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                  [Page 6]
+Veillette & Pelov         Expires June 9, 2018                  [Page 6]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -389,7 +389,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                  [Page 7]
+Veillette & Pelov         Expires June 9, 2018                  [Page 7]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -445,7 +445,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                  [Page 8]
+Veillette & Pelov         Expires June 9, 2018                  [Page 8]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -501,7 +501,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                  [Page 9]
+Veillette & Pelov         Expires June 9, 2018                  [Page 9]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -557,7 +557,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                 [Page 10]
+Veillette & Pelov         Expires June 9, 2018                 [Page 10]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -613,7 +613,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                 [Page 11]
+Veillette & Pelov         Expires June 9, 2018                 [Page 11]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -669,7 +669,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                 [Page 12]
+Veillette & Pelov         Expires June 9, 2018                 [Page 12]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -725,7 +725,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                 [Page 13]
+Veillette & Pelov         Expires June 9, 2018                 [Page 13]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -781,7 +781,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                 [Page 14]
+Veillette & Pelov         Expires June 9, 2018                 [Page 14]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -807,8 +807,8 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
    [I-D.ietf-core-comi]
               Veillette, M., Stok, P., Pelov, A., and A. Bierman, "CoAP
-              Management Interface", draft-ietf-core-comi-01 (work in
-              progress), July 2017.
+              Management Interface", draft-ietf-core-comi-02 (work in
+              progress), December 2017.
 
    [RFC5226]  Narten, T. and H. Alvestrand, "Guidelines for Writing an
               IANA Considerations Section in RFCs", RFC 5226,
@@ -837,7 +837,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                 [Page 15]
+Veillette & Pelov         Expires June 9, 2018                 [Page 15]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -893,7 +893,7 @@ Appendix A.  ".sid" file example
 
 
 
-Veillette & Pelov         Expires June 4, 2018                 [Page 16]
+Veillette & Pelov         Expires June 9, 2018                 [Page 16]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -949,7 +949,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                 [Page 17]
+Veillette & Pelov         Expires June 9, 2018                 [Page 17]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -1005,7 +1005,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                 [Page 18]
+Veillette & Pelov         Expires June 9, 2018                 [Page 18]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -1061,7 +1061,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                 [Page 19]
+Veillette & Pelov         Expires June 9, 2018                 [Page 19]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -1117,7 +1117,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                 [Page 20]
+Veillette & Pelov         Expires June 9, 2018                 [Page 20]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -1173,7 +1173,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                 [Page 21]
+Veillette & Pelov         Expires June 9, 2018                 [Page 21]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -1229,7 +1229,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                 [Page 22]
+Veillette & Pelov         Expires June 9, 2018                 [Page 22]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -1285,7 +1285,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                 [Page 23]
+Veillette & Pelov         Expires June 9, 2018                 [Page 23]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -1341,7 +1341,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
 
 
-Veillette & Pelov         Expires June 4, 2018                 [Page 24]
+Veillette & Pelov         Expires June 9, 2018                 [Page 24]
 
 Internet-Draft      YANG Schema Item iDentifier (SID)      December 2017
 
@@ -1397,4 +1397,4 @@ Authors' Addresses
 
 
 
-Veillette & Pelov         Expires June 4, 2018                 [Page 25]
+Veillette & Pelov         Expires June 9, 2018                 [Page 25]
