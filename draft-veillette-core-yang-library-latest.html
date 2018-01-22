@@ -288,12 +288,12 @@ li, p {
 <link href="#rfc.authors" rel="Chapter">
 
 
-  <meta name="generator" content="xml2rfc version 2.8.2 - https://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.8.5 - https://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Veillette, M., Ed." />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-veillette-core-yang-library-01" />
-  <meta name="dct.issued" scheme="ISO8601" content="2017-12-12" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-veillette-core-yang-library-02" />
+  <meta name="dct.issued" scheme="ISO8601" content="2018-1-22" />
   <meta name="dct.abstract" content="This document describes a YANG library that provides information about all the YANG modules used by a constrained network management server (e.g., a CoAP Management Interface (CoMI) server). Simple caching mechanisms are provided to allow clients to minimize retrieval of this information." />
   <meta name="description" content="This document describes a YANG library that provides information about all the YANG modules used by a constrained network management server (e.g., a CoAP Management Interface (CoMI) server). Simple caching mechanisms are provided to allow clients to minimize retrieval of this information." />
 
@@ -314,10 +314,10 @@ li, p {
 </tr>
 <tr>
 <td class="left">Intended status: Standards Track</td>
-<td class="right">December 12, 2017</td>
+<td class="right">January 22, 2018</td>
 </tr>
 <tr>
-<td class="left">Expires: June 15, 2018</td>
+<td class="left">Expires: July 26, 2018</td>
 <td class="right"></td>
 </tr>
 
@@ -326,7 +326,7 @@ li, p {
   </table>
 
   <p class="title">Constrained YANG Module Library<br />
-  <span class="filename">draft-veillette-core-yang-library-01</span></p>
+  <span class="filename">draft-veillette-core-yang-library-02</span></p>
   
   <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
 <p>This document describes a YANG library that provides information about all the YANG modules used by a constrained network management server (e.g., a CoAP Management Interface (CoMI) server). Simple caching mechanisms are provided to allow clients to minimize retrieval of this information.</p>
@@ -334,9 +334,9 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on June 15, 2018.</p>
+<p>This Internet-Draft will expire on July 26, 2018.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
-<p>Copyright (c) 2017 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>Copyright (c) 2018 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
 
   
@@ -403,7 +403,7 @@ li, p {
 <p></p>
 
 <ul>
-<li>YANG module ietf-constrained-yang-library extends the caching mechanism supported by ietf-yang-library to multiple servers. This is accomplished by supporting the identityref datatype for &#8220;module-set-id&#8221;. This enables the use of a managed identifier (i.e. a SID) to identify a specific assembly of YANG modules, deviations and features implemented by a group of constrained servers.</li>
+<li>YANG module ietf-constrained-yang-library extends the caching mechanism supported by ietf-yang-library to multiple servers. This is accomplished by supporting the identityref datatype or binary hash for &#8220;module-set-id&#8221;. This enables the use of a globally unique value (i.e. a SID or hash) to identify a specific assembly of YANG modules, deviations and features implemented by a group of constrained servers.</li>
 <li>Modules, sub-modules, deviations and features are identified using a numerical value (SID) instead of a string (yang-identifier).</li>
 <li>The &#8220;namespace&#8221; leaf, not required for SIDs, but mandatory in ietf-yang-library is not included in ietf-constrained-yang-library.</li>
 <li>Schemas can be located using the already available module or sub-module identifier (SID) and revision. For this reason, support of module and sub-module schema URIs have been removed.</li>
@@ -474,7 +474,7 @@ notifications:
 <h1 id="rfc.section.3.2.2">
 <a href="#rfc.section.3.2.2">3.2.2.</a> <a href="#modules-statemodule-set-id" id="modules-statemodule-set-id">modules-state/module-set-id</a>
 </h1>
-<p id="rfc.section.3.2.2.p.1">This mandatory leaf contains an identifier representing the current set of modules and submodules used by a server. This identifier is server-specific when implemented as unit32 or can be used by multiple servers when implemented as identityref.  The value of this leaf MUST change whenever the set of modules and submodules in the library changes.  There is no requirement that the same set always results in the same &#8216;module-set-id&#8217; value.</p>
+<p id="rfc.section.3.2.2.p.1">This mandatory leaf contains an identifier representing the current set of modules and submodules used by a server. This identifier is server-specific when implemented as unit32 or can be used by multiple servers when implemented as identityref or as binary hash.  The value of this leaf MUST change whenever the set of modules and submodules in the library changes.  There is no requirement that the same set always results in the same &#8216;module-set-id&#8217; value.</p>
 <p id="rfc.section.3.2.2.p.2">This leaf allows a client to fetch the module list once, cache it, and only re-fetch it if the value of this leaf has been changed.</p>
 <p id="rfc.section.3.2.2.p.3">If the value of this leaf changes, the server also generates a &#8216;yang-library-change&#8217; notification, with the new value of &#8216;module-set-id&#8217;.</p>
 <h1 id="rfc.section.3.2.3">
@@ -486,12 +486,15 @@ notifications:
 </h1>
 <p id="rfc.section.4.p.1">RFC Ed.: update the date below with the date of RFC publication and remove this note.</p>
 <pre>
-&lt;CODE BEGINS&gt; file "ietf-constrained-yang-library@2017-01-20.yang"
+&lt;CODE BEGINS&gt; file "ietf-constrained-yang-library@2018-01-20.yang"
 module ietf-constrained-yang-library {
-  namespace
-    "urn:ietf:params:xml:ns:yang:ietf-constrained-yang-library";
+  namespace "urn:ietf:params:xml:ns:yang:ietf-constrained-yang-library";
   prefix "lib";
 
+  import ietf-comi {
+    prefix comi;
+  }
+  
   organization
     "IETF CORE (Constrained RESTful Environments) Working Group";
 
@@ -532,7 +535,7 @@ module ietf-constrained-yang-library {
   // RFC Ed.: update the date below with the date of the RFC
   // publication and remove this note.
 
-  revision 2017-01-20 {
+  revision 2018-01-20 {
     description
       "Initial revision.";
     reference
@@ -549,20 +552,12 @@ module ietf-constrained-yang-library {
     }
     description
       "Revision date encoded as a binary string as follow:
-      - First byte = Year divided by 100
-      - Second byte = Year modulo 100 (0 to 99)
-      - Third byte = Month (1 = January to 12 = december)
+      - First byte = Century
+      - Second byte = Year (0 to 99)
+      - Third byte = Month (1 = January to 12 = December)
       - Forth byte = Day (1 to 31)";
   }
 
-  typedef sid {
-    type uint64;
-    description
-      "Identifier assigned to different YANG items such as
-      data nodes, RPCs and actions, notifications, modules,
-      sub-modules, features and deviations.";
-  }
-  
   /*
    * Groupings
    */
@@ -572,7 +567,7 @@ module ietf-constrained-yang-library {
       "YANG modules and submodules identification information.";
 
     leaf sid {
-      type sid;
+      type comi:sid;
       mandatory true;
       description
         "SID assigned to this module or submodule.";
@@ -600,14 +595,17 @@ module ietf-constrained-yang-library {
   container modules-state {
     config false;
     description
-      "Contains information about the different data models
-      implemented by the server.";
+      "Contain information about the different data models
+      implement by a server.";
     
     leaf module-set-id {
       type union {
         type uint32;
         type identityref {
           base "lib:module-set";
+        }
+                type binary {
+          length "8..32";
         }
       }
       mandatory true;
@@ -616,9 +614,11 @@ module ietf-constrained-yang-library {
         and submodules listed in the 'module' list. This
         identifier is server-specific when implemented as
         unit32 or shared between multiple servers when
-        implemented as identityref. The server MUST change
-        the value of this leaf each time the content of the
-        'module' list instance change.";
+        implemented as identityref or binary hash. The
+                server MUST change the value of this leaf each
+                time the information represented by the 'module'
+                list instance changes. The hash function and size
+                are not specified but shall be collision resistant.";
     }
 
     list module {
@@ -630,12 +630,12 @@ module ietf-constrained-yang-library {
       uses identification-info;
       
       leaf-list feature {
-        type sid;
+        type comi:sid;
         description
           "List of YANG features from this module that are
           supported by the server, regardless whether
-          they are defined in the module or in any included
-          submodules.";
+          they are defined in the module or any included
+          submodule.";
       }
       
       list deviation {
@@ -647,10 +647,9 @@ module ietf-constrained-yang-library {
           used for deviations for multiple modules, so the
           same entry MAY appear within multiple 'module' entries.
 
-          The deviation module MUST be present in the 'module'
-          list, with the same sid and revision values.
-          The 'conformance-type' value will be 'implement' for
-          the deviation module.";
+          Deviation modules MUST also be present in the 'module'
+          list, with the same sid and revision values and the
+          'conformance-type' set to 'implement'.";
           
         uses identification-info;
       }
@@ -765,7 +764,7 @@ module ietf-constrained-yang-library {
 <tr>
 <td class="reference"><b id="I-D.ietf-netmod-yang-tree-diagrams">[I-D.ietf-netmod-yang-tree-diagrams]</b></td>
 <td class="top">
-<a>Bjorklund, M.</a> and <a>L. Berger</a>, "<a href="https://tools.ietf.org/html/draft-ietf-netmod-yang-tree-diagrams-02">YANG Tree Diagrams</a>", Internet-Draft draft-ietf-netmod-yang-tree-diagrams-02, October 2017.</td>
+<a>Bjorklund, M.</a> and <a>L. Berger</a>, "<a href="https://tools.ietf.org/html/draft-ietf-netmod-yang-tree-diagrams-04">YANG Tree Diagrams</a>", Internet-Draft draft-ietf-netmod-yang-tree-diagrams-04, December 2017.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC2119">[RFC2119]</b></td>
