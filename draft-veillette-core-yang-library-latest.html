@@ -293,7 +293,7 @@ li, p {
 
   <meta name="dct.creator" content="Veillette, M., Ed." />
   <meta name="dct.identifier" content="urn:ietf:id:draft-veillette-core-yang-library-02" />
-  <meta name="dct.issued" scheme="ISO8601" content="2018-1-22" />
+  <meta name="dct.issued" scheme="ISO8601" content="2018-1-23" />
   <meta name="dct.abstract" content="This document describes a YANG library that provides information about all the YANG modules used by a constrained network management server (e.g., a CoAP Management Interface (CoMI) server). Simple caching mechanisms are provided to allow clients to minimize retrieval of this information." />
   <meta name="description" content="This document describes a YANG library that provides information about all the YANG modules used by a constrained network management server (e.g., a CoAP Management Interface (CoMI) server). Simple caching mechanisms are provided to allow clients to minimize retrieval of this information." />
 
@@ -314,10 +314,10 @@ li, p {
 </tr>
 <tr>
 <td class="left">Intended status: Standards Track</td>
-<td class="right">January 22, 2018</td>
+<td class="right">January 23, 2018</td>
 </tr>
 <tr>
-<td class="left">Expires: July 26, 2018</td>
+<td class="left">Expires: July 27, 2018</td>
 <td class="right"></td>
 </tr>
 
@@ -334,7 +334,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on July 26, 2018.</p>
+<p>This Internet-Draft will expire on July 27, 2018.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2018 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -488,7 +488,8 @@ notifications:
 <pre>
 &lt;CODE BEGINS&gt; file "ietf-constrained-yang-library@2018-01-20.yang"
 module ietf-constrained-yang-library {
-  namespace "urn:ietf:params:xml:ns:yang:ietf-constrained-yang-library";
+  namespace
+    "urn:ietf:params:xml:ns:yang:ietf-constrained-yang-library";
   prefix "lib";
 
   import ietf-comi {
@@ -577,8 +578,8 @@ module ietf-constrained-yang-library {
       type revision;
       description
         "Revision date assigned to this module or submodule.
-        A zero-length binary string is used if no revision statement
-        is present in the YANG module or submodule.";
+        A zero-length binary string is used if no revision
+        statement is present in the YANG module or submodule.";
     }
   }
   
@@ -634,8 +635,8 @@ module ietf-constrained-yang-library {
         description
           "List of YANG features from this module that are
           supported by the server, regardless whether
-          they are defined in the module or in any included
-          submodules.";
+          they are defined in the module or in any
+          included submodules.";
       }
       
       list deviation {
@@ -644,8 +645,8 @@ module ietf-constrained-yang-library {
           "List of YANG deviation modules used by this server
           to modify the conformance of the module associated
           with this entry.  Note that the same module can be
-          used for deviations for multiple modules, so the
-          same entry MAY appear within multiple 'module' entries.
+          used for deviations for multiple modules, so the same
+          entry MAY appear within multiple 'module' entries.
 
           Deviation modules MUST also be present in the 'module'
           list, with the same sid and revision values and the
@@ -665,8 +666,8 @@ module ietf-constrained-yang-library {
               deviation statements defined in the module.
 
               For YANG version 1.1 modules, there is at most one
-              module entry with conformance type 'implement' for a
-              particular module, since YANG 1.1 requires that
+              module entry with conformance type 'implement' for
+              a particular module, since YANG 1.1 requires that
               at most one revision of a module is implemented.
 
               For YANG version 1 modules, there SHOULD NOT be more
@@ -675,15 +676,15 @@ module ietf-constrained-yang-library {
           enum import {
             value 1;
             description
-              "Indicates that the server imports reusable definitions
-              from the specified revision of the module, but does
-              not implement any protocol accessible objects from
-              this revision.
+              "Indicates that the server imports reusable
+              definitions from the specified revision of the
+              module, but does not implement any protocol
+              accessible objects from this revision.
 
               Multiple module entries for the same module MAY
-              exist. This can occur if multiple modules import the
-              same module, but specify different revision-dates in
-              the import statements.";
+              exist. This can occur if multiple modules import
+              the same module, but specify different revision-dates
+              in the import statements.";
           }
         }
         mandatory true;
@@ -764,7 +765,7 @@ module ietf-constrained-yang-library {
 <tr>
 <td class="reference"><b id="I-D.ietf-netmod-yang-tree-diagrams">[I-D.ietf-netmod-yang-tree-diagrams]</b></td>
 <td class="top">
-<a>Bjorklund, M.</a> and <a>L. Berger</a>, "<a href="https://tools.ietf.org/html/draft-ietf-netmod-yang-tree-diagrams-04">YANG Tree Diagrams</a>", Internet-Draft draft-ietf-netmod-yang-tree-diagrams-04, December 2017.</td>
+<a>Bjorklund, M.</a> and <a>L. Berger</a>, "<a href="https://tools.ietf.org/html/draft-ietf-netmod-yang-tree-diagrams-05">YANG Tree Diagrams</a>", Internet-Draft draft-ietf-netmod-yang-tree-diagrams-05, January 2018.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC2119">[RFC2119]</b></td>

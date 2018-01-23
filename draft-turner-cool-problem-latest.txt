@@ -5,14 +5,14 @@
 CoRE                                                      R. Turner, Ed.
 Internet-Draft                                                Landis+Gyr
 Intended status: Best Current Practice                      M. Veillette
-Expires: July 26, 2018                           Trilliant Networks Inc.
+Expires: July 27, 2018                           Trilliant Networks Inc.
                                                                 A. Pelov
                                                                   Acklio
                                                              A. Somaraju
                                                    Tridonic GmbH & Co KG
                                                              A. Minaburo
                                                                   Acklio
-                                                        January 22, 2018
+                                                        January 23, 2018
 
 
                          CoOL Problem Statement
@@ -47,13 +47,13 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 26, 2018.
+   This Internet-Draft will expire on July 27, 2018.
 
 
 
 
 
-Turner, et al.            Expires July 26, 2018                 [Page 1]
+Turner, et al.            Expires July 27, 2018                 [Page 1]
 
 Internet-Draft                CoOL Problem                  January 2018
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Turner, et al.            Expires July 26, 2018                 [Page 2]
+Turner, et al.            Expires July 27, 2018                 [Page 2]
 
 Internet-Draft                CoOL Problem                  January 2018
 
@@ -165,7 +165,7 @@ Internet-Draft                CoOL Problem                  January 2018
 
 
 
-Turner, et al.            Expires July 26, 2018                 [Page 3]
+Turner, et al.            Expires July 27, 2018                 [Page 3]
 
 Internet-Draft                CoOL Problem                  January 2018
 
@@ -221,7 +221,7 @@ Internet-Draft                CoOL Problem                  January 2018
 
 
 
-Turner, et al.            Expires July 26, 2018                 [Page 4]
+Turner, et al.            Expires July 27, 2018                 [Page 4]
 
 Internet-Draft                CoOL Problem                  January 2018
 
@@ -277,7 +277,7 @@ Internet-Draft                CoOL Problem                  January 2018
 
 
 
-Turner, et al.            Expires July 26, 2018                 [Page 5]
+Turner, et al.            Expires July 27, 2018                 [Page 5]
 
 Internet-Draft                CoOL Problem                  January 2018
 
@@ -333,7 +333,7 @@ Authors' Addresses
 
 
 
-Turner, et al.            Expires July 26, 2018                 [Page 6]
+Turner, et al.            Expires July 27, 2018                 [Page 6]
 
 Internet-Draft                CoOL Problem                  January 2018
 
@@ -389,4 +389,4 @@ Internet-Draft                CoOL Problem                  January 2018
 
 
 
-Turner, et al.            Expires July 26, 2018                 [Page 7]
+Turner, et al.            Expires July 27, 2018                 [Page 7]
