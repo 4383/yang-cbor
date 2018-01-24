@@ -387,7 +387,7 @@ li, p {
   <h1 id="rfc.section.1">
 <a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a>
 </h1>
-<p id="rfc.section.1.p.1">WARNING: The CoMI protocol <a href="#I-D.ietf-core-comi" class="xref">[I-D.ietf-core-comi]</a> and this contribution need to be reviewed to verify their compatibility with the &#8220;Network Management Datastore Architecture&#8221; (NMDA) introduced netmod. See <a href="#I-D.dsdt-nmda-guidelines" class="xref">[I-D.dsdt-nmda-guidelines]</a>, <a href="#I-D.ietf-netconf-rfc7895bis" class="xref">[I-D.ietf-netconf-rfc7895bis]</a>, <a href="#I-D.ietf-netmod-revised-datastores" class="xref">[I-D.ietf-netmod-revised-datastores]</a> and <a href="#I-D.ietf-netconf-nmda-restconf" class="xref">[I-D.ietf-netconf-nmda-restconf]</a> for more details.</p>
+<p id="rfc.section.1.p.1">WARNING: Both this contribution and the CoMI protocol <a href="#I-D.ietf-core-comi" class="xref">[I-D.ietf-core-comi]</a> need to be reviewed to verify their compatibility with the &#8220;Network Management Datastore Architecture&#8221; (NMDA). See <a href="#I-D.dsdt-nmda-guidelines" class="xref">[I-D.dsdt-nmda-guidelines]</a>, <a href="#I-D.ietf-netconf-rfc7895bis" class="xref">[I-D.ietf-netconf-rfc7895bis]</a>, <a href="#I-D.ietf-netmod-revised-datastores" class="xref">[I-D.ietf-netmod-revised-datastores]</a> and <a href="#I-D.ietf-netconf-nmda-restconf" class="xref">[I-D.ietf-netconf-nmda-restconf]</a> for more details.</p>
 <p id="rfc.section.1.p.2">The YANG library specified in this document is available to clients of a given server to discover the YANG modules supported by this constrained network management server. A CoMI server provides a link to this library in the /mod.uri resource. The following YANG module information is provided to client applications to fully utilize the YANG data modeling language:</p>
 <p></p>
 
@@ -404,7 +404,7 @@ li, p {
 <p></p>
 
 <ul>
-<li>YANG module &#8216;ietf-constrained-yang-library&#8217; extends the caching mechanism supported by &#8216;ietf-yang-library&#8217; to multiple servers of the same type. This is accomplished by replacing the &#8216;module-set-id&#8217; by a hash of the library content.</li>
+<li>YANG module &#8216;ietf-constrained-yang-library&#8217; extends the caching mechanism supported by &#8216;ietf-yang-library&#8217; to multiple servers of the same type. This is accomplished by replacing &#8216;module-set-id&#8217; by a hash of the library content.</li>
 <li>Modules, sub-modules, deviations and features are identified using a numerical value (SID) instead of a string (yang-identifier).</li>
 <li>The &#8220;namespace&#8221; leaf, not required for SIDs, but mandatory in &#8216;ietf-yang-library&#8217; is not included in &#8216;ietf-constrained-yang-library&#8217;.</li>
 <li>Schemas can be located using the already available module or sub-module identifier (SID) and revision. For this reason, support of module and sub-module schema URIs have been removed.</li>

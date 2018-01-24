@@ -82,12 +82,12 @@ Table of Contents
 
 1.  Introduction
 
-   WARNING: The CoMI protocol [I-D.ietf-core-comi] and this contribution
-   need to be reviewed to verify their compatibility with the "Network
-   Management Datastore Architecture" (NMDA) introduced netmod.  See
-   [I-D.dsdt-nmda-guidelines], [I-D.ietf-netconf-rfc7895bis],
-   [I-D.ietf-netmod-revised-datastores] and
-   [I-D.ietf-netconf-nmda-restconf] for more details.
+   WARNING: Both this contribution and the CoMI protocol
+   [I-D.ietf-core-comi] need to be reviewed to verify their
+   compatibility with the "Network Management Datastore Architecture"
+   (NMDA).  See [I-D.dsdt-nmda-guidelines],
+   [I-D.ietf-netconf-rfc7895bis], [I-D.ietf-netmod-revised-datastores]
+   and [I-D.ietf-netconf-nmda-restconf] for more details.
 
    The YANG library specified in this document is available to clients
    of a given server to discover the YANG modules supported by this
@@ -130,8 +130,8 @@ Internet-Draft       Constrained YANG Module Library        January 2018
 
    o  YANG module 'ietf-constrained-yang-library' extends the caching
       mechanism supported by 'ietf-yang-library' to multiple servers of
-      the same type.  This is accomplished by replacing the 'module-set-
-      id' by a hash of the library content.
+      the same type.  This is accomplished by replacing 'module-set-id'
+      by a hash of the library content.
 
    o  Modules, sub-modules, deviations and features are identified using
       a numerical value (SID) instead of a string (yang-identifier).
