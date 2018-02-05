@@ -5,18 +5,18 @@
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
 Intended status: Standards Track                           A. Pelov, Ed.
-Expires: July 28, 2018                                            Acklio
+Expires: August 9, 2018                                           Acklio
                                                              A. Somaraju
                                                    Tridonic GmbH & Co KG
                                                                R. Turner
                                                               Landis+Gyr
                                                              A. Minaburo
                                                                   Acklio
-                                                        January 24, 2018
+                                                       February 05, 2018
 
 
                 CBOR Encoding of Data Modeled with YANG
-                      draft-ietf-core-yang-cbor-05
+                      draft-ietf-core-yang-cbor-06
 
 Abstract
 
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 28, 2018.
+   This Internet-Draft will expire on August 9, 2018.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Veillette, et al.         Expires July 28, 2018                 [Page 1]
+Veillette, et al.        Expires August 9, 2018                 [Page 1]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    publication of this document.  Please review these documents
@@ -69,7 +69,7 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
    2.  Terminology and Notation  . . . . . . . . . . . . . . . . . .   3
-     2.1.  YANG Schema Item iDentifier (SID) . . . . . . . . . . . .   4
+     2.1.  YANG Schema Item iDentifier (SID) . . . . . . . . . . . .   5
      2.2.  CBOR diagnostic notation  . . . . . . . . . . . . . . . .   5
    3.  Properties of the CBOR Encoding . . . . . . . . . . . . . . .   6
    4.  Encoding of YANG Data Node Instances  . . . . . . . . . . . .   7
@@ -83,40 +83,43 @@ Table of Contents
        4.4.2.  Member names as keys  . . . . . . . . . . . . . . . .  14
      4.5.  The 'anydata' Data Node . . . . . . . . . . . . . . . . .  15
      4.6.  The 'anyxml' Data Node  . . . . . . . . . . . . . . . . .  17
-   5.  Representing YANG Data Types in CBOR  . . . . . . . . . . . .  17
-     5.1.  The unsigned integer Types  . . . . . . . . . . . . . . .  17
-     5.2.  The integer Types . . . . . . . . . . . . . . . . . . . .  18
-     5.3.  The 'decimal64' Type  . . . . . . . . . . . . . . . . . .  18
-     5.4.  The 'string' Type . . . . . . . . . . . . . . . . . . . .  18
-     5.5.  The 'boolean' Type  . . . . . . . . . . . . . . . . . . .  19
-     5.6.  The 'enumeration' Type  . . . . . . . . . . . . . . . . .  19
-     5.7.  The 'bits' Type . . . . . . . . . . . . . . . . . . . . .  20
-     5.8.  The 'binary' Type . . . . . . . . . . . . . . . . . . . .  21
-     5.9.  The 'leafref' Type  . . . . . . . . . . . . . . . . . . .  21
-     5.10. The 'identityref' Type  . . . . . . . . . . . . . . . . .  22
-       5.10.1.  SIDs as identityref  . . . . . . . . . . . . . . . .  22
-       5.10.2.  Name as identityref  . . . . . . . . . . . . . . . .  23
-     5.11. The 'empty' Type  . . . . . . . . . . . . . . . . . . . .  23
-     5.12. The 'union' Type  . . . . . . . . . . . . . . . . . . . .  24
-     5.13. The 'instance-identifier' Type  . . . . . . . . . . . . .  25
-       5.13.1.  SIDs as instance-identifier  . . . . . . . . . . . .  25
-       5.13.2.  Names as instance-identifier . . . . . . . . . . . .  28
-   6.  Security Considerations . . . . . . . . . . . . . . . . . . .  29
-   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  29
-     7.1.  Tags Registry . . . . . . . . . . . . . . . . . . . . . .  29
-   8.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  29
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  30
+   5.  Encoding of YANG data templates . . . . . . . . . . . . . . .  17
+     5.1.  SIDs as keys  . . . . . . . . . . . . . . . . . . . . . .  18
+     5.2.  Member names as keys  . . . . . . . . . . . . . . . . . .  19
+   6.  Representing YANG Data Types in CBOR  . . . . . . . . . . . .  20
+     6.1.  The unsigned integer Types  . . . . . . . . . . . . . . .  20
+     6.2.  The integer Types . . . . . . . . . . . . . . . . . . . .  21
+     6.3.  The 'decimal64' Type  . . . . . . . . . . . . . . . . . .  21
+     6.4.  The 'string' Type . . . . . . . . . . . . . . . . . . . .  22
+     6.5.  The 'boolean' Type  . . . . . . . . . . . . . . . . . . .  22
+     6.6.  The 'enumeration' Type  . . . . . . . . . . . . . . . . .  22
+     6.7.  The 'bits' Type . . . . . . . . . . . . . . . . . . . . .  23
+     6.8.  The 'binary' Type . . . . . . . . . . . . . . . . . . . .  24
+     6.9.  The 'leafref' Type  . . . . . . . . . . . . . . . . . . .  24
+     6.10. The 'identityref' Type  . . . . . . . . . . . . . . . . .  25
+       6.10.1.  SIDs as identityref  . . . . . . . . . . . . . . . .  25
+       6.10.2.  Name as identityref  . . . . . . . . . . . . . . . .  26
+     6.11. The 'empty' Type  . . . . . . . . . . . . . . . . . . . .  26
+     6.12. The 'union' Type  . . . . . . . . . . . . . . . . . . . .  27
+     6.13. The 'instance-identifier' Type  . . . . . . . . . . . . .  28
+       6.13.1.  SIDs as instance-identifier  . . . . . . . . . . . .  28
+       6.13.2.  Names as instance-identifier . . . . . . . . . . . .  31
+   7.  Security Considerations . . . . . . . . . . . . . . . . . . .  32
+   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  32
 
 
 
-Veillette, et al.         Expires July 28, 2018                 [Page 2]
+Veillette, et al.        Expires August 9, 2018                 [Page 2]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  30
-     9.2.  Informative References  . . . . . . . . . . . . . . . . .  30
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  31
+     8.1.  Tags Registry . . . . . . . . . . . . . . . . . . . . . .  32
+   9.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  32
+   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  33
+     10.1.  Normative References . . . . . . . . . . . . . . . . . .  33
+     10.2.  Informative References . . . . . . . . . . . . . . . . .  33
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  34
 
 1.  Introduction
 
@@ -155,20 +158,23 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    o  data tree
 
+   o  datastore
+
    o  feature
+
+
+
+
+Veillette, et al.        Expires August 9, 2018                 [Page 3]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
+
 
    o  identity
 
    o  module
 
    o  notification
-
-
-
-Veillette, et al.         Expires July 28, 2018                 [Page 3]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
-
 
    o  RPC
 
@@ -185,6 +191,12 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
    o  name of an identity
 
    o  namespace-qualified
+
+   The following terms are defined in [RFC8040]:
+
+   o  yang-data (YANG extension)
+
+   o  YANG data template
 
    This specification also makes use of the following terminology:
 
@@ -204,6 +216,16 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
    o  YANG Schema Item iDentifier (SID): Unsigned integer used to
       identify different YANG items.
 
+
+
+
+
+
+Veillette, et al.        Expires August 9, 2018                 [Page 4]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
+
+
 2.1.  YANG Schema Item iDentifier (SID)
 
    Some of the items defined in YANG [RFC7950] require the use of a
@@ -218,13 +240,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
    o  identities
 
    o  data nodes
-
-
-
-Veillette, et al.         Expires July 28, 2018                 [Page 4]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
-
 
    o  RPCs and associated input(s) and output(s)
 
@@ -262,24 +277,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Veillette, et al.         Expires July 28, 2018                 [Page 5]
+Veillette, et al.        Expires August 9, 2018                 [Page 5]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    +----------+------+--------------------------+-----------+----------+
@@ -333,9 +333,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                 [Page 6]
+Veillette, et al.        Expires August 9, 2018                 [Page 6]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    schema node is encoded in CBOR.  Identification of this value needs
@@ -369,7 +369,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 4.1.  The 'leaf' Data Node
 
    Leafs MUST be encoded based on the encoding rules specified in
-   Section 5.
+   Section 6.
 
 4.2.  The 'container' Data Node
 
@@ -389,9 +389,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                 [Page 7]
+Veillette, et al.        Expires August 9, 2018                 [Page 7]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
 4.2.1.  SIDs as keys
@@ -437,7 +437,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
      }
    }
 
-   For this first representation, we assume that parent SID of the root
+   For this first representation, we assume that the SID of the parent
    container (i.e. 'system-state') is not available to the serializer.
    In this case, root data nodes are encoded using absolute SIDs.
 
@@ -445,9 +445,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                 [Page 8]
+Veillette, et al.        Expires August 9, 2018                 [Page 8]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    {
@@ -501,9 +501,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                 [Page 9]
+Veillette, et al.        Expires August 9, 2018                 [Page 9]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
 4.2.2.  Member names as keys
@@ -557,9 +557,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 10]
+Veillette, et al.        Expires August 9, 2018                [Page 10]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    typedef domain-name {
@@ -613,9 +613,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 11]
+Veillette, et al.        Expires August 9, 2018                [Page 11]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    list server {
@@ -669,9 +669,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 12]
+Veillette, et al.        Expires August 9, 2018                [Page 12]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    [
@@ -725,9 +725,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 13]
+Veillette, et al.        Expires August 9, 2018                [Page 13]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
 4.4.2.  Member names as keys
@@ -781,9 +781,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 14]
+Veillette, et al.        Expires August 9, 2018                [Page 14]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    82                                            # array(2)
@@ -837,16 +837,16 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 15]
+Veillette, et al.        Expires August 9, 2018                [Page 15]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    o  The CBOR array MUST contain either unique scalar values (as a
       leaf-list, see Section 4.3), or maps (as a list, see Section 4.4).
 
    o  Values MUST follow the encoding rules of one of the datatypes
-      listed in Section 5.
+      listed in Section 6.
 
    The following example shows a possible use of anydata.  In this
    example, an anydata is used to define a data node containing a
@@ -893,9 +893,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 16]
+Veillette, et al.        Expires August 9, 2018                [Page 16]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
 4.6.  The 'anyxml' Data Node
@@ -903,7 +903,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
    An anyxml schema node is used to serialize an arbitrary CBOR content,
    i.e., its value can be any CBOR binary object. anyxml value may
    contain CBOR data items tagged with one of the tag listed in
-   Section 7.1, these tags shall be supported.
+   Section 8.1, these tags shall be supported.
 
    The following example shows a valid CBOR encoded instance.
 
@@ -915,7 +915,179 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    CBOR encoding: 83 f5 f6 f5
 
-5.  Representing YANG Data Types in CBOR
+5.  Encoding of YANG data templates
+
+   YANG data templates are data structures defined in YANG but not
+   intended to be implemented as part of a datastore.  YANG data
+   templates are defined using the 'yang-data' extension as described by
+   RFC 8040.
+
+   The encoding rules defined for YANG containers in section 4.2 may be
+   used to serialize YANG data templates.
+
+   Definition example from [I-D.ietf-core-comi]:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Veillette, et al.        Expires August 9, 2018                [Page 17]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
+
+
+   import ietf-restconf {
+     prefix rc;
+   }
+
+   rc:yang-data yang-errors {
+     container error {
+       leaf error-tag {
+         type identityref {
+           base error-tag;
+         }
+       }
+       leaf error-app-tag {
+         type identityref {
+           base error-app-tag;
+         }
+       }
+       leaf error-data-node {
+         type instance-identifier;
+       }
+       leaf error-message {
+         type string;
+       }
+     }
+   }
+
+   Just like YANG containers, YANG data templates can be encoded using
+   either SIDs or names.
+
+5.1.  SIDs as keys
+
+   This example shows a serialization example of the yang-errors
+   template using SIDs as CBOR map key.
+
+   CBOR diagnostic notation:
+
+   {
+     1024 : {                    / error  (SID 1024) /
+       +4 : 1011,                / error-tag (SID 1028) /
+                                 / = invalid-value (SID 1011) /
+       +1 : 1018,                / error-app-tag (SID 1025) /
+                                 / = not-in-range (SID 1018) /
+       +2 : 1740,                / error-data-node (SID 1026) /
+                                 / = timezone-utc-offset (SID 1740) /
+       +3 : "max value exceeded" / error-message (SID 1027) /
+     }
+   }
+
+   CBOR encoding:
+
+
+
+Veillette, et al.        Expires August 9, 2018                [Page 18]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
+
+
+   A1                                      # map(1)
+      19 0400                              # unsigned(1024)
+      A4                                   # map(4)
+         04                                # unsigned(4)
+         19 03F3                           # unsigned(1011)
+         01                                # unsigned(1)
+         19 03FA                           # unsigned(1018)
+         02                                # unsigned(2)
+         19 06CC                           # unsigned(1740)
+         03                                # unsigned(3)
+         76                                # text(22)
+            6D6178696D756D2076616C7565206578636565646564
+
+5.2.  Member names as keys
+
+   This example shows a serialization example of the yang-errors
+   template using member names as CBOR map key.
+
+   CBOR diagnostic notation:
+
+   {
+     "ietf-comi:error" : {
+       "error-tag" : "invalid-value",
+       "error-app-tag" : "not-in-range",
+       "error-data-node" : "timezone-utc-offset",
+       "error-message" : "max value exceeded"
+     }
+   }
+
+   CBOR encoding:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Veillette, et al.        Expires August 9, 2018                [Page 19]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
+
+
+   A1                                      # map(1)
+      6F                                   # text(15)
+         696574662D636F6D693A6572726F72
+      A4                                   # map(4)
+         69                                # text(9)
+            6572726F722D746167             # "error-tag"
+         6D                                # text(13)
+            696E76616C69642D76616C7565
+         6D                                # text(13)
+            6572726F722D6170702D746167
+         6C                                # text(12)
+            6E6F742D696E2D72616E6765
+         6F                                # text(15)
+            6572726F722D646174612D6E6F6465
+         73                                # text(19)
+            74696D657A6F6E652D7574632D6F6666736574
+         6D                                # text(13)
+            6572726F722D6D657373616765
+         72                                # text(18)
+            6D61782076616C7565206578636565646564
+
+6.  Representing YANG Data Types in CBOR
 
    The CBOR encoding of an instance of a leaf or leaf-list data node
    depends on the built-in type of that data node.  The following sub-
@@ -924,7 +1096,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
    example value assigned to a data node instance of the discussed
    built-in type.
 
-5.1.  The unsigned integer Types
+6.1.  The unsigned integer Types
 
    Leafs of type uint8, uint16, uint32 and uint64 MUST be encoded using
    a CBOR unsigned integer data item (major type 0).
@@ -942,19 +1114,17 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    CBOR diagnostic notation: 1280
 
+
+
+
+Veillette, et al.        Expires August 9, 2018                [Page 20]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
+
+
    CBOR encoding: 19 0500
 
-
-
-
-
-
-Veillette, et al.         Expires July 28, 2018                [Page 17]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
-
-
-5.2.  The integer Types
+6.2.  The integer Types
 
    Leafs of type int8, int16, int32 and int64 MUST be encoded using
    either CBOR unsigned integer (major type 0) or CBOR negative integer
@@ -975,7 +1145,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    CBOR encoding: 39 012b
 
-5.3.  The 'decimal64' Type
+6.3.  The 'decimal64' Type
 
    Leafs of type decimal64 MUST be encoded using a decimal fraction as
    defined in [RFC7049] section 2.4.3.
@@ -996,19 +1166,22 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    CBOR encoding: c4 82 21 19 0101
 
-5.4.  The 'string' Type
+
+
+
+
+
+
+
+Veillette, et al.        Expires August 9, 2018                [Page 21]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
+
+
+6.4.  The 'string' Type
 
    Leafs of type string MUST be encoded using a CBOR text string data
    item (major type 3).
-
-
-
-
-
-Veillette, et al.         Expires July 28, 2018                [Page 18]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
-
 
    The following example shows the encoding of a 'name' leaf instance
    set to "eth0".
@@ -1023,7 +1196,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    CBOR encoding: 64 65746830
 
-5.5.  The 'boolean' Type
+6.5.  The 'boolean' Type
 
    Leafs of type boolean MUST be encoded using a CBOR true (major type
    7, additional information 21) or false data item (major type 7,
@@ -1042,7 +1215,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    CBOR encoding: f5
 
-5.6.  The 'enumeration' Type
+6.6.  The 'enumeration' Type
 
    Leafs of type enumeration MUST be encoded using a CBOR unsigned
    integer (major type 0) or CBOR negative integer (major type 1),
@@ -1053,18 +1226,15 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
    The following example shows the encoding of an 'oper-status' leaf
    instance set to 'testing'.
 
-   Definition example from [RFC7317]:
 
 
 
-
-
-
-
-Veillette, et al.         Expires July 28, 2018                [Page 19]
+Veillette, et al.        Expires August 9, 2018                [Page 22]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
+
+   Definition example from [RFC7317]:
 
    leaf oper-status {
      type enumeration {
@@ -1082,7 +1252,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    CBOR encoding: 03
 
-5.7.  The 'bits' Type
+6.7.  The 'bits' Type
 
    Leafs of type bits MUST be encoded using a CBOR byte string data item
    (major type 2).  Bits position are either explicitly assigned using
@@ -1113,18 +1283,18 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
      }
    }
 
-   CBOR diagnostic notation: h'05'
 
 
-
-Veillette, et al.         Expires July 28, 2018                [Page 20]
+Veillette, et al.        Expires August 9, 2018                [Page 23]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
+
+   CBOR diagnostic notation: h'05'
 
    CBOR encoding: 41 05
 
-5.8.  The 'binary' Type
+6.8.  The 'binary' Type
 
    Leafs of type binary MUST be encoded using a CBOR byte string data
    item (major type 2).
@@ -1144,7 +1314,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    CBOR encoding: 50 1f1ce6a3f42660d888d92a4d8030476e
 
-5.9.  The 'leafref' Type
+6.9.  The 'leafref' Type
 
    Leafs of type leafref MUST be encoded using the rules of the schema
    node referenced by the 'path' YANG statement.
@@ -1171,11 +1341,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-
-
-Veillette, et al.         Expires July 28, 2018                [Page 21]
+Veillette, et al.        Expires August 9, 2018                [Page 24]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    typedef interface-state-ref {
@@ -1200,13 +1368,13 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    CBOR encoding: 64 65746831
 
-5.10.  The 'identityref' Type
+6.10.  The 'identityref' Type
 
    This specification supports two approaches for encoding identityref,
    a YANG Schema Item iDentifier (SID) as defined in Section 2.1 or a
    name as defined in [RFC7951] section 6.8.
 
-5.10.1.  SIDs as identityref
+6.10.1.  SIDs as identityref
 
    When schema nodes of type identityref are implemented using SIDs,
    they MUST be encoded using a CBOR unsigned integer data item (major
@@ -1229,9 +1397,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 22]
+Veillette, et al.        Expires August 9, 2018                [Page 25]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    identity interface-type {
@@ -1255,7 +1423,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    CBOR encoding: 19 049c
 
-5.10.2.  Name as identityref
+6.10.2.  Name as identityref
 
    Alternatively, an identityref may be encoded using a name as defined
    in [RFC7951] section 6.8.  When names are used, identityref MUST be
@@ -1267,14 +1435,14 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    The following example shows the encoding of the identity 'iana-if-
    type:ethernetCsmacd' using its name.  This example is described in
-   Section 5.10.1.
+   Section 6.10.1.
 
    CBOR diagnostic notation: "iana-if-type:ethernetCsmacd"
 
    CBOR encoding: 78 1b
    69616e612d69662d747970653a65746865726e657443736d616364
 
-5.11.  The 'empty' Type
+6.11.  The 'empty' Type
 
    Leafs of type empty MUST be encoded using the CBOR null value (major
    type 7, additional information 22).
@@ -1285,9 +1453,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 23]
+Veillette, et al.        Expires August 9, 2018                [Page 26]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    Definition example from [RFC7277]:
@@ -1300,7 +1468,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    CBOR encoding: f6
 
-5.12.  The 'union' Type
+6.12.  The 'union' Type
 
    Leafs of type union MUST be encoded using the rules associated with
    one of the types listed.  When used in a union, the following YANG
@@ -1315,7 +1483,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    o  instance-identifier
 
-   See Section 7.1 for more information about these CBOR tags.
+   See Section 8.1 for more information about these CBOR tags.
 
    The following example shows the encoding of an 'ip-address' leaf
    instance when set to "2001:db8:a0b:12f0::1".
@@ -1341,9 +1509,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 24]
+Veillette, et al.        Expires August 9, 2018                [Page 27]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    typedef ipv4-address {
@@ -1380,14 +1548,14 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    CBOR encoding: 74 323030313a6462383a6130623a313266303a3a31
 
-5.13.  The 'instance-identifier' Type
+6.13.  The 'instance-identifier' Type
 
    This specification supports two approaches for encoding an instance-
    identifier, one based on YANG Schema Item iDentifier (SID) as defined
    in Section 2.1 and one based on names as defined in [RFC7951] section
    6.11.
 
-5.13.1.  SIDs as instance-identifier
+6.13.1.  SIDs as instance-identifier
 
    SIDs uniquely identify a data node.  In the case of a single instance
    data node, a data node defined at the root of a YANG module or
@@ -1397,9 +1565,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 25]
+Veillette, et al.        Expires August 9, 2018                [Page 28]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    In the case of a data node member of a YANG list, a SID is combined
@@ -1453,9 +1621,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 26]
+Veillette, et al.        Expires August 9, 2018                [Page 29]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    "/system/authentication/user/authorized-key/key-data" (SID 1730) for
@@ -1509,9 +1677,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 27]
+Veillette, et al.        Expires August 9, 2018                [Page 30]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    CBOR encoding:
@@ -1521,7 +1689,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
       64                   # text(4)
          6a61636b          # "jack"
 
-5.13.2.  Names as instance-identifier
+6.13.2.  Names as instance-identifier
 
    The use of names as instance-identifier is defined in [RFC7951]
    section 6.11.  The resulting xpath MUST be encoded using a CBOR text
@@ -1529,7 +1697,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    *First example:*
 
-   This example is described in Section 5.13.1.
+   This example is described in Section 6.13.1.
 
    CBOR diagnostic notation: "/ietf-system:system/contact"
 
@@ -1539,7 +1707,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    *Second example:*
 
-   This example is described in Section 5.13.1.
+   This example is described in Section 6.13.1.
 
    CBOR diagnostic notation:
 
@@ -1555,7 +1723,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
    *Third example:*
 
-   This example is described in Section 5.13.1.
+   This example is described in Section 6.13.1.
 
    CBOR diagnostic notation:
 
@@ -1565,16 +1733,16 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 28]
+Veillette, et al.        Expires August 9, 2018                [Page 31]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    78 33
       2f696574662d73797374656d3a73797374656d2f61757468656e74696361
       74696f6e2f757365725b6e616d653d27626f62275d
 
-6.  Security Considerations
+7.  Security Considerations
 
    The security considerations of [RFC7049] and [RFC7950] apply.
 
@@ -1587,9 +1755,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
    reject all messages that do not comply to the rules of this document
    and reply with an appropriate error message to the sender.
 
-7.  IANA Considerations
+8.  IANA Considerations
 
-7.1.  Tags Registry
+8.1.  Tags Registry
 
    This specification requires the assignment of CBOR tags for the
    following YANG datatypes.  These tags are added to the Tags Registry
@@ -1609,7 +1777,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
    remove this note // RFC Ed.: replace XXXX with RFC number and remove
    this note
 
-8.  Acknowledgments
+9.  Acknowledgments
 
    This document has been largely inspired by the extensive works done
    by Andy Bierman and Peter van der Stok on [I-D.ietf-core-comi].
@@ -1621,14 +1789,14 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 29]
+Veillette, et al.        Expires August 9, 2018                [Page 32]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
-9.  References
+10.  References
 
-9.1.  Normative References
+10.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -1648,7 +1816,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
               RFC 7950, DOI 10.17487/RFC7950, August 2016,
               <https://www.rfc-editor.org/info/rfc7950>.
 
-9.2.  Informative References
+10.2.  Informative References
 
    [I-D.ietf-core-comi]
               Veillette, M., Stok, P., Pelov, A., and A. Bierman, "CoAP
@@ -1677,9 +1845,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 30]
+Veillette, et al.        Expires August 9, 2018                [Page 33]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    [RFC7277]  Bjorklund, M., "A YANG Data Model for IP Management",
@@ -1733,9 +1901,9 @@ Authors' Addresses
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 31]
+Veillette, et al.        Expires August 9, 2018                [Page 34]
 
-Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
+Internet-Draft   CBOR Encoding of Data Modeled with YANG   February 2018
 
 
    Randy Turner
@@ -1789,4 +1957,4 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG    January 2018
 
 
 
-Veillette, et al.         Expires July 28, 2018                [Page 32]
+Veillette, et al.        Expires August 9, 2018                [Page 35]
