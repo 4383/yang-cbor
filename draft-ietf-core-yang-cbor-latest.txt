@@ -74,7 +74,7 @@ Table of Contents
    3.  Properties of the CBOR Encoding . . . . . . . . . . . . . . .   6
    4.  Encoding of YANG Schema Node Instances  . . . . . . . . . . .   7
      4.1.  The 'leaf'  . . . . . . . . . . . . . . . . . . . . . . .   7
-     4.2.  The 'container' and other collections . . . . . . . . . .   7
+     4.2.  The 'container' and other collections . . . . . . . . . .   8
        4.2.1.  SIDs as keys  . . . . . . . . . . . . . . . . . . . .   8
        4.2.2.  Member names as keys  . . . . . . . . . . . . . . . .   9
      4.3.  The 'leaf-list' . . . . . . . . . . . . . . . . . . . . .  11
@@ -353,6 +353,14 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
    explicitly the use of different YANG datatypes encoded using the same
    CBOR major type.
 
+   Unless specified otherwise by the protocol or mechanism implementing
+   this specification, the infinite lengths encoding as defined in
+   [RFC7049] section 2.2 SHALL be supported by CBOR decoders.
+
+   Data nodes implemented using a CBOR array, map, byte string, and text
+   string can be instantiated but empty.  In this case, they are encoded
+   with a length of zero.
+
    Application payloads carrying a value serialized using the rules
    defined by this specification (e.g.  CoAP Content-Format) SHOULD
    include the identifier (e.g.  SID, namespace-qualified member name,
@@ -374,6 +382,18 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
    A 'leaf' MUST be encoded accordingly to its datatype using one of the
    encoding rules specified in Section 6.
 
+
+
+
+
+
+
+
+Veillette, et al.        Expires March 15, 2019                 [Page 7]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
+
+
 4.2.  The 'container' and other collections
 
    Collections such as containers, list instances, notification
@@ -386,13 +406,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
    This specification supports two type of CBOR keys; SID as defined in
    Section 2.1 and member names as defined in [RFC7951].
-
-
-
-Veillette, et al.        Expires March 15, 2019                 [Page 7]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
-
 
    The following examples shows the encoding of a 'system-state'
    container instance using SIDs or member names.
@@ -429,6 +442,14 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
    o  In the case of a 'container', deltas are equal to the SID of the
       current schema node minus the SID of the parent 'container'.
 
+
+
+
+Veillette, et al.        Expires March 15, 2019                 [Page 8]
+
+Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
+
+
    o  In the case of an 'rpc input' or 'rcp output', deltas are equal to
       the SID of the current schema node minus the SID of the 'rpc'.
 
@@ -437,18 +458,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
       'action'.
 
    CBOR diagnostic notation:
-
-
-
-
-
-
-
-
-Veillette, et al.        Expires March 15, 2019                 [Page 8]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
-
 
    {                                      / system-state (SID 1720) /
      +1 : {                               / clock  (SID 1721) /
@@ -482,15 +491,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
    instance using names.
 
    Definition example from [RFC7317]:
-
-
-
-
-
-
-
-
-
 
 
 
