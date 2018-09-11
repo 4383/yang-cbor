@@ -584,21 +584,21 @@ li, p {
 <td class="left">0</td>
 <td class="left">Decimal digits</td>
 <td class="left">123</td>
-<td class="left">18 7b</td>
+<td class="left">18 7B</td>
 </tr>
 <tr>
 <td class="left">Negative integer</td>
 <td class="left">1</td>
 <td class="left">Decimal digits prefixed by a minus sign</td>
 <td class="left">-123</td>
-<td class="left">38 7a</td>
+<td class="left">38 7A</td>
 </tr>
 <tr>
 <td class="left">Byte string</td>
 <td class="left">2</td>
 <td class="left">Hexadecimal value enclosed between single quotes and prefixed by an &#8216;h&#8217;</td>
-<td class="left">h&#8217;f15c&#8217;</td>
-<td class="left">42 f15c</td>
+<td class="left">h&#8217;F15C&#8217;</td>
+<td class="left">42 f15C</td>
 </tr>
 <tr>
 <td class="left">Text string</td>
@@ -619,35 +619,35 @@ li, p {
 <td class="left">5</td>
 <td class="left">Comma-separated list of key : value pairs within curly braces</td>
 <td class="left">{ 1: 123, 2: 456 }</td>
-<td class="left">a2 01187b 021901c8</td>
+<td class="left">a2 01187B 021901C8</td>
 </tr>
 <tr>
 <td class="left">Boolean</td>
 <td class="left">7/20</td>
 <td class="left">false</td>
 <td class="left">false</td>
-<td class="left">f4</td>
+<td class="left">F4</td>
 </tr>
 <tr>
 <td class="left"></td>
 <td class="left">7/21</td>
 <td class="left">true</td>
 <td class="left">true</td>
-<td class="left">f5</td>
+<td class="left">F5</td>
 </tr>
 <tr>
 <td class="left">Null</td>
 <td class="left">7/22</td>
 <td class="left">null</td>
 <td class="left">null</td>
-<td class="left">f6</td>
+<td class="left">F6</td>
 </tr>
 <tr>
 <td class="left">Not assigned</td>
 <td class="left">7/23</td>
 <td class="left">undefined</td>
 <td class="left">undefined</td>
-<td class="left">f7</td>
+<td class="left">F7</td>
 </tr>
 </tbody>
 </table>
@@ -662,9 +662,9 @@ li, p {
 <a href="#rfc.section.3">3.</a> <a href="#properties-of-the-cbor-encoding" id="properties-of-the-cbor-encoding">Properties of the CBOR Encoding</a>
 </h1>
 <p id="rfc.section.3.p.1">This document defines CBOR encoding rules for YANG schema trees and their subtrees.</p>
-<p id="rfc.section.3.p.2">Basic schema nodes such as leaf, leaf-list, list, anydata and anyxml can be encoded standalone. In this case, only the value of this schema node is encoded in CBOR. Identification of this value needs to be provided by some external means when required.</p>
-<p id="rfc.section.3.p.3">A collection such as container, list instance, notification, RPC input, RPC output, action input and action output is serialized using a CBOR map in which each child schema node is encoded using a key and a value. This specification supports two type of CBOR keys; YANG Schema Item iDentifier (SID) as defined in <a href="#sid" class="xref">Section 2.1</a> and member names as defined in <a href="#RFC7951" class="xref">[RFC7951]</a>. Each of these key types is encoded using a specific CBOR type which allows their interpretation during the deserialization process. Protocols or mechanisms implementing this specification can mandate the use of a specific key type.</p>
-<p id="rfc.section.3.p.4">In order to minimize the size of the encoded data, the proposed mapping avoids any unnecessary meta-information beyond those natively supported by CBOR. For instance, CBOR tags are used solely in the case of anyxml schema nodes and the union datatype to distinguish explicitly the use of different YANG datatypes encoded using the same CBOR major type.</p>
+<p id="rfc.section.3.p.2">A collection such as container, list instance, notification, RPC input, RPC output, action input and action output is serialized using a CBOR map in which each child schema node is encoded using a key and a value. This specification supports two type of CBOR keys; YANG Schema Item iDentifier (SID) as defined in <a href="#sid" class="xref">Section 2.1</a> and member names as defined in <a href="#RFC7951" class="xref">[RFC7951]</a>. Each of these key types is encoded using a specific CBOR type which allows their interpretation during the deserialization process. Protocols or mechanisms implementing this specification can mandate the use of a specific key type.</p>
+<p id="rfc.section.3.p.3">In order to minimize the size of the encoded data, the proposed mapping avoids any unnecessary meta-information beyond those natively supported by CBOR. For instance, CBOR tags are used solely in the case of anyxml schema nodes and the union datatype to distinguish explicitly the use of different YANG datatypes encoded using the same CBOR major type.</p>
+<p id="rfc.section.3.p.4">Application payloads carrying a value serialized using the rules defined by this specification (e.g. CoAP Content-Format) SHOULD include the identifier (e.g. SID, namespace-qualified member name, instance-identifier) of this value. When SIDs are used as identifiers, the reference SID SHALL be included in the payload to allow stateless conversion of delta values to SIDs. Formats of these application payloads are not defined by the current specification and are not shown in the examples.</p>
 <h1 id="rfc.section.4">
 <a href="#rfc.section.4">4.</a> <a href="#instance-encoding" id="instance-encoding">Encoding of YANG Schema Node Instances</a>
 </h1>
@@ -689,9 +689,8 @@ li, p {
 <li>In the case of an &#8216;rpc input&#8217; or &#8216;rcp output&#8217;, deltas are equal to the SID of the current schema node minus the SID of the &#8216;rpc&#8217;.</li>
 <li>In the case of an &#8216;action input&#8217; or &#8216;action output&#8217;, deltas are equal to the SID of the current schema node minus the SID of the &#8216;action&#8217;.</li>
 </ul>
-<p id="rfc.section.4.2.1.p.3">Application payloads carrying a collection (e.g. CoAP Content-Format) SHOULD include the reference SID for this collection to allow stateless conversion of delta values to SIDs. The format of this application payload is not defined by the current specification and is not shown in the examples.</p>
-<p id="rfc.section.4.2.1.p.4">The following example shows the encoding of a &#8216;system-state&#8217; container instance with a single child, a &#8216;clock&#8217; container.  The &#8216;clock&#8217; container has two children, a &#8216;current-datetime&#8217; leaf and a &#8216;boot-datetime&#8217; leaf.</p>
-<p id="rfc.section.4.2.1.p.5">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
+<p id="rfc.section.4.2.1.p.3">The following example shows the encoding of a &#8216;system-state&#8217; container instance with a single child, a &#8216;clock&#8217; container.  The &#8216;clock&#8217; container has two children, a &#8216;current-datetime&#8217; leaf and a &#8216;boot-datetime&#8217; leaf.</p>
+<p id="rfc.section.4.2.1.p.4">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
 <pre>
 container system-state {
 
@@ -706,7 +705,7 @@ container system-state {
   }
 }
 </pre>
-<p id="rfc.section.4.2.1.p.6">CBOR diagnostic notation:</p>
+<p id="rfc.section.4.2.1.p.5">CBOR diagnostic notation:</p>
 <pre>
 {                                      / system-state (SID 1720) /
   +1 : {                               / clock  (SID 1721) /
@@ -715,7 +714,7 @@ container system-state {
   }
 }
 </pre>
-<p id="rfc.section.4.2.1.p.7">CBOR encoding:</p>
+<p id="rfc.section.4.2.1.p.6">CBOR encoding:</p>
 <pre>
 A1                                      # map(1)
    01                                   # unsigned(1)
@@ -732,8 +731,7 @@ A1                                      # map(1)
 </h1>
 <p id="rfc.section.4.2.2.p.1">CBOR map keys implemented using member names MUST be encoded using a CBOR text string data item (major type 3). A namespace-qualified member name MUST be used for all members of a top-level collection, and then also whenever the namespaces of the schema node and its parent are different. In all other cases, the simple form of the member name MUST be used. Names and namespaces are defined in <a href="#RFC7951" class="xref">[RFC7951]</a> section 4.</p>
 <p id="rfc.section.4.2.2.p.2">The following example shows the encoding of a &#8216;system&#8217; container instance using names. YANG definitions used in this example are available in <a href="#container-with-sid" class="xref">Section 4.2.1</a>.</p>
-<p id="rfc.section.4.2.2.p.3">Application payloads carrying a collection (e.g. CoAP Content-Format) SHOULD include the namespace-qualified collection name. In this case, the simple form of the member name may be used for the collection members sharing the same namespaces.</p>
-<p id="rfc.section.4.2.2.p.4">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
+<p id="rfc.section.4.2.2.p.3">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
 <pre>
 container system-state {
 
@@ -748,7 +746,7 @@ container system-state {
   }
 }
 </pre>
-<p id="rfc.section.4.2.2.p.5">CBOR diagnostic notation:</p>
+<p id="rfc.section.4.2.2.p.4">CBOR diagnostic notation:</p>
 <pre>
 {
   "ietf-system:clock" : {
@@ -757,7 +755,7 @@ container system-state {
   }
 }
 </pre>
-<p id="rfc.section.4.2.2.p.6">CBOR encoding:</p>
+<p id="rfc.section.4.2.2.p.5">CBOR encoding:</p>
 <pre>
 A1                                      # map(1)
    71                                   # text(17)
@@ -805,8 +803,7 @@ leaf-list search {
 </h1>
 <p id="rfc.section.4.4.1.p.1">Deltas of data nodes within a list are equal to the SID of the current schema node minus the SID of the &#8216;list&#8217;.</p>
 <p id="rfc.section.4.4.1.p.2">The following example show the encoding of a &#8216;server&#8217; list using SIDs.</p>
-<p id="rfc.section.4.4.1.p.3">Application payloads carrying list instance(s) (e.g. CoAP Content-Format) SHOULD also carry the SID of the list to allow stateless conversion of deltas to SIDs. The format of this application payload is not defined by the current specification and is not shown in the example.</p>
-<p id="rfc.section.4.4.1.p.4">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
+<p id="rfc.section.4.4.1.p.3">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
 <pre>
 list server {
   key name;
@@ -845,7 +842,7 @@ list server {
   }
 }
 </pre>
-<p id="rfc.section.4.4.1.p.5">CBOR diagnostic notation:</p>
+<p id="rfc.section.4.4.1.p.4">CBOR diagnostic notation:</p>
 <pre>
 [                                     / server (SID 1756) /
   {
@@ -866,7 +863,7 @@ list server {
   }
 ]
 </pre>
-<p id="rfc.section.4.4.1.p.6">CBOR encoding:</p>
+<p id="rfc.section.4.4.1.p.5">CBOR encoding:</p>
 <pre>
 82                                    # array(2)
    A5                                 # map(5)
@@ -900,8 +897,7 @@ list server {
 <a href="#rfc.section.4.4.2">4.4.2.</a> <a href="#member-names-as-keys" id="member-names-as-keys">Member names as keys</a>
 </h1>
 <p id="rfc.section.4.4.2.p.1">The following example shows the encoding of a &#8216;server&#8217; list instance using names. Encoding rules of each &#8216;list&#8217; instance are defined in <a href="#container-with-name" class="xref">Section 4.2.2</a>.</p>
-<p id="rfc.section.4.4.2.p.2">Application payloads carrying a list (e.g. CoAP Content-Format) SHOULD include the namespace-qualified list name. In this case, the simple form of the member name may be used for the list members sharing the same namespaces.</p>
-<p id="rfc.section.4.4.2.p.3">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
+<p id="rfc.section.4.4.2.p.2">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
 <pre>
 list server {
   key name;
@@ -940,7 +936,7 @@ list server {
   }
 }
 </pre>
-<p id="rfc.section.4.4.2.p.4">CBOR diagnostic notation:</p>
+<p id="rfc.section.4.4.2.p.3">CBOR diagnostic notation:</p>
 <pre>
 [
   {
@@ -961,7 +957,7 @@ list server {
   }
 ]
 </pre>
-<p id="rfc.section.4.4.2.p.5">CBOR encoding:</p>
+<p id="rfc.section.4.4.2.p.4">CBOR encoding:</p>
 <pre>
 82                                      # array(2)
    A5                                   # map(5)
@@ -1447,7 +1443,6 @@ leaf address {
 <p id="rfc.section.6.13.1.p.6">Examples within this section assume the definition of a schema node of type &#8216;instance-identifier&#8217;:</p>
 <p id="rfc.section.6.13.1.p.7">Definition example from <a href="#RFC7950" class="xref">[RFC7950]</a>:</p>
 <pre>
-~~~~ yang
 container system {
   ...
   leaf reporting-entity {
@@ -1457,7 +1452,7 @@ container system {
 <p id="rfc.section.6.13.1.p.8">leaf contact { type string; }</p>
 <p id="rfc.section.6.13.1.p.9">leaf hostname { type inet:domain-name; } } ~~~~</p>
 <p><strong>First example:</strong></p>
-<p id="rfc.section.6.13.1.p.11">The following example shows the encoding of &#8216;reporting-entity&#8217; referencing data node instance &#8220;/system/contact&#8221; (SID 1741).</p>
+<p id="rfc.section.6.13.1.p.11">The following example shows the encoding of the &#8216;reporting-entity&#8217; value referencing data node instance &#8220;/system/contact&#8221; (SID 1741).</p>
 <p id="rfc.section.6.13.1.p.12">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
 <pre>
 container system {
@@ -1474,7 +1469,7 @@ container system {
 <p id="rfc.section.6.13.1.p.13">CBOR diagnostic notation: 1741</p>
 <p id="rfc.section.6.13.1.p.14">CBOR encoding: 19 06CD</p>
 <p><strong>Second example:</strong></p>
-<p id="rfc.section.6.13.1.p.16">The following example shows the encoding of &#8216;reporting-entity&#8217; referencing list instance &#8220;/system/authentication/user/authorized-key/key-data&#8221; (SID 1734) for user name &#8220;bob&#8221; and authorized-key &#8220;admin&#8221;.</p>
+<p id="rfc.section.6.13.1.p.16">The following example shows the encoding of the &#8216;reporting-entity&#8217; value referencing list instance &#8220;/system/authentication/user/authorized-key/key-data&#8221; (SID 1734) for user name &#8220;bob&#8221; and authorized-key &#8220;admin&#8221;.</p>
 <p id="rfc.section.6.13.1.p.17">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
 <pre>
 list user {
@@ -1512,7 +1507,7 @@ list user {
       61646D696E # "admin"
 </pre>
 <p><strong>Third example:</strong></p>
-<p id="rfc.section.6.13.1.p.21">The following example shows the encoding of &#8216;reporting-entity&#8217; referencing the list instance &#8220;/system/authentication/user&#8221; (SID 1730) corresponding to user name &#8220;jack&#8221;.</p>
+<p id="rfc.section.6.13.1.p.21">The following example shows the encoding of the &#8216;reporting-entity&#8217; value referencing the list instance &#8220;/system/authentication/user&#8221; (SID 1730) corresponding to user name &#8220;jack&#8221;.</p>
 <p id="rfc.section.6.13.1.p.22">CBOR diagnostic notation: [1730, &#8220;jack&#8221;]</p>
 <p id="rfc.section.6.13.1.p.23">CBOR encoding:</p>
 <pre>
