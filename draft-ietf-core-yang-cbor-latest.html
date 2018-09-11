@@ -692,6 +692,13 @@ li, p {
 <p id="rfc.section.4.2.1.p.3">The following example shows the encoding of a &#8216;system-state&#8217; container instance with a single child, a &#8216;clock&#8217; container.  The &#8216;clock&#8217; container has two children, a &#8216;current-datetime&#8217; leaf and a &#8216;boot-datetime&#8217; leaf.</p>
 <p id="rfc.section.4.2.1.p.4">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
 <pre>
+typedef date-and-time {
+  type string {
+    pattern '\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]
+             \d{2}:\d{2})';
+  }
+}
+   
 container system-state {
 
   container clock {
@@ -729,10 +736,17 @@ A1                                      # map(1)
 <h1 id="rfc.section.4.2.2">
 <a href="#rfc.section.4.2.2">4.2.2.</a> <a href="#container-with-name" id="container-with-name">Member names as keys</a>
 </h1>
-<p id="rfc.section.4.2.2.p.1">CBOR map keys implemented using member names MUST be encoded using a CBOR text string data item (major type 3). A namespace-qualified member name MUST be used for all members of a top-level collection, and then also whenever the namespaces of the schema node and its parent are different. In all other cases, the simple form of the member name MUST be used. Names and namespaces are defined in <a href="#RFC7951" class="xref">[RFC7951]</a> section 4.</p>
-<p id="rfc.section.4.2.2.p.2">The following example shows the encoding of a &#8216;system&#8217; container instance using names. YANG definitions used in this example are available in <a href="#container-with-sid" class="xref">Section 4.2.1</a>.</p>
+<p id="rfc.section.4.2.2.p.1">CBOR map keys implemented using member names MUST be encoded using a CBOR text string data item (major type 3). A namespace-qualified member name MUST be used each time the namespace of a schema node and its parent differ. In all other cases, the simple form of the member name MUST be used. Names and namespaces are defined in <a href="#RFC7951" class="xref">[RFC7951]</a> section 4.</p>
+<p id="rfc.section.4.2.2.p.2">The following example shows the encoding of a &#8216;system&#8217; container instance using names.</p>
 <p id="rfc.section.4.2.2.p.3">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
 <pre>
+typedef date-and-time {
+  type string {
+    pattern '\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]
+             \d{2}:\d{2})';
+  }
+}
+   
 container system-state {
 
   container clock {
