@@ -493,11 +493,11 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 4.2.2.  Member names as keys
 
-   Keys implemented using member names MUST be encoded using a CBOR text
-   string data item (major type 3).  A namespace-qualified member name
-   MUST be used for all members of a top-level collection, and then also
-   whenever the namespaces of the schema node and its parent are
-   different.  In all other cases, the simple form of the member name
+   CBOR map keys implemented using member names MUST be encoded using a
+   CBOR text string data item (major type 3).  A namespace-qualified
+   member name MUST be used for all members of a top-level collection,
+   and then also whenever the namespaces of the schema node and its
+   parent are different.  In all other cases, the simple form of the
 
 
 
@@ -506,12 +506,19 @@ Veillette, et al.        Expires March 15, 2019                 [Page 9]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
-   MUST be used.  Names and namespaces are defined in [RFC7951] section
-   4.
+   member name MUST be used.  Names and namespaces are defined in
+   [RFC7951] section 4.
 
    The following example shows the encoding of a 'system' container
-   instance using names.  YANG definitions used by this example are
+   instance using names.  YANG definitions used in this example are
    available in Section 4.2.1.
+
+   Application payloads carrying a collection (e.g.  CoAP Content-
+   Format) SHOULD include the namespace-qualified container name.  In
+   this case, the simple form of the member name may be used for the
+   container members sharing the same namespaces.  The format of this
+   application payload is not defined by the current specification and
+   is not shown in the examples.
 
    CBOR diagnostic notation:
 
@@ -547,13 +554,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
    instance containing two entries, "ietf.org" and "ieee.org".
 
    Definition example [RFC7317]:
-
-
-
-
-
-
-
 
 
 

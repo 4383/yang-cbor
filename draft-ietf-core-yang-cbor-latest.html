@@ -737,9 +737,10 @@ A1                                      # map(1)
 <h1 id="rfc.section.4.2.2">
 <a href="#rfc.section.4.2.2">4.2.2.</a> <a href="#container-with-name" id="container-with-name">Member names as keys</a>
 </h1>
-<p id="rfc.section.4.2.2.p.1">Keys implemented using member names MUST be encoded using a CBOR text string data item (major type 3). A namespace-qualified member name MUST be used for all members of a top-level collection, and then also whenever the namespaces of the schema node and its parent are different. In all other cases, the simple form of the member name MUST be used. Names and namespaces are defined in <a href="#RFC7951" class="xref">[RFC7951]</a> section 4.</p>
-<p id="rfc.section.4.2.2.p.2">The following example shows the encoding of a &#8216;system&#8217; container instance using names. YANG definitions used by this example are available in <a href="#container-with-sid" class="xref">Section 4.2.1</a>.</p>
-<p id="rfc.section.4.2.2.p.3">CBOR diagnostic notation:</p>
+<p id="rfc.section.4.2.2.p.1">CBOR map keys implemented using member names MUST be encoded using a CBOR text string data item (major type 3). A namespace-qualified member name MUST be used for all members of a top-level collection, and then also whenever the namespaces of the schema node and its parent are different. In all other cases, the simple form of the member name MUST be used. Names and namespaces are defined in <a href="#RFC7951" class="xref">[RFC7951]</a> section 4.</p>
+<p id="rfc.section.4.2.2.p.2">The following example shows the encoding of a &#8216;system&#8217; container instance using names. YANG definitions used in this example are available in <a href="#container-with-sid" class="xref">Section 4.2.1</a>.</p>
+<p id="rfc.section.4.2.2.p.3">Application payloads carrying a collection (e.g. CoAP Content-Format) SHOULD include the namespace-qualified container name. In this case, the simple form of the member name may be used for the container members sharing the same namespaces. The format of this application payload is not defined by the current specification and is not shown in the examples.</p>
+<p id="rfc.section.4.2.2.p.4">CBOR diagnostic notation:</p>
 <pre>
 {
   "ietf-system:clock" : {
@@ -748,7 +749,7 @@ A1                                      # map(1)
   }
 }
 </pre>
-<p id="rfc.section.4.2.2.p.4">CBOR encoding:</p>
+<p id="rfc.section.4.2.2.p.5">CBOR encoding:</p>
 <pre>
 A1                                      # map(1)
    71                                   # text(17)
