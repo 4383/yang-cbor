@@ -1558,8 +1558,8 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 6.13.1.  SIDs as instance-identifier
 
    SIDs uniquely identify a schema node.  In the case of a single
-   instance schema node (i.e. a schema node defined at the root of a
-   YANG module or submodule or schema nodes defined within a container),
+   instance schema node, i.e. a schema node defined at the root of a
+   YANG module or submodule or schema nodes defined within a container,
    the SID is sufficient to identify this instance.
 
 

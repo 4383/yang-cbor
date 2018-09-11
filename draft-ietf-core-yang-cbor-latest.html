@@ -1405,7 +1405,7 @@ leaf address {
 <h1 id="rfc.section.6.13.1">
 <a href="#rfc.section.6.13.1">6.13.1.</a> <a href="#instance-identifier-with-sid" id="instance-identifier-with-sid">SIDs as instance-identifier</a>
 </h1>
-<p id="rfc.section.6.13.1.p.1">SIDs uniquely identify a schema node. In the case of a single instance schema node (i.e. a schema node defined at the root of a YANG module or submodule or schema nodes defined within a container), the SID is sufficient to identify this instance.</p>
+<p id="rfc.section.6.13.1.p.1">SIDs uniquely identify a schema node. In the case of a single instance schema node, i.e. a schema node defined at the root of a YANG module or submodule or schema nodes defined within a container, the SID is sufficient to identify this instance.</p>
 <p id="rfc.section.6.13.1.p.2">In the case of a schema node member of a YANG list, a SID is combined with the list key(s) to identify each instance within the YANG list(s).</p>
 <p id="rfc.section.6.13.1.p.3">Single instance schema nodes MUST be encoded using a CBOR unsigned integer data item (major type 0) and set to the targeted schema node SID.</p>
 <p id="rfc.section.6.13.1.p.4">Schema nodes member of a YANG list MUST be encoded using a CBOR array data item (major type 4) containing the following entries:</p>
