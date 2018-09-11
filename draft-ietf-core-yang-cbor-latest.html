@@ -689,17 +689,10 @@ li, p {
 <li>In the case of an &#8216;rpc input&#8217; or &#8216;rcp output&#8217;, deltas are equal to the SID of the current schema node minus the SID of the &#8216;rpc&#8217;.</li>
 <li>In the case of an &#8216;action input&#8217; or &#8216;action output&#8217;, deltas are equal to the SID of the current schema node minus the SID of the &#8216;action&#8217;.</li>
 </ul>
-<p id="rfc.section.4.2.1.p.3">Application payloads carrying a collection (e.g. CoAP Content-Format) SHOULD include the reference SID to allow stateless conversion of delta values to SIDs. The format of this application payload is not defined by the current specification and is not shown in the examples.</p>
+<p id="rfc.section.4.2.1.p.3">Application payloads carrying a collection (e.g. CoAP Content-Format) SHOULD include the reference SID for this collection to allow stateless conversion of delta values to SIDs. The format of this application payload is not defined by the current specification and is not shown in the examples.</p>
 <p id="rfc.section.4.2.1.p.4">The following example shows the encoding of a &#8216;system-state&#8217; container instance with a single child, a &#8216;clock&#8217; container.  The &#8216;clock&#8217; container has two children, a &#8216;current-datetime&#8217; leaf and a &#8216;boot-datetime&#8217; leaf.</p>
 <p id="rfc.section.4.2.1.p.5">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
 <pre>
-typedef date-and-time {
-  type string {
-    pattern '\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]
-             \d{2}:\d{2})';
-  }
-}
-
 container system-state {
 
   container clock {
@@ -739,8 +732,23 @@ A1                                      # map(1)
 </h1>
 <p id="rfc.section.4.2.2.p.1">CBOR map keys implemented using member names MUST be encoded using a CBOR text string data item (major type 3). A namespace-qualified member name MUST be used for all members of a top-level collection, and then also whenever the namespaces of the schema node and its parent are different. In all other cases, the simple form of the member name MUST be used. Names and namespaces are defined in <a href="#RFC7951" class="xref">[RFC7951]</a> section 4.</p>
 <p id="rfc.section.4.2.2.p.2">The following example shows the encoding of a &#8216;system&#8217; container instance using names. YANG definitions used in this example are available in <a href="#container-with-sid" class="xref">Section 4.2.1</a>.</p>
-<p id="rfc.section.4.2.2.p.3">Application payloads carrying a collection (e.g. CoAP Content-Format) SHOULD include the namespace-qualified container name. In this case, the simple form of the member name may be used for the container members sharing the same namespaces. The format of this application payload is not defined by the current specification and is not shown in the examples.</p>
-<p id="rfc.section.4.2.2.p.4">CBOR diagnostic notation:</p>
+<p id="rfc.section.4.2.2.p.3">Application payloads carrying a collection (e.g. CoAP Content-Format) SHOULD include the namespace-qualified collection name. In this case, the simple form of the member name may be used for the collection members sharing the same namespaces.</p>
+<p id="rfc.section.4.2.2.p.4">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
+<pre>
+container system-state {
+
+  container clock {
+    leaf current-datetime {
+      type date-and-time;
+    }
+
+    leaf boot-datetime {
+      type date-and-time;
+    }
+  }
+}
+</pre>
+<p id="rfc.section.4.2.2.p.5">CBOR diagnostic notation:</p>
 <pre>
 {
   "ietf-system:clock" : {
@@ -749,7 +757,7 @@ A1                                      # map(1)
   }
 }
 </pre>
-<p id="rfc.section.4.2.2.p.5">CBOR encoding:</p>
+<p id="rfc.section.4.2.2.p.6">CBOR encoding:</p>
 <pre>
 A1                                      # map(1)
    71                                   # text(17)
@@ -795,9 +803,9 @@ leaf-list search {
 <h1 id="rfc.section.4.4.1">
 <a href="#rfc.section.4.4.1">4.4.1.</a> <a href="#list-with-sid" id="list-with-sid">SIDs as keys</a>
 </h1>
-<p id="rfc.section.4.4.1.p.1">CBOR map keys implemented using SIDs MUST be encoded using a CBOR unsigned integer (major type 0) or CBOR negative integer (major type 1), depending on the actual delta value. Deltas of data nodes within a list are equal to the SID of the current schema node minus the SID of the &#8216;list&#8217;.</p>
+<p id="rfc.section.4.4.1.p.1">Deltas of data nodes within a list are equal to the SID of the current schema node minus the SID of the &#8216;list&#8217;.</p>
 <p id="rfc.section.4.4.1.p.2">The following example show the encoding of a &#8216;server&#8217; list using SIDs.</p>
-<p id="rfc.section.4.4.1.p.3">Application payloads carrying list instance(s) (e.g. CoAP Content-Format) SHOULD also carry the reference SID to allow stateless conversion of deltas to SIDs. The format of this application payload is not defined by the current specification and is not shown in the example.</p>
+<p id="rfc.section.4.4.1.p.3">Application payloads carrying list instance(s) (e.g. CoAP Content-Format) SHOULD also carry the SID of the list to allow stateless conversion of deltas to SIDs. The format of this application payload is not defined by the current specification and is not shown in the example.</p>
 <p id="rfc.section.4.4.1.p.4">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
 <pre>
 list server {
@@ -891,8 +899,48 @@ list server {
 <h1 id="rfc.section.4.4.2">
 <a href="#rfc.section.4.4.2">4.4.2.</a> <a href="#member-names-as-keys" id="member-names-as-keys">Member names as keys</a>
 </h1>
-<p id="rfc.section.4.4.2.p.1">The following example shows the encoding of a &#8216;server&#8217; list instance using names. Encoding rules of each &#8216;list&#8217; instance are defined in section <a href="#container-with-name" class="xref">Section 4.2.2</a>,  YANG definitions used by this example are available in <a href="#list-with-sid" class="xref">Section 4.4.1</a>.</p>
-<p id="rfc.section.4.4.2.p.2">CBOR diagnostic notation:</p>
+<p id="rfc.section.4.4.2.p.1">The following example shows the encoding of a &#8216;server&#8217; list instance using names. Encoding rules of each &#8216;list&#8217; instance are defined in section <a href="#container-with-name" class="xref">Section 4.2.2</a>.</p>
+<p id="rfc.section.4.4.2.p.2">Application payloads carrying a list (e.g. CoAP Content-Format) SHOULD include the namespace-qualified list name. In this case, the simple form of the member name may be used for the list members sharing the same namespaces.</p>
+<p id="rfc.section.4.4.2.p.3">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
+<pre>
+list server {
+  key name;
+
+  leaf name {
+    type string;
+  }
+  choice transport {
+    case udp {
+      container udp {
+        leaf address {
+          type host;
+          mandatory true;
+        }
+        leaf port {
+          type port-number;
+        }
+      }
+    }
+  }
+  leaf association-type {
+    type enumeration {
+      enum server;
+      enum peer;
+      enum pool;
+    }
+    default server;
+  }
+  leaf iburst {
+    type boolean;
+    default false;
+  }
+  leaf prefer {
+    type boolean;
+    default false;
+  }
+}
+</pre>
+<p id="rfc.section.4.4.2.p.4">CBOR diagnostic notation:</p>
 <pre>
 [
   {
@@ -913,7 +961,7 @@ list server {
   }
 ]
 </pre>
-<p id="rfc.section.4.4.2.p.3">CBOR encoding:</p>
+<p id="rfc.section.4.4.2.p.5">CBOR encoding:</p>
 <pre>
 82                                      # array(2)
    A5                                   # map(5)
