@@ -678,19 +678,8 @@ li, p {
 </h1>
 <p id="rfc.section.4.2.p.1">Collections such as containers, list instances, notification contents, rpc inputs, rpc outputs, action inputs and action outputs MUST be encoded using a CBOR map data item (major type 5). A map is comprised of pairs of data items, with each data item consisting of a key and a value. Each key within the CBOR map is set to a schema node identifier, each value is set to the value of this schema node instance according to the instance datatype.</p>
 <p id="rfc.section.4.2.p.2">This specification supports two type of CBOR keys; SID as defined in <a href="#sid" class="xref">Section 2.1</a> and member names as defined in <a href="#RFC7951" class="xref">[RFC7951]</a>.</p>
-<h1 id="rfc.section.4.2.1">
-<a href="#rfc.section.4.2.1">4.2.1.</a> <a href="#container-with-sid" id="container-with-sid">SIDs as keys</a>
-</h1>
-<p id="rfc.section.4.2.1.p.1">CBOR map keys implemented using SIDs MUST be encoded using a CBOR unsigned integer (major type 0) or CBOR negative integer (major type 1), depending on the actual delta value. Delta values are computed as follows:</p>
-<p></p>
-
-<ul>
-<li>In the case of a &#8216;container&#8217;, deltas are equal to the SID of the current schema node minus the SID of the parent &#8216;container&#8217;.</li>
-<li>In the case of an &#8216;rpc input&#8217; or &#8216;rcp output&#8217;, deltas are equal to the SID of the current schema node minus the SID of the &#8216;rpc&#8217;.</li>
-<li>In the case of an &#8216;action input&#8217; or &#8216;action output&#8217;, deltas are equal to the SID of the current schema node minus the SID of the &#8216;action&#8217;.</li>
-</ul>
-<p id="rfc.section.4.2.1.p.3">The following example shows the encoding of a &#8216;system-state&#8217; container instance with a single child, a &#8216;clock&#8217; container.  The &#8216;clock&#8217; container has two children, a &#8216;current-datetime&#8217; leaf and a &#8216;boot-datetime&#8217; leaf.</p>
-<p id="rfc.section.4.2.1.p.4">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
+<p id="rfc.section.4.2.p.3">The following examples shows the encoding of a &#8216;system-state&#8217; container instance using SIDs or member names.</p>
+<p id="rfc.section.4.2.p.4">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
 <pre>
 typedef date-and-time {
   type string {
@@ -712,7 +701,18 @@ container system-state {
   }
 }
 </pre>
-<p id="rfc.section.4.2.1.p.5">CBOR diagnostic notation:</p>
+<h1 id="rfc.section.4.2.1">
+<a href="#rfc.section.4.2.1">4.2.1.</a> <a href="#container-with-sid" id="container-with-sid">SIDs as keys</a>
+</h1>
+<p id="rfc.section.4.2.1.p.1">CBOR map keys implemented using SIDs MUST be encoded using a CBOR unsigned integer (major type 0) or CBOR negative integer (major type 1), depending on the actual delta value. Delta values are computed as follows:</p>
+<p></p>
+
+<ul>
+<li>In the case of a &#8216;container&#8217;, deltas are equal to the SID of the current schema node minus the SID of the parent &#8216;container&#8217;.</li>
+<li>In the case of an &#8216;rpc input&#8217; or &#8216;rcp output&#8217;, deltas are equal to the SID of the current schema node minus the SID of the &#8216;rpc&#8217;.</li>
+<li>In the case of an &#8216;action input&#8217; or &#8216;action output&#8217;, deltas are equal to the SID of the current schema node minus the SID of the &#8216;action&#8217;.</li>
+</ul>
+<p id="rfc.section.4.2.1.p.3">CBOR diagnostic notation:</p>
 <pre>
 {                                      / system-state (SID 1720) /
   +1 : {                               / clock  (SID 1721) /
@@ -721,7 +721,7 @@ container system-state {
   }
 }
 </pre>
-<p id="rfc.section.4.2.1.p.6">CBOR encoding:</p>
+<p id="rfc.section.4.2.1.p.4">CBOR encoding:</p>
 <pre>
 A1                                      # map(1)
    01                                   # unsigned(1)
@@ -812,12 +812,8 @@ leaf-list search {
 </h1>
 <p id="rfc.section.4.4.p.1">A list or a subset of a list MUST be encoded using a CBOR array data item (major type 4). Each list instance within this CBOR array is encoded using a CBOR map data item (major type 5) based on the encoding rules of a collection as defined in <a href="#container" class="xref">Section 4.2</a>.</p>
 <p id="rfc.section.4.4.p.2">It is important to note that this encoding rule also apply to a single &#8216;list&#8217; instance.</p>
-<h1 id="rfc.section.4.4.1">
-<a href="#rfc.section.4.4.1">4.4.1.</a> <a href="#list-with-sid" id="list-with-sid">SIDs as keys</a>
-</h1>
-<p id="rfc.section.4.4.1.p.1">Deltas of data nodes within a list are equal to the SID of the current schema node minus the SID of the &#8216;list&#8217;.</p>
-<p id="rfc.section.4.4.1.p.2">The following example show the encoding of a &#8216;server&#8217; list using SIDs.</p>
-<p id="rfc.section.4.4.1.p.3">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
+<p id="rfc.section.4.4.p.3">The following examples show the encoding of a &#8216;server&#8217; list using SIDs or member names.</p>
+<p id="rfc.section.4.4.p.4">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
 <pre>
 list server {
   key name;
@@ -856,7 +852,11 @@ list server {
   }
 }
 </pre>
-<p id="rfc.section.4.4.1.p.4">CBOR diagnostic notation:</p>
+<h1 id="rfc.section.4.4.1">
+<a href="#rfc.section.4.4.1">4.4.1.</a> <a href="#list-with-sid" id="list-with-sid">SIDs as keys</a>
+</h1>
+<p id="rfc.section.4.4.1.p.1">The encoding rules of each &#8216;list&#8217; instance are defined in <a href="#container-with-sid" class="xref">Section 4.2.1</a>. Deltas of list members are equal to the SID of the current schema node minus the SID of the &#8216;list&#8217;.</p>
+<p id="rfc.section.4.4.1.p.2">CBOR diagnostic notation:</p>
 <pre>
 [                                     / server (SID 1756) /
   {
@@ -877,7 +877,7 @@ list server {
   }
 ]
 </pre>
-<p id="rfc.section.4.4.1.p.5">CBOR encoding:</p>
+<p id="rfc.section.4.4.1.p.3">CBOR encoding:</p>
 <pre>
 82                                    # array(2)
    A5                                 # map(5)
@@ -910,47 +910,8 @@ list server {
 <h1 id="rfc.section.4.4.2">
 <a href="#rfc.section.4.4.2">4.4.2.</a> <a href="#member-names-as-keys" id="member-names-as-keys">Member names as keys</a>
 </h1>
-<p id="rfc.section.4.4.2.p.1">The following example shows the encoding of a &#8216;server&#8217; list instance using names. Encoding rules of each &#8216;list&#8217; instance are defined in <a href="#container-with-name" class="xref">Section 4.2.2</a>.</p>
-<p id="rfc.section.4.4.2.p.2">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
-<pre>
-list server {
-  key name;
-
-  leaf name {
-    type string;
-  }
-  choice transport {
-    case udp {
-      container udp {
-        leaf address {
-          type host;
-          mandatory true;
-        }
-        leaf port {
-          type port-number;
-        }
-      }
-    }
-  }
-  leaf association-type {
-    type enumeration {
-      enum server;
-      enum peer;
-      enum pool;
-    }
-    default server;
-  }
-  leaf iburst {
-    type boolean;
-    default false;
-  }
-  leaf prefer {
-    type boolean;
-    default false;
-  }
-}
-</pre>
-<p id="rfc.section.4.4.2.p.3">CBOR diagnostic notation:</p>
+<p id="rfc.section.4.4.2.p.1">The encoding rules of each &#8216;list&#8217; instance are defined in <a href="#container-with-name" class="xref">Section 4.2.2</a>.</p>
+<p id="rfc.section.4.4.2.p.2">CBOR diagnostic notation:</p>
 <pre>
 [
   {
@@ -971,7 +932,7 @@ list server {
   }
 ]
 </pre>
-<p id="rfc.section.4.4.2.p.4">CBOR encoding:</p>
+<p id="rfc.section.4.4.2.p.3">CBOR encoding:</p>
 <pre>
 82                                      # array(2)
    A5                                   # map(5)
@@ -1018,11 +979,11 @@ list server {
 <p></p>
 
 <ul>
-<li>Keys of any inner schema nodes MUST be set to valid deltas or member names.</li>
+<li>CBOR map keys of any inner schema nodes MUST be set to valid deltas or member names.</li>
 <li>The CBOR array MUST contain either unique scalar values (as a leaf-list, see <a href="#leaf-list" class="xref">Section 4.3</a>), or maps (as a list, see <a href="#list" class="xref">Section 4.4</a>).</li>
-<li>Values MUST follow the encoding rules of one of the datatypes listed in <a href="#data-types-mapping" class="xref">Section 6</a>.</li>
+<li>CBOR map values MUST follow the encoding rules of one of the datatypes listed in <a href="#instance-encoding" class="xref">Section 4</a>.</li>
 </ul>
-<p id="rfc.section.4.5.p.3">The following example shows a possible use of anydata. In this example, an anydata is used to define a schema node containing a notification event, this schema node can be part of a YANG list to create an event logger.</p>
+<p id="rfc.section.4.5.p.3">The following example shows a possible use of an anydata. In this example, an anydata is used to define a schema node containing a notification event, this schema node can be part of a YANG list to create an event logger.</p>
 <p id="rfc.section.4.5.p.4">Definition example:</p>
 <pre>
 module event-log {
@@ -1077,7 +1038,8 @@ anyxml bar;
 </h1>
 <p id="rfc.section.5.p.1">YANG data templates are data structures defined in YANG but not intended to be implemented as part of a datastore. YANG data templates are defined using the &#8216;yang-data&#8217; extension as described by RFC 8040.</p>
 <p id="rfc.section.5.p.2">YANG data templates SHOULD be encoded using the encoding rules of a collection as defined in <a href="#container" class="xref">Section 4.2</a>.</p>
-<p id="rfc.section.5.p.3">Definition example from <a href="#I-D.ietf-core-comi" class="xref">[I-D.ietf-core-comi]</a>:</p>
+<p id="rfc.section.5.p.3">Just like YANG containers, YANG data templates can be encoded using either SIDs or names.</p>
+<p id="rfc.section.5.p.4">Definition example from <a href="#I-D.ietf-core-comi" class="xref">[I-D.ietf-core-comi]</a>:</p>
 <pre>
 import ietf-restconf {
   prefix rc;
@@ -1104,7 +1066,6 @@ rc:yang-data yang-errors {
   }
 }
 </pre>
-<p id="rfc.section.5.p.4">Just like YANG containers, YANG data templates can be encoded using either SIDs or names.</p>
 <h1 id="rfc.section.5.1">
 <a href="#rfc.section.5.1">5.1.</a> <a href="#sids-as-keys" id="sids-as-keys">SIDs as keys</a>
 </h1>

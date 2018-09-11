@@ -79,33 +79,33 @@ Table of Contents
        4.2.2.  Member names as keys  . . . . . . . . . . . . . . . .   9
      4.3.  The 'leaf-list' . . . . . . . . . . . . . . . . . . . . .  11
      4.4.  The 'list' and 'list' instance(s) . . . . . . . . . . . .  11
-       4.4.1.  SIDs as keys  . . . . . . . . . . . . . . . . . . . .  11
+       4.4.1.  SIDs as keys  . . . . . . . . . . . . . . . . . . . .  12
        4.4.2.  Member names as keys  . . . . . . . . . . . . . . . .  14
-     4.5.  The 'anydata' . . . . . . . . . . . . . . . . . . . . . .  16
-     4.6.  The 'anyxml'  . . . . . . . . . . . . . . . . . . . . . .  18
-   5.  Encoding of YANG data templates . . . . . . . . . . . . . . .  18
-     5.1.  SIDs as keys  . . . . . . . . . . . . . . . . . . . . . .  19
-     5.2.  Member names as keys  . . . . . . . . . . . . . . . . . .  20
-   6.  Representing YANG Data Types in CBOR  . . . . . . . . . . . .  21
-     6.1.  The unsigned integer Types  . . . . . . . . . . . . . . .  21
-     6.2.  The integer Types . . . . . . . . . . . . . . . . . . . .  22
-     6.3.  The 'decimal64' Type  . . . . . . . . . . . . . . . . . .  22
-     6.4.  The 'string' Type . . . . . . . . . . . . . . . . . . . .  23
-     6.5.  The 'boolean' Type  . . . . . . . . . . . . . . . . . . .  23
-     6.6.  The 'enumeration' Type  . . . . . . . . . . . . . . . . .  23
-     6.7.  The 'bits' Type . . . . . . . . . . . . . . . . . . . . .  24
-     6.8.  The 'binary' Type . . . . . . . . . . . . . . . . . . . .  25
-     6.9.  The 'leafref' Type  . . . . . . . . . . . . . . . . . . .  25
-     6.10. The 'identityref' Type  . . . . . . . . . . . . . . . . .  26
-       6.10.1.  SIDs as identityref  . . . . . . . . . . . . . . . .  26
-       6.10.2.  Name as identityref  . . . . . . . . . . . . . . . .  27
-     6.11. The 'empty' Type  . . . . . . . . . . . . . . . . . . . .  27
-     6.12. The 'union' Type  . . . . . . . . . . . . . . . . . . . .  28
-     6.13. The 'instance-identifier' Type  . . . . . . . . . . . . .  29
-       6.13.1.  SIDs as instance-identifier  . . . . . . . . . . . .  29
-       6.13.2.  Names as instance-identifier . . . . . . . . . . . .  32
-   7.  Security Considerations . . . . . . . . . . . . . . . . . . .  33
-   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  33
+     4.5.  The 'anydata' . . . . . . . . . . . . . . . . . . . . . .  15
+     4.6.  The 'anyxml'  . . . . . . . . . . . . . . . . . . . . . .  17
+   5.  Encoding of YANG data templates . . . . . . . . . . . . . . .  17
+     5.1.  SIDs as keys  . . . . . . . . . . . . . . . . . . . . . .  18
+     5.2.  Member names as keys  . . . . . . . . . . . . . . . . . .  19
+   6.  Representing YANG Data Types in CBOR  . . . . . . . . . . . .  20
+     6.1.  The unsigned integer Types  . . . . . . . . . . . . . . .  20
+     6.2.  The integer Types . . . . . . . . . . . . . . . . . . . .  21
+     6.3.  The 'decimal64' Type  . . . . . . . . . . . . . . . . . .  21
+     6.4.  The 'string' Type . . . . . . . . . . . . . . . . . . . .  22
+     6.5.  The 'boolean' Type  . . . . . . . . . . . . . . . . . . .  22
+     6.6.  The 'enumeration' Type  . . . . . . . . . . . . . . . . .  22
+     6.7.  The 'bits' Type . . . . . . . . . . . . . . . . . . . . .  23
+     6.8.  The 'binary' Type . . . . . . . . . . . . . . . . . . . .  24
+     6.9.  The 'leafref' Type  . . . . . . . . . . . . . . . . . . .  24
+     6.10. The 'identityref' Type  . . . . . . . . . . . . . . . . .  25
+       6.10.1.  SIDs as identityref  . . . . . . . . . . . . . . . .  25
+       6.10.2.  Name as identityref  . . . . . . . . . . . . . . . .  26
+     6.11. The 'empty' Type  . . . . . . . . . . . . . . . . . . . .  26
+     6.12. The 'union' Type  . . . . . . . . . . . . . . . . . . . .  27
+     6.13. The 'instance-identifier' Type  . . . . . . . . . . . . .  28
+       6.13.1.  SIDs as instance-identifier  . . . . . . . . . . . .  28
+       6.13.2.  Names as instance-identifier . . . . . . . . . . . .  31
+   7.  Security Considerations . . . . . . . . . . . . . . . . . . .  32
+   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  32
 
 
 
@@ -114,12 +114,12 @@ Veillette, et al.        Expires March 15, 2019                 [Page 2]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
-     8.1.  Tags Registry . . . . . . . . . . . . . . . . . . . . . .  33
-   9.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  34
-   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  34
-     10.1.  Normative References . . . . . . . . . . . . . . . . . .  34
-     10.2.  Informative References . . . . . . . . . . . . . . . . .  35
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  35
+     8.1.  Tags Registry . . . . . . . . . . . . . . . . . . . . . .  32
+   9.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  33
+   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  33
+     10.1.  Normative References . . . . . . . . . . . . . . . . . .  33
+     10.2.  Informative References . . . . . . . . . . . . . . . . .  34
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  34
 
 1.  Introduction
 
@@ -394,27 +394,8 @@ Veillette, et al.        Expires March 15, 2019                 [Page 7]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
-4.2.1.  SIDs as keys
-
-   CBOR map keys implemented using SIDs MUST be encoded using a CBOR
-   unsigned integer (major type 0) or CBOR negative integer (major type
-   1), depending on the actual delta value.  Delta values are computed
-   as follows:
-
-   o  In the case of a 'container', deltas are equal to the SID of the
-      current schema node minus the SID of the parent 'container'.
-
-   o  In the case of an 'rpc input' or 'rcp output', deltas are equal to
-      the SID of the current schema node minus the SID of the 'rpc'.
-
-   o  In the case of an 'action input' or 'action output', deltas are
-      equal to the SID of the current schema node minus the SID of the
-      'action'.
-
-   The following example shows the encoding of a 'system-state'
-   container instance with a single child, a 'clock' container.  The
-   'clock' container has two children, a 'current-datetime' leaf and a
-   'boot-datetime' leaf.
+   The following examples shows the encoding of a 'system-state'
+   container instance using SIDs or member names.
 
    Definition example from [RFC7317]:
 
@@ -438,7 +419,26 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
      }
    }
 
+4.2.1.  SIDs as keys
+
+   CBOR map keys implemented using SIDs MUST be encoded using a CBOR
+   unsigned integer (major type 0) or CBOR negative integer (major type
+   1), depending on the actual delta value.  Delta values are computed
+   as follows:
+
+   o  In the case of a 'container', deltas are equal to the SID of the
+      current schema node minus the SID of the parent 'container'.
+
+   o  In the case of an 'rpc input' or 'rcp output', deltas are equal to
+      the SID of the current schema node minus the SID of the 'rpc'.
+
+   o  In the case of an 'action input' or 'action output', deltas are
+      equal to the SID of the current schema node minus the SID of the
+      'action'.
+
    CBOR diagnostic notation:
+
+
 
 
 
@@ -601,15 +601,15 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
    It is important to note that this encoding rule also apply to a
    single 'list' instance.
 
-4.4.1.  SIDs as keys
-
-   Deltas of data nodes within a list are equal to the SID of the
-   current schema node minus the SID of the 'list'.
-
-   The following example show the encoding of a 'server' list using
-   SIDs.
+   The following examples show the encoding of a 'server' list using
+   SIDs or member names.
 
    Definition example from [RFC7317]:
+
+
+
+
+
 
 
 
@@ -655,13 +655,13 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
      }
    }
 
+4.4.1.  SIDs as keys
+
+   The encoding rules of each 'list' instance are defined in
+   Section 4.2.1.  Deltas of list members are equal to the SID of the
+   current schema node minus the SID of the 'list'.
+
    CBOR diagnostic notation:
-
-
-
-
-
-
 
 
 
@@ -732,59 +732,10 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 4.4.2.  Member names as keys
 
-   The following example shows the encoding of a 'server' list instance
-   using names.  Encoding rules of each 'list' instance are defined in
+   The encoding rules of each 'list' instance are defined in
    Section 4.2.2.
 
-   Definition example from [RFC7317]:
-
-   list server {
-     key name;
-
-     leaf name {
-       type string;
-     }
-     choice transport {
-       case udp {
-         container udp {
-           leaf address {
-             type host;
-             mandatory true;
-           }
-           leaf port {
-             type port-number;
-           }
-         }
-       }
-     }
-     leaf association-type {
-       type enumeration {
-         enum server;
-         enum peer;
-         enum pool;
-       }
-       default server;
-     }
-     leaf iburst {
-       type boolean;
-       default false;
-     }
-     leaf prefer {
-       type boolean;
-       default false;
-     }
-   }
-
    CBOR diagnostic notation:
-
-
-
-
-
-Veillette, et al.        Expires March 15, 2019                [Page 14]
-
-Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
-
 
    [
      {
@@ -830,14 +781,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-
-
-
-
-
-
-
-Veillette, et al.        Expires March 15, 2019                [Page 15]
+Veillette, et al.        Expires March 15, 2019                [Page 14]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -888,12 +832,12 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
    map.  The requirement that anydata content can be modeled by YANG
    implies the following:
 
-   o  Keys of any inner schema nodes MUST be set to valid deltas or
-      member names.
+   o  CBOR map keys of any inner schema nodes MUST be set to valid
+      deltas or member names.
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 16]
+Veillette, et al.        Expires March 15, 2019                [Page 15]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -901,10 +845,10 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
    o  The CBOR array MUST contain either unique scalar values (as a
       leaf-list, see Section 4.3), or maps (as a list, see Section 4.4).
 
-   o  Values MUST follow the encoding rules of one of the datatypes
-      listed in Section 6.
+   o  CBOR map values MUST follow the encoding rules of one of the
+      datatypes listed in Section 4.
 
-   The following example shows a possible use of anydata.  In this
+   The following example shows a possible use of an anydata.  In this
    example, an anydata is used to define a schema node containing a
    notification event, this schema node can be part of a YANG list to
    create an event logger.
@@ -949,7 +893,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 17]
+Veillette, et al.        Expires March 15, 2019                [Page 16]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -990,6 +934,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
    YANG data templates SHOULD be encoded using the encoding rules of a
    collection as defined in Section 4.2.
 
+   Just like YANG containers, YANG data templates can be encoded using
+   either SIDs or names.
+
    Definition example from [I-D.ietf-core-comi]:
 
 
@@ -1002,10 +949,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-
-
-
-Veillette, et al.        Expires March 15, 2019                [Page 18]
+Veillette, et al.        Expires March 15, 2019                [Page 17]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -1035,9 +979,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
      }
    }
 
-   Just like YANG containers, YANG data templates can be encoded using
-   either SIDs or names.
-
 5.1.  SIDs as keys
 
    This example shows a serialization example of the yang-errors
@@ -1059,14 +1000,15 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
          }
    }
 
+   CBOR encoding:
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 19]
+
+
+Veillette, et al.        Expires March 15, 2019                [Page 18]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
-
-   CBOR encoding:
 
    A1                                      # map(1)
       19 0400                              # unsigned(1024)
@@ -1117,7 +1059,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 20]
+
+
+Veillette, et al.        Expires March 15, 2019                [Page 19]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -1173,7 +1117,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 21]
+Veillette, et al.        Expires March 15, 2019                [Page 20]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -1229,7 +1173,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 22]
+Veillette, et al.        Expires March 15, 2019                [Page 21]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -1285,7 +1229,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 23]
+Veillette, et al.        Expires March 15, 2019                [Page 22]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -1341,7 +1285,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 24]
+Veillette, et al.        Expires March 15, 2019                [Page 23]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -1397,7 +1341,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 25]
+Veillette, et al.        Expires March 15, 2019                [Page 24]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -1453,7 +1397,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 26]
+Veillette, et al.        Expires March 15, 2019                [Page 25]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -1509,7 +1453,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 27]
+Veillette, et al.        Expires March 15, 2019                [Page 26]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -1565,7 +1509,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 28]
+Veillette, et al.        Expires March 15, 2019                [Page 27]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -1621,7 +1565,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 29]
+Veillette, et al.        Expires March 15, 2019                [Page 28]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -1677,7 +1621,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 30]
+Veillette, et al.        Expires March 15, 2019                [Page 29]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -1733,7 +1677,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 31]
+Veillette, et al.        Expires March 15, 2019                [Page 30]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -1789,7 +1733,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 32]
+Veillette, et al.        Expires March 15, 2019                [Page 31]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -1845,7 +1789,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 33]
+Veillette, et al.        Expires March 15, 2019                [Page 32]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -1901,7 +1845,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 34]
+Veillette, et al.        Expires March 15, 2019                [Page 33]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -1957,7 +1901,7 @@ Authors' Addresses
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 35]
+Veillette, et al.        Expires March 15, 2019                [Page 34]
 
 Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
@@ -2013,4 +1957,4 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 
 
-Veillette, et al.        Expires March 15, 2019                [Page 36]
+Veillette, et al.        Expires March 15, 2019                [Page 35]
