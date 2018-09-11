@@ -914,7 +914,8 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
    Section 8.1, these tags shall be supported.
 
    The following example shows a valid CBOR encoded instance consisting
-   of a CBOR array containing the CBOR values 'true', 'null' and 'true'.
+   of a CBOR array containing the CBOR simple values 'true', 'null' and
+   'true'.
 
    Definition example from [RFC7951]:
 
@@ -938,7 +939,6 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
    either SIDs or names.
 
    Definition example from [I-D.ietf-core-comi]:
-
 
 
 
@@ -1198,9 +1198,9 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG  September 2018
 
 6.5.  The 'boolean' Type
 
-   Leafs of type boolean MUST be encoded using a CBOR 'true' (major type
-   7, additional information 21) or CBOR 'false' (major type 7,
-   additional information 20).
+   Leafs of type boolean MUST be encoded using a CBOR simple value
+   'true' (major type 7, additional information 21) or 'false' (major
+   type 7, additional information 20).
 
    The following example shows the encoding of an 'enabled' leaf
    instance set to 'true'.

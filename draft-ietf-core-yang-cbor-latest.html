@@ -1026,7 +1026,7 @@ A2                         # map(2)
 <a href="#rfc.section.4.6">4.6.</a> <a href="#the-anyxml" id="the-anyxml">The &#8216;anyxml&#8217;</a>
 </h1>
 <p id="rfc.section.4.6.p.1">An anyxml schema node is used to serialize an arbitrary CBOR content, i.e., its value can be any CBOR binary object. anyxml value MAY contain CBOR data items tagged with one of the tag listed in <a href="#tag-registry" class="xref">Section 8.1</a>, these tags shall be supported.</p>
-<p id="rfc.section.4.6.p.2">The following example shows a valid CBOR encoded instance consisting of a CBOR array containing the CBOR values &#8216;true&#8217;, &#8216;null&#8217; and &#8216;true&#8217;.</p>
+<p id="rfc.section.4.6.p.2">The following example shows a valid CBOR encoded instance consisting of a CBOR array containing the CBOR simple values &#8216;true&#8217;, &#8216;null&#8217; and &#8216;true&#8217;.</p>
 <p id="rfc.section.4.6.p.3">Definition example from <a href="#RFC7951" class="xref">[RFC7951]</a>:</p>
 <pre>
 anyxml bar;
@@ -1203,7 +1203,7 @@ leaf name {
 <h1 id="rfc.section.6.5">
 <a href="#rfc.section.6.5">6.5.</a> <a href="#the-boolean-type" id="the-boolean-type">The &#8216;boolean&#8217; Type</a>
 </h1>
-<p id="rfc.section.6.5.p.1">Leafs of type boolean MUST be encoded using a CBOR &#8216;true&#8217; (major type 7, additional information 21) or CBOR &#8216;false&#8217; (major type 7, additional information 20).</p>
+<p id="rfc.section.6.5.p.1">Leafs of type boolean MUST be encoded using a CBOR simple value &#8216;true&#8217; (major type 7, additional information 21) or &#8216;false&#8217; (major type 7, additional information 20).</p>
 <p id="rfc.section.6.5.p.2">The following example shows the encoding of an &#8216;enabled&#8217; leaf instance set to &#8216;true&#8217;.</p>
 <p id="rfc.section.6.5.p.3">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
 <pre>
