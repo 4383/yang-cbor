@@ -71,7 +71,7 @@ Table of Contents
    6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  11
      6.1.  "SID mega-range" registry . . . . . . . . . . . . . . . .  11
        6.1.1.  IANA SID Mega-Range Registry  . . . . . . . . . . . .  12
-       6.1.2.  IANA "RFC SID range assignment" sub-registries  . . .  13
+       6.1.2.  IANA "RFC SID range assignment" sub-registry  . . . .  13
      6.2.  "YANG module assignment" registry . . . . . . . . . . . .  14
    7.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  14
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  14
@@ -695,7 +695,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)     September 2018
    important to note that an extra SID range can be allocated to an
    existing YANG module if the initial range is exhausted.
 
-6.1.2.  IANA "RFC SID range assignment" sub-registries
+6.1.2.  IANA "RFC SID range assignment" sub-registry
 
    The name of this sub-registry is "RFC SID range assignment".  This
    sub-registry corresponds to the SID entry point 1000, size 59000.
