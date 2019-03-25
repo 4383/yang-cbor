@@ -4,8 +4,8 @@
 
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
-Intended status: Standards Track                      September 26, 2018
-Expires: March 30, 2019
+Intended status: Standards Track                          March 25, 2019
+Expires: September 26, 2019
 
 
                     Constrained YANG Module Library
@@ -33,11 +33,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on March 30, 2019.
+   This Internet-Draft will expire on September 26, 2019.
 
 Copyright Notice
 
-   Copyright (c) 2018 IETF Trust and the persons identified as the
+   Copyright (c) 2019 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Veillette                Expires March 30, 2019                 [Page 1]
+Veillette              Expires September 26, 2019               [Page 1]
 
-Internet-Draft       Constrained YANG Module Library      September 2018
+Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 Table of Contents
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Veillette                Expires March 30, 2019                 [Page 2]
+Veillette              Expires September 26, 2019               [Page 2]
 
-Internet-Draft       Constrained YANG Module Library      September 2018
+Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 3.  Overview
@@ -165,9 +165,9 @@ Internet-Draft       Constrained YANG Module Library      September 2018
 
 
 
-Veillette                Expires March 30, 2019                 [Page 3]
+Veillette              Expires September 26, 2019               [Page 3]
 
-Internet-Draft       Constrained YANG Module Library      September 2018
+Internet-Draft       Constrained YANG Module Library          March 2019
 
 
    module: ietf-constrained-yang-library
@@ -221,9 +221,9 @@ Internet-Draft       Constrained YANG Module Library      September 2018
 
 
 
-Veillette                Expires March 30, 2019                 [Page 4]
+Veillette              Expires September 26, 2019               [Page 4]
 
-Internet-Draft       Constrained YANG Module Library      September 2018
+Internet-Draft       Constrained YANG Module Library          March 2019
 
 
    o  module 'name', submodule 'name' and datastore 'name' are
@@ -277,9 +277,9 @@ module ietf-constrained-yang-library {
 
 
 
-Veillette                Expires March 30, 2019                 [Page 5]
+Veillette              Expires September 26, 2019               [Page 5]
 
-Internet-Draft       Constrained YANG Module Library      September 2018
+Internet-Draft       Constrained YANG Module Library          March 2019
 
 
      WG List:  <mailto:core@ietf.org>
@@ -333,9 +333,9 @@ Internet-Draft       Constrained YANG Module Library      September 2018
 
 
 
-Veillette                Expires March 30, 2019                 [Page 6]
+Veillette              Expires September 26, 2019               [Page 6]
 
-Internet-Draft       Constrained YANG Module Library      September 2018
+Internet-Draft       Constrained YANG Module Library          March 2019
 
 
        a digit of the of revision date. For example, revision 2018-09-21
@@ -389,9 +389,9 @@ Internet-Draft       Constrained YANG Module Library      September 2018
 
 
 
-Veillette                Expires March 30, 2019                 [Page 7]
+Veillette              Expires September 26, 2019               [Page 7]
 
-Internet-Draft       Constrained YANG Module Library      September 2018
+Internet-Draft       Constrained YANG Module Library          March 2019
 
 
       "Parameters for describing the implementation of a module.";
@@ -445,9 +445,9 @@ Internet-Draft       Constrained YANG Module Library      September 2018
 
 
 
-Veillette                Expires March 30, 2019                 [Page 8]
+Veillette              Expires September 26, 2019               [Page 8]
 
-Internet-Draft       Constrained YANG Module Library      September 2018
+Internet-Draft       Constrained YANG Module Library          March 2019
 
 
       leaf namespace {
@@ -501,9 +501,9 @@ Internet-Draft       Constrained YANG Module Library      September 2018
 
 
 
-Veillette                Expires March 30, 2019                 [Page 9]
+Veillette              Expires September 26, 2019               [Page 9]
 
-Internet-Draft       Constrained YANG Module Library      September 2018
+Internet-Draft       Constrained YANG Module Library          March 2019
 
 
       }
@@ -557,9 +557,9 @@ Internet-Draft       Constrained YANG Module Library      September 2018
 
 
 
-Veillette                Expires March 30, 2019                [Page 10]
+Veillette              Expires September 26, 2019              [Page 10]
 
-Internet-Draft       Constrained YANG Module Library      September 2018
+Internet-Draft       Constrained YANG Module Library          March 2019
 
 
          The schema must be valid and referentially complete, i.e.,
@@ -613,9 +613,9 @@ Internet-Draft       Constrained YANG Module Library      September 2018
 
 
 
-Veillette                Expires March 30, 2019                [Page 11]
+Veillette              Expires September 26, 2019              [Page 11]
 
-Internet-Draft       Constrained YANG Module Library      September 2018
+Internet-Draft       Constrained YANG Module Library          March 2019
 
 
       }
@@ -669,9 +669,9 @@ Internet-Draft       Constrained YANG Module Library      September 2018
 
 
 
-Veillette                Expires March 30, 2019                [Page 12]
+Veillette              Expires September 26, 2019              [Page 12]
 
-Internet-Draft       Constrained YANG Module Library      September 2018
+Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 5.  IANA Considerations
@@ -725,9 +725,9 @@ Internet-Draft       Constrained YANG Module Library      September 2018
 
 
 
-Veillette                Expires March 30, 2019                [Page 13]
+Veillette              Expires September 26, 2019              [Page 13]
 
-Internet-Draft       Constrained YANG Module Library      September 2018
+Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 8.  References
@@ -743,7 +743,7 @@ Internet-Draft       Constrained YANG Module Library      September 2018
    [I-D.ietf-netconf-rfc7895bis]
               Bierman, A., Bjorklund, M., Schoenwaelder, J., Watsen, K.,
               and R. Wilton, "YANG Library", draft-ietf-netconf-
-              rfc7895bis-06 (work in progress), April 2018.
+              rfc7895bis-07 (work in progress), October 2018.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -772,8 +772,8 @@ Internet-Draft       Constrained YANG Module Library      September 2018
 
    [I-D.ietf-core-comi]
               Veillette, M., Stok, P., Pelov, A., and A. Bierman, "CoAP
-              Management Interface", draft-ietf-core-comi-03 (work in
-              progress), June 2018.
+              Management Interface", draft-ietf-core-comi-04 (work in
+              progress), November 2018.
 
 
 
@@ -781,9 +781,9 @@ Internet-Draft       Constrained YANG Module Library      September 2018
 
 
 
-Veillette                Expires March 30, 2019                [Page 14]
+Veillette              Expires September 26, 2019              [Page 14]
 
-Internet-Draft       Constrained YANG Module Library      September 2018
+Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 Author's Address
@@ -837,4 +837,4 @@ Author's Address
 
 
 
-Veillette                Expires March 30, 2019                [Page 15]
+Veillette              Expires September 26, 2019              [Page 15]
