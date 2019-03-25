@@ -478,7 +478,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2019
    instance according to the instance datatype.
 
    This specification supports two type of CBOR keys; SID as defined in
-   Section 3.2 and names as defined in [RFC7951].
+   Section 3.2 and names as defined in Section 3.3.
 
    The following examples shows the encoding of a 'system-state'
    container instance using SIDs or names.
@@ -954,28 +954,28 @@ Veillette, et al.      Expires September 26, 2019              [Page 17]
 Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2019
 
 
-   [
-     {
-       "ietf-system:name" : "NRC TIC server",
-       "ietf-system:udp" : {
-         "address" : "tic.nrc.ca",
-         "port" : 123
+   {
+     "ietf-system:server" : [
+       {
+         "name" : "NRC TIC server",
+         "udp" : {
+           "address" : "tic.nrc.ca",
+           "port" : 123
+         },
+         "association-type" : 0,
+         "iburst" : false,
+         "prefer" : true
        },
-       "ietf-system:association-type" : 0,
-       "ietf-system:iburst" : false,
-       "ietf-system:prefer" : true
-     },
-     {
-       "ietf-system:name" : "NRC TAC server",
-       "ietf-system:udp" : {
-         "address" : "tac.nrc.ca"
+       {
+         "name" : "NRC TAC server",
+         "udp" : {
+           "address" : "tac.nrc.ca"
+         }
        }
-     }
-   ]
+     ]
+   }
 
    CBOR encoding:
-
-
 
 
 
@@ -2099,7 +2099,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      March 2019
    | Tag | Data Item           | Semantics                 | Reference |
    +-----+---------------------+---------------------------+-----------+
    | xx  | SID                 | YANG Schema Item          | RFC XXXX  |
-   |     |                     | iDentifier (SID)          |           |
+   |     |                     | iDentifier                |           |
    | xx  | bits                | YANG bits datatype        | RFC XXXX  |
    | xx  | enumeration         | YANG enumeration datatype | RFC XXXX  |
    | xx  | identityref         | YANG identityref datatype | RFC XXXX  |

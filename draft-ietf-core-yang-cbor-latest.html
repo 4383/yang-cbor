@@ -726,7 +726,7 @@ module example-barmod {
 <a href="#rfc.section.4.2">4.2.</a> <a href="#container" id="container">The &#8216;container&#8217; and other collections</a>
 </h1>
 <p id="rfc.section.4.2.p.1">Collections such as containers, list instances, notification contents, rpc inputs, rpc outputs, action inputs and action outputs MUST be encoded using a CBOR map data item (major type 5). A map is comprised of pairs of data items, with each data item consisting of a key and a value. Each key within the CBOR map is set to a schema node identifier, each value is set to the value of this schema node instance according to the instance datatype.</p>
-<p id="rfc.section.4.2.p.2">This specification supports two type of CBOR keys; SID as defined in <a href="#sid" class="xref">Section 3.2</a> and names as defined in <a href="#RFC7951" class="xref">[RFC7951]</a>.</p>
+<p id="rfc.section.4.2.p.2">This specification supports two type of CBOR keys; SID as defined in <a href="#sid" class="xref">Section 3.2</a> and names as defined in <a href="#name" class="xref">Section 3.3</a>.</p>
 <p id="rfc.section.4.2.p.3">The following examples shows the encoding of a &#8216;system-state&#8217; container instance using SIDs or names.</p>
 <p id="rfc.section.4.2.p.4">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
 <pre>
@@ -983,24 +983,26 @@ A1                                      # map(1)
 <p id="rfc.section.4.4.2.p.2">This example assumes that the Media Type used to carry this container consists of a CBOR map composed of the data node namespace qualified name and data node encoding. This root CBOR map is not part of the present encoding rules and is not compulsory.</p>
 <p id="rfc.section.4.4.2.p.3">CBOR diagnostic notation:</p>
 <pre>
-[
-  {
-    "ietf-system:name" : "NRC TIC server",
-    "ietf-system:udp" : {
-      "address" : "tic.nrc.ca",
-      "port" : 123
+{
+  "ietf-system:server" : [
+    {
+      "name" : "NRC TIC server",
+      "udp" : {
+        "address" : "tic.nrc.ca",
+        "port" : 123
+      },
+      "association-type" : 0,
+      "iburst" : false,
+      "prefer" : true
     },
-    "ietf-system:association-type" : 0,
-    "ietf-system:iburst" : false,
-    "ietf-system:prefer" : true
-  },
-  {
-    "ietf-system:name" : "NRC TAC server",
-    "ietf-system:udp" : {
-      "address" : "tac.nrc.ca"
+    {
+      "name" : "NRC TAC server",
+      "udp" : {
+        "address" : "tac.nrc.ca"
+      }
     }
-  }
-]
+  ]
+}
 </pre>
 <p id="rfc.section.4.4.2.p.4">CBOR encoding:</p>
 <pre>
@@ -1673,7 +1675,7 @@ list user {
 <tr>
 <td class="left">xx</td>
 <td class="left">SID</td>
-<td class="left">YANG Schema Item iDentifier (SID)</td>
+<td class="left">YANG Schema Item iDentifier</td>
 <td class="left">RFC XXXX</td>
 </tr>
 <tr>
