@@ -11,7 +11,7 @@ Expires: September 29, 2019                               I. Petrov, Ed.
 
 
                    YANG Schema Item iDentifier (SID)
-                         draft-ietf-core-sid-05
+                         draft-ietf-core-sid-06
 
 Abstract
 
@@ -606,7 +606,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
    o  The YANG module name.
 
-   o  The RFC number.
+   o  Document reference.
 
 
 
@@ -688,7 +688,7 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
    Initial entries in this registry are as follows:
 
    +-------------+------+------------------+----------------------+
-   | Entry Point | Size | Module name      | RFC number           |
+   | Entry Point | Size | Module name      | Document reference   |
    +-------------+------+------------------+----------------------+
    | 1000        | 100  | ietf-comi        | [I-D.ietf-core-comi] |
    | 1100        | 50   | ietf-yang-types  | [RFC6021]            |
