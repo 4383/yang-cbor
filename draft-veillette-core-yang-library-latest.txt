@@ -4,19 +4,20 @@
 
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
-Intended status: Standards Track                          March 28, 2019
-Expires: September 29, 2019
+Intended status: Standards Track                          I. Petrov, Ed.
+Expires: September 30, 2019                                       Acklio
+                                                          March 29, 2019
 
 
                     Constrained YANG Module Library
-                  draft-veillette-core-yang-library-03
+                  draft-veillette-core-yang-library-04
 
 Abstract
 
    This document describes a constrained version of the YANG library
    that provides information about the YANG modules, datastores, and
    datastore schemas used by a constrained network management server
-   (e.g., a CoMI server).
+   (e.g., a CORECONF server).
 
 Status of This Memo
 
@@ -33,7 +34,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 29, 2019.
+   This Internet-Draft will expire on September 30, 2019.
 
 Copyright Notice
 
@@ -52,8 +53,7 @@ Copyright Notice
 
 
 
-
-Veillette              Expires September 29, 2019               [Page 1]
+Veillette & Petrov     Expires September 30, 2019               [Page 1]
 
 Internet-Draft       Constrained YANG Module Library          March 2019
 
@@ -74,7 +74,7 @@ Table of Contents
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  14
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .  14
      8.2.  Informative References  . . . . . . . . . . . . . . . . .  14
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  15
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  14
 
 1.  Introduction
 
@@ -88,8 +88,7 @@ Table of Contents
    mandatory requirements have been updated to minimize its size to
    allow its implementation by Constrained Nodes and/or Constrained
    Networks as defined by [RFC7228].  To review the list of objectives
-   and proposed data model, please refer to
-   [I-D.ietf-netconf-rfc7895bis] section 2 and 3.
+   and proposed data model, please refer to [RFC8525] section 2 and 3.
 
 2.  Terminology and Notation
 
@@ -100,16 +99,17 @@ Table of Contents
    The following terms are defined in [RFC7950]: client, deviation,
    feature, module, submodule and server.
 
-   The following term is defined in [I-D.ietf-core-yang-cbor]: YANG
-   Schema Item iDentifier (SID).
+   The following term is defined in [I-D.ietf-core-sid]: YANG Schema
+   Item iDentifier (SID).
 
-   The following terms are defined in [I-D.ietf-netconf-rfc7895bis]:
-   YANG library and YANG library checksum.
-
-
+   The following terms are defined in [RFC8525]: YANG library and YANG
+   library checksum.
 
 
-Veillette              Expires September 29, 2019               [Page 2]
+
+
+
+Veillette & Petrov     Expires September 30, 2019               [Page 2]
 
 Internet-Draft       Constrained YANG Module Library          March 2019
 
@@ -129,7 +129,7 @@ Internet-Draft       Constrained YANG Module Library          March 2019
    |  schema   |----------->|  set   |--------------->| submodules |
    +-----------+            +--------+                +------------+
 
-                   Figure 1: Abstract CoMI architecture
+              Figure 1: Conceptual model of the YANG library
 
    It's expected that most constrained network management servers have
    one datastore (e.g. a unified datastore).  However, some servers may
@@ -141,7 +141,7 @@ Internet-Draft       Constrained YANG Module Library          March 2019
    Multiple datastores may refer to the same datastore schema and
    individual datastore schemas may share module sets.
 
-   For each module, the YANG library provide:
+   For each module, the YANG library provides:
 
    o  the YANG module identifier (i.e.  SID)
 
@@ -165,42 +165,42 @@ Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 
-Veillette              Expires September 29, 2019               [Page 3]
+Veillette & Petrov     Expires September 30, 2019               [Page 3]
 
 Internet-Draft       Constrained YANG Module Library          March 2019
 
 
    module: ietf-constrained-yang-library
-       +--ro yang-library
-          +--ro module-set* [index]
-          |  +--ro index                 uint8
-          |  +--ro module* [identifier]
-          |  |  +--ro identifier    comi:sid
-          |  |  +--ro revision?     revision-identifier
-          |  |  +--ro namespace?    inet:uri
-          |  |  +--ro location*     inet:uri
-          |  |  +--ro submodule* [identifier]
-          |  |  |  +--ro identifier    comi:sid
-          |  |  |  +--ro revision?     revision-identifier
-          |  |  |  +--ro location*     inet:uri
-          |  |  +--ro feature*      comi:sid
-          |  |  +--ro deviation*    -> ../../module/identifier
-          |  +--ro import-only-module* [identifier revision]
-          |     +--ro identifier    comi:sid
-          |     +--ro revision      union
-          |     +--ro namespace     inet:uri
-          |     +--ro location*     inet:uri
-          |     +--ro submodule* [identifier]
-          |        +--ro identifier    comi:sid
-          |        +--ro revision?     revision-identifier
-          |        +--ro location*     inet:uri
-          +--ro schema* [index]
-          |  +--ro index         uint8
-          |  +--ro module-set*   -> ../../module-set/index
-          +--ro datastore* [identifier]
-          |  +--ro identifier    ds:datastore-ref
-          |  +--ro schema        -> ../../schema/index
-          +--ro checksum      binary
+     +--ro yang-library
+        +--ro module-set* [index]
+        |  +--ro index                 uint8
+        |  +--ro module* [identifier]
+        |  |  +--ro identifier    sid:sid
+        |  |  +--ro revision?     revision-identifier
+        |  |  +--ro namespace?    inet:uri
+        |  |  +--ro location*     inet:uri
+        |  |  +--ro submodule* [identifier]
+        |  |  |  +--ro identifier    sid:sid
+        |  |  |  +--ro revision?     revision-identifier
+        |  |  |  +--ro location*     inet:uri
+        |  |  +--ro feature*      sid:sid
+        |  |  +--ro deviation*    -> ../../module/identifier
+        |  +--ro import-only-module* [identifier revision]
+        |     +--ro identifier    sid:sid
+        |     +--ro revision      union
+        |     +--ro namespace?    inet:uri
+        |     +--ro location*     inet:uri
+        |     +--ro submodule* [identifier]
+        |        +--ro identifier    sid:sid
+        |        +--ro revision?     revision-identifier
+        |        +--ro location*     inet:uri
+        +--ro schema* [index]
+        |  +--ro index         uint8
+        |  +--ro module-set*   -> ../../module-set/index
+        +--ro datastore* [identifier]
+        |  +--ro identifier    ds:datastore-ref
+        |  +--ro schema        -> ../../schema/index
+        +--ro checksum      binary
 
      notifications:
        +---n yang-library-update
@@ -221,7 +221,7 @@ Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 
-Veillette              Expires September 29, 2019               [Page 4]
+Veillette & Petrov     Expires September 30, 2019               [Page 4]
 
 Internet-Draft       Constrained YANG Module Library          March 2019
 
@@ -237,7 +237,7 @@ Internet-Draft       Constrained YANG Module Library          March 2019
 
    o  the mandatory requirement of the 'namespace' fields is removed,
       and implementation is not recommended.  SIDs used by constrained
-      devices and protocols doesn't require namespaces.
+      devices and protocols don't require namespaces.
 
    o  the implementation of the 'location' fields are not recommended,
       the use of the module SID as the handle to retrieve the associated
@@ -248,17 +248,17 @@ Internet-Draft       Constrained YANG Module Library          March 2019
    RFC Ed.: update the date below with the date of RFC publication and
    remove this note.
 
-<CODE BEGINS> file "ietf-constrained-yang-library@2018-01-20.yang"
+<CODE BEGINS> file "ietf-constrained-yang-library@2019-03-28.yang"
 module ietf-constrained-yang-library {
   yang-version 1.1;
   namespace "urn:ietf:params:xml:ns:yang:ietf-constrained-yang-library";
   prefix "yanglib";
 
-  // RFC Ed.: update CoMI reference.
+  // RFC Ed.: update ietf-core-sid reference.
 
-  import ietf-comi {
-    prefix comi;
-    reference "I-D.ietf-core-comi";
+  import ietf-sid-file {
+    prefix sid;
+    reference "I-D.ietf-core-sid";
   }
   import ietf-inet-types {
     prefix inet;
@@ -277,7 +277,7 @@ module ietf-constrained-yang-library {
 
 
 
-Veillette              Expires September 29, 2019               [Page 5]
+Veillette & Petrov     Expires September 30, 2019               [Page 5]
 
 Internet-Draft       Constrained YANG Module Library          March 2019
 
@@ -313,16 +313,30 @@ Internet-Draft       Constrained YANG Module Library          March 2019
 
   // RFC Ed.: update reference.
 
+  revision 2019-03-28 {
+    description
+      "Second revision.";
+    reference
+      "[I-D.veillette-core-yang-library]  Constrained YANG Module Library";
+  }
+
   revision 2018-09-21 {
     description
       "Initial revision.";
     reference
-      "I-D.veillette-core-yang-library";
+      "[I-D.veillette-core-yang-library]  Constrained YANG Module Library";
   }
 
   /*
    * Typedefs
    */
+
+
+
+Veillette & Petrov     Expires September 30, 2019               [Page 6]
+
+Internet-Draft       Constrained YANG Module Library          March 2019
+
 
   typedef revision-identifier {
     type binary {
@@ -330,14 +344,6 @@ Internet-Draft       Constrained YANG Module Library          March 2019
     }
     description
       "Revision date encoded as a binary string, each nibble representing
-
-
-
-Veillette              Expires September 29, 2019               [Page 6]
-
-Internet-Draft       Constrained YANG Module Library          March 2019
-
-
        a digit of the of revision date. For example, revision 2018-09-21
        is encoded as 0x20 0x18 0x09 0x21.";
   }
@@ -351,7 +357,7 @@ Internet-Draft       Constrained YANG Module Library          March 2019
       "Parameters for identifying YANG modules and submodules.";
 
     leaf identifier {
-      type comi:sid;
+      type sid:sid;
       mandatory true;
       description
         "SID assigned to this module or submodule.";
@@ -380,24 +386,24 @@ Internet-Draft       Constrained YANG Module Library          March 2019
          'ietf-yang-library'. Support of this leaf in constrained
          devices is not necessarily required, nor expected. It is
          recommended that clients used the module or sub-module SID
+
+
+
+Veillette & Petrov     Expires September 30, 2019               [Page 7]
+
+Internet-Draft       Constrained YANG Module Library          March 2019
+
+
          as the handle used to retrieve the corresponding YANG module";
     }
   }
 
   grouping implementation-parameters {
     description
-
-
-
-Veillette              Expires September 29, 2019               [Page 7]
-
-Internet-Draft       Constrained YANG Module Library          March 2019
-
-
       "Parameters for describing the implementation of a module.";
 
     leaf-list feature {
-      type comi:sid;
+      type sid:sid;
       description
         "List of all YANG feature names from this module that are
          supported by the server, regardless whether they are defined
@@ -436,19 +442,20 @@ Internet-Draft       Constrained YANG Module Library          March 2019
       key "identifier";
       description
         "An entry in this list represents a module implemented by the
+
+
+
+Veillette & Petrov     Expires September 30, 2019               [Page 8]
+
+Internet-Draft       Constrained YANG Module Library          March 2019
+
+
          server, as per RFC 7950 section 5.6.5, with a particular set
          of supported features and deviations.";
       reference
         "RFC 7950: The YANG 1.1 Data Modeling Language.";
 
       uses module-identification-leafs;
-
-
-
-Veillette              Expires September 29, 2019               [Page 8]
-
-Internet-Draft       Constrained YANG Module Library          March 2019
-
 
       leaf namespace {
         type inet:uri;
@@ -485,12 +492,20 @@ Internet-Draft       Constrained YANG Module Library          March 2019
          specify different revision-dates in the import statements.";
 
       leaf identifier {
-        type comi:sid;
+        type sid:sid;
         description
           "The YANG module name.";
       }
       leaf revision {
         type union {
+
+
+
+Veillette & Petrov     Expires September 30, 2019               [Page 9]
+
+Internet-Draft       Constrained YANG Module Library          March 2019
+
+
           type revision-identifier;
           type string {
             length 0;
@@ -498,18 +513,9 @@ Internet-Draft       Constrained YANG Module Library          March 2019
         }
         description
           "The YANG module revision date.";
-
-
-
-Veillette              Expires September 29, 2019               [Page 9]
-
-Internet-Draft       Constrained YANG Module Library          March 2019
-
-
       }
       leaf namespace {
         type inet:uri;
-        mandatory true;
         description
           "The XML namespace identifier for this module.
            This leaf is present in the model to keep the alignment
@@ -549,18 +555,18 @@ Internet-Draft       Constrained YANG Module Library          March 2019
       uses module-set-parameters;
     }
 
+
+
+Veillette & Petrov     Expires September 30, 2019              [Page 10]
+
+Internet-Draft       Constrained YANG Module Library          March 2019
+
+
     list schema {
       key "index";
       description
         "A datastore schema that may be used by one or more
          datastores.
-
-
-
-Veillette              Expires September 29, 2019              [Page 10]
-
-Internet-Draft       Constrained YANG Module Library          March 2019
-
 
          The schema must be valid and referentially complete, i.e.,
          it must contain modules to satisfy all used import
@@ -604,20 +610,20 @@ Internet-Draft       Constrained YANG Module Library          March 2019
       leaf schema {
         type leafref {
           path "../../schema/index";
+
+
+
+Veillette & Petrov     Expires September 30, 2019              [Page 11]
+
+Internet-Draft       Constrained YANG Module Library          March 2019
+
+
         }
         mandatory true;
         description
           "A reference to the schema supported by this datastore.
            All non import-only modules of the schema are implemented
            with their associated features and deviations.";
-
-
-
-Veillette              Expires September 29, 2019              [Page 11]
-
-Internet-Draft       Constrained YANG Module Library          March 2019
-
-
       }
     }
   }
@@ -660,19 +666,20 @@ Internet-Draft       Constrained YANG Module Library          March 2019
       }
       mandatory true;
       description
+
+
+
+Veillette & Petrov     Expires September 30, 2019              [Page 12]
+
+Internet-Draft       Constrained YANG Module Library          March 2019
+
+
         "Contains the YANG library checksum or digest for the updated
          YANG library at the time the notification is generated.";
     }
   }
 }
 <CODE ENDS>
-
-
-
-Veillette              Expires September 29, 2019              [Page 12]
-
-Internet-Draft       Constrained YANG Module Library          March 2019
-
 
 5.  IANA Considerations
 
@@ -693,11 +700,9 @@ Internet-Draft       Constrained YANG Module Library          March 2019
 
 6.  Security Considerations
 
-   This YANG module is designed to be accessed via the CoMI protocol
-   [I-D.ietf-core-comi].  Some of the readable data nodes in this YANG
-   module may be considered sensitive or vulnerable in some network
-   environments.  It is thus important to control read access to these
-   data nodes.
+   Some of the readable data nodes in this YANG module may be considered
+   sensitive or vulnerable in some network environments.  It is thus
+   important to control read access to these data nodes.
 
    Specifically, the 'module' list may help an attacker to identify the
    server capabilities and server implementations with known bugs.
@@ -706,26 +711,21 @@ Internet-Draft       Constrained YANG Module Library          March 2019
    information is included in each module entry.  For example, if a
    particular operation on a particular data node is known to cause a
    server to crash or significantly degrade device performance, then the
-   module list information will help an attacker identify server
+   module list information will help an attacker to identify server
    implementations with such a defect, in order to launch a denial of
-   service attack on the device.
+   service attack on these devices.
 
 7.  Acknowledgments
 
    The YANG module defined by this memo have been derived from an
-   already existing YANG module, ietf-yang-library
-   [I-D.ietf-netconf-rfc7895bis], we will like to thanks to the authors
-   of this YANG module.  A special thank also to Andy Bierman for his
-   initial recommendations for the creation of this YANG module.
+   already existing YANG module, ietf-yang-library [RFC8525], we will
+   like to thanks to the authors of this YANG module.  A special thank
+   also to Andy Bierman for his initial recommendations for the creation
+   of this YANG module.
 
 
 
-
-
-
-
-
-Veillette              Expires September 29, 2019              [Page 13]
+Veillette & Petrov     Expires September 30, 2019              [Page 13]
 
 Internet-Draft       Constrained YANG Module Library          March 2019
 
@@ -733,17 +733,6 @@ Internet-Draft       Constrained YANG Module Library          March 2019
 8.  References
 
 8.1.  Normative References
-
-   [I-D.ietf-core-yang-cbor]
-              Veillette, M., Pelov, A., Somaraju, A., Turner, R.,
-              Minaburo, A., and I. Petrov, "CBOR Encoding of Data
-              Modeled with YANG", draft-ietf-core-yang-cbor-08 (work in
-              progress), March 2019.
-
-   [I-D.ietf-netconf-rfc7895bis]
-              Bierman, A., Bjorklund, M., Schoenwaelder, J., Watsen, K.,
-              and R. Wilton, "YANG Library", draft-ietf-netconf-
-              rfc7895bis-07 (work in progress), October 2018.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -768,25 +757,19 @@ Internet-Draft       Constrained YANG Module Library          March 2019
               (NMDA)", RFC 8342, DOI 10.17487/RFC8342, March 2018,
               <https://www.rfc-editor.org/info/rfc8342>.
 
+   [RFC8525]  Bierman, A., Bjorklund, M., Schoenwaelder, J., Watsen, K.,
+              and R. Wilton, "YANG Library", RFC 8525,
+              DOI 10.17487/RFC8525, March 2019,
+              <https://www.rfc-editor.org/info/rfc8525>.
+
 8.2.  Informative References
 
-   [I-D.ietf-core-comi]
-              Veillette, M., Stok, P., Pelov, A., and A. Bierman, "CoAP
-              Management Interface", draft-ietf-core-comi-04 (work in
-              progress), November 2018.
+   [I-D.ietf-core-sid]
+              Veillette, M., Pelov, A., and I. Petrov, "YANG Schema Item
+              iDentifier (SID)", draft-ietf-core-sid-06 (work in
+              progress), March 2019.
 
-
-
-
-
-
-
-Veillette              Expires September 29, 2019              [Page 14]
-
-Internet-Draft       Constrained YANG Module Library          March 2019
-
-
-Author's Address
+Authors' Addresses
 
    Michel Veillette (editor)
    Trilliant Networks Inc.
@@ -794,11 +777,22 @@ Author's Address
    Granby, Quebec  J2J 2V2
    Canada
 
-   Phone: +14503750556
    Email: michel.veillette@trilliantinc.com
 
 
 
+Veillette & Petrov     Expires September 30, 2019              [Page 14]
+
+Internet-Draft       Constrained YANG Module Library          March 2019
+
+
+   Ivaylo Petrov (editor)
+   Acklio
+   1137A avenue des Champs Blancs
+   Cesson-Sevigne, Bretagne  35510
+   France
+
+   Email: ivaylo@ackl.io
 
 
 
@@ -837,4 +831,10 @@ Author's Address
 
 
 
-Veillette              Expires September 29, 2019              [Page 15]
+
+
+
+
+
+
+Veillette & Petrov     Expires September 30, 2019              [Page 15]
