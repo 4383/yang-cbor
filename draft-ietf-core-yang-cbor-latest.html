@@ -1366,7 +1366,7 @@ leaf alarm-state {
 </pre>
 <p id="rfc.section.6.7.p.5">CBOR diagnostic notation: h&#8217;06&#8217;</p>
 <p id="rfc.section.6.7.p.6">CBOR encoding: 41 06</p>
-<p id="rfc.section.6.7.p.7">To avoid overlap of &#8216;bit&#8217; defined in different &#8216;bits&#8217; statement, &#8216;bits&#8217; defined in a Leafs of type &#8216;union&#8217; MUST be encoded using a CBOR text string data item (major type 3) and MUST contain a space-separated sequence of names of &#8216;bit&#8217; that are set. The encoding MUST be prefixed with the bits CBOR tag as specified in <a href="#tag-registry" class="xref">Section 8.1</a>.</p>
+<p id="rfc.section.6.7.p.7">To avoid overlap of &#8216;bit&#8217; defined in different &#8216;bits&#8217; statements, &#8216;bits&#8217; defined in a Leafs of type &#8216;union&#8217; MUST be encoded using a CBOR text string data item (major type 3) and MUST contain a space-separated sequence of names of &#8216;bit&#8217; that are set. The encoding MUST be prefixed with the bits CBOR tag as specified in <a href="#tag-registry" class="xref">Section 8.1</a>.</p>
 <p id="rfc.section.6.7.p.8">The following example shows the encoding of an &#8216;alarm-state&#8217; leaf instance defined using a union type with the &#8216;under-repair&#8217; and &#8216;critical&#8217; flags set.</p>
 <p id="rfc.section.6.7.p.9">Definition example:</p>
 <pre>

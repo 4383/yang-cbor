@@ -1600,7 +1600,7 @@ Internet-Draft   CBOR Encoding of Data Modeled with YANG      April 2019
 
    CBOR encoding: 41 06
 
-   To avoid overlap of 'bit' defined in different 'bits' statement,
+   To avoid overlap of 'bit' defined in different 'bits' statements,
    'bits' defined in a Leafs of type 'union' MUST be encoded using a
    CBOR text string data item (major type 3) and MUST contain a space-
    separated sequence of names of 'bit' that are set.  The encoding MUST
