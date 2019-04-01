@@ -5,8 +5,8 @@
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
 Intended status: Standards Track                          I. Petrov, Ed.
-Expires: September 30, 2019                                       Acklio
-                                                          March 29, 2019
+Expires: October 3, 2019                                          Acklio
+                                                          April 01, 2019
 
 
                     Constrained YANG Module Library
@@ -34,7 +34,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 30, 2019.
+   This Internet-Draft will expire on October 3, 2019.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Veillette & Petrov     Expires September 30, 2019               [Page 1]
+Veillette & Petrov       Expires October 3, 2019                [Page 1]
 
-Internet-Draft       Constrained YANG Module Library          March 2019
+Internet-Draft       Constrained YANG Module Library          April 2019
 
 
 Table of Contents
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Veillette & Petrov     Expires September 30, 2019               [Page 2]
+Veillette & Petrov       Expires October 3, 2019                [Page 2]
 
-Internet-Draft       Constrained YANG Module Library          March 2019
+Internet-Draft       Constrained YANG Module Library          April 2019
 
 
 3.  Overview
@@ -165,9 +165,9 @@ Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 
-Veillette & Petrov     Expires September 30, 2019               [Page 3]
+Veillette & Petrov       Expires October 3, 2019                [Page 3]
 
-Internet-Draft       Constrained YANG Module Library          March 2019
+Internet-Draft       Constrained YANG Module Library          April 2019
 
 
    module: ietf-constrained-yang-library
@@ -221,9 +221,9 @@ Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 
-Veillette & Petrov     Expires September 30, 2019               [Page 4]
+Veillette & Petrov       Expires October 3, 2019                [Page 4]
 
-Internet-Draft       Constrained YANG Module Library          March 2019
+Internet-Draft       Constrained YANG Module Library          April 2019
 
 
    o  module 'name', submodule 'name' and datastore 'name' are
@@ -277,9 +277,9 @@ module ietf-constrained-yang-library {
 
 
 
-Veillette & Petrov     Expires September 30, 2019               [Page 5]
+Veillette & Petrov       Expires October 3, 2019                [Page 5]
 
-Internet-Draft       Constrained YANG Module Library          March 2019
+Internet-Draft       Constrained YANG Module Library          April 2019
 
 
      WG List:  <mailto:core@ietf.org>
@@ -333,9 +333,9 @@ Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 
-Veillette & Petrov     Expires September 30, 2019               [Page 6]
+Veillette & Petrov       Expires October 3, 2019                [Page 6]
 
-Internet-Draft       Constrained YANG Module Library          March 2019
+Internet-Draft       Constrained YANG Module Library          April 2019
 
 
   typedef revision-identifier {
@@ -389,9 +389,9 @@ Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 
-Veillette & Petrov     Expires September 30, 2019               [Page 7]
+Veillette & Petrov       Expires October 3, 2019                [Page 7]
 
-Internet-Draft       Constrained YANG Module Library          March 2019
+Internet-Draft       Constrained YANG Module Library          April 2019
 
 
          as the handle used to retrieve the corresponding YANG module";
@@ -445,9 +445,9 @@ Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 
-Veillette & Petrov     Expires September 30, 2019               [Page 8]
+Veillette & Petrov       Expires October 3, 2019                [Page 8]
 
-Internet-Draft       Constrained YANG Module Library          March 2019
+Internet-Draft       Constrained YANG Module Library          April 2019
 
 
          server, as per RFC 7950 section 5.6.5, with a particular set
@@ -501,9 +501,9 @@ Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 
-Veillette & Petrov     Expires September 30, 2019               [Page 9]
+Veillette & Petrov       Expires October 3, 2019                [Page 9]
 
-Internet-Draft       Constrained YANG Module Library          March 2019
+Internet-Draft       Constrained YANG Module Library          April 2019
 
 
           type revision-identifier;
@@ -557,9 +557,9 @@ Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 
-Veillette & Petrov     Expires September 30, 2019              [Page 10]
+Veillette & Petrov       Expires October 3, 2019               [Page 10]
 
-Internet-Draft       Constrained YANG Module Library          March 2019
+Internet-Draft       Constrained YANG Module Library          April 2019
 
 
     list schema {
@@ -613,9 +613,9 @@ Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 
-Veillette & Petrov     Expires September 30, 2019              [Page 11]
+Veillette & Petrov       Expires October 3, 2019               [Page 11]
 
-Internet-Draft       Constrained YANG Module Library          March 2019
+Internet-Draft       Constrained YANG Module Library          April 2019
 
 
         }
@@ -669,9 +669,9 @@ Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 
-Veillette & Petrov     Expires September 30, 2019              [Page 12]
+Veillette & Petrov       Expires October 3, 2019               [Page 12]
 
-Internet-Draft       Constrained YANG Module Library          March 2019
+Internet-Draft       Constrained YANG Module Library          April 2019
 
 
         "Contains the YANG library checksum or digest for the updated
@@ -725,9 +725,9 @@ Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 
-Veillette & Petrov     Expires September 30, 2019              [Page 13]
+Veillette & Petrov       Expires October 3, 2019               [Page 13]
 
-Internet-Draft       Constrained YANG Module Library          March 2019
+Internet-Draft       Constrained YANG Module Library          April 2019
 
 
 8.  References
@@ -781,9 +781,9 @@ Authors' Addresses
 
 
 
-Veillette & Petrov     Expires September 30, 2019              [Page 14]
+Veillette & Petrov       Expires October 3, 2019               [Page 14]
 
-Internet-Draft       Constrained YANG Module Library          March 2019
+Internet-Draft       Constrained YANG Module Library          April 2019
 
 
    Ivaylo Petrov (editor)
@@ -837,4 +837,4 @@ Internet-Draft       Constrained YANG Module Library          March 2019
 
 
 
-Veillette & Petrov     Expires September 30, 2019              [Page 15]
+Veillette & Petrov       Expires October 3, 2019               [Page 15]

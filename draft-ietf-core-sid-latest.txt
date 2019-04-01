@@ -5,9 +5,9 @@
 Internet Engineering Task Force                        M. Veillette, Ed.
 Internet-Draft                                   Trilliant Networks Inc.
 Intended status: Standards Track                           A. Pelov, Ed.
-Expires: September 30, 2019                               I. Petrov, Ed.
+Expires: October 3, 2019                                  I. Petrov, Ed.
                                                                   Acklio
-                                                          March 29, 2019
+                                                          April 01, 2019
 
 
                    YANG Schema Item iDentifier (SID)
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 30, 2019.
+   This Internet-Draft will expire on October 3, 2019.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Veillette, et al.      Expires September 30, 2019               [Page 1]
+Veillette, et al.        Expires October 3, 2019                [Page 1]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Veillette, et al.      Expires September 30, 2019               [Page 2]
+Veillette, et al.        Expires October 3, 2019                [Page 2]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
    o  identities
@@ -165,9 +165,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019               [Page 3]
+Veillette, et al.        Expires October 3, 2019                [Page 3]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
    o  module
@@ -221,9 +221,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019               [Page 4]
+Veillette, et al.        Expires October 3, 2019                [Page 4]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
    As needed, authors of YANG modules can assign SIDs to their YANG
@@ -277,9 +277,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019               [Page 5]
+Veillette, et al.        Expires October 3, 2019                [Page 5]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
         Andy Bierman
@@ -333,9 +333,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019               [Page 6]
+Veillette, et al.        Expires October 3, 2019                [Page 6]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
           This format is intended to support the YANG 1.1 ABNF
@@ -389,9 +389,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019               [Page 7]
+Veillette, et al.        Expires October 3, 2019                [Page 7]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
          "Each entry within this list defined the mapping between
@@ -445,9 +445,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019               [Page 8]
+Veillette, et al.        Expires October 3, 2019                [Page 8]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
             contain a valid YANG identifier string.
@@ -501,9 +501,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019               [Page 9]
+Veillette, et al.        Expires October 3, 2019                [Page 9]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
 6.2.1.  Structure
@@ -557,9 +557,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 10]
+Veillette, et al.        Expires October 3, 2019               [Page 10]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
    o  Technical capacity to ensure the sustained operation of the
@@ -613,9 +613,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 11]
+Veillette, et al.        Expires October 3, 2019               [Page 11]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
 6.3.2.  Allocation policy
@@ -669,9 +669,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 12]
+Veillette, et al.        Expires October 3, 2019               [Page 12]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
    +-------------+---------+------------------+
@@ -725,9 +725,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 13]
+Veillette, et al.        Expires October 3, 2019               [Page 13]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
    o  A link to the associated ".yang" file.  This file link must be
@@ -781,9 +781,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 14]
+Veillette, et al.        Expires October 3, 2019               [Page 14]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
 8.  References
@@ -837,9 +837,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 15]
+Veillette, et al.        Expires October 3, 2019               [Page 15]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
    [RFC6536]  Bierman, A. and M. Bjorklund, "Network Configuration
@@ -893,9 +893,9 @@ Appendix A.  ".sid" file example
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 16]
+Veillette, et al.        Expires October 3, 2019               [Page 16]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
          "entry-point": 1700,
@@ -949,9 +949,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 17]
+Veillette, et al.        Expires October 3, 2019               [Page 17]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
          "namespace": "feature",
@@ -1005,9 +1005,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 18]
+Veillette, et al.        Expires October 3, 2019               [Page 18]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
          "sid": 1717
@@ -1061,9 +1061,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 19]
+Veillette, et al.        Expires October 3, 2019               [Page 19]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
        {
@@ -1117,9 +1117,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 20]
+Veillette, et al.        Expires October 3, 2019               [Page 20]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
          "sid": 1735
@@ -1173,9 +1173,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 21]
+Veillette, et al.        Expires October 3, 2019               [Page 21]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
          "sid": 1744
@@ -1229,9 +1229,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 22]
+Veillette, et al.        Expires October 3, 2019               [Page 22]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
          "identifier": "/ietf-system:system/location",
@@ -1285,9 +1285,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 23]
+Veillette, et al.        Expires October 3, 2019               [Page 23]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
        },
@@ -1341,9 +1341,9 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 24]
+Veillette, et al.        Expires October 3, 2019               [Page 24]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
          "namespace": "data",
@@ -1397,9 +1397,9 @@ Appendix B.  SID auto generation
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 25]
+Veillette, et al.        Expires October 3, 2019               [Page 25]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
 Appendix C.  ".sid" file lifecycle
@@ -1453,9 +1453,9 @@ C.1.  SID File Creation
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 26]
+Veillette, et al.        Expires October 3, 2019               [Page 26]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
                              | generation    |    |    model    |
@@ -1509,9 +1509,9 @@ C.2.  SID File Update
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 27]
+Veillette, et al.        Expires October 3, 2019               [Page 27]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
           +---------------+
@@ -1565,9 +1565,9 @@ Authors' Addresses
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 28]
+Veillette, et al.        Expires October 3, 2019               [Page 28]
 
-Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
+Internet-Draft      YANG Schema Item iDentifier (SID)         April 2019
 
 
    Michel Veillette (editor)
@@ -1621,4 +1621,4 @@ Internet-Draft      YANG Schema Item iDentifier (SID)         March 2019
 
 
 
-Veillette, et al.      Expires September 30, 2019              [Page 29]
+Veillette, et al.        Expires October 3, 2019               [Page 29]

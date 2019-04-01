@@ -319,9 +319,9 @@ li, p {
   <meta name="generator" content="xml2rfc version 2.22.2 - https://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
-  <meta name="dct.creator" content="Veillette, M., Ed., Pelov, A., Ed., Somaraju, A., Turner, R., and A. Minaburo" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-core-yang-cbor-08" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-03-29" />
+  <meta name="dct.creator" content="Veillette, M., Ed., Petrov, I., Ed., and A. Pelov" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-core-yang-cbor-09" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-04-01" />
   <meta name="dct.abstract" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) ." />
   <meta name="description" content="This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) ." />
 
@@ -342,31 +342,11 @@ li, p {
 </tr>
 <tr>
 <td class="left">Intended status: Standards Track</td>
-<td class="right">A. Pelov, Ed.</td>
+<td class="right">I. Petrov, Ed.</td>
 </tr>
 <tr>
-<td class="left">Expires: September 30, 2019</td>
-<td class="right">Acklio</td>
-</tr>
-<tr>
-<td class="left"></td>
-<td class="right">A. Somaraju</td>
-</tr>
-<tr>
-<td class="left"></td>
-<td class="right">Tridonic GmbH &amp; Co KG</td>
-</tr>
-<tr>
-<td class="left"></td>
-<td class="right">R. Turner</td>
-</tr>
-<tr>
-<td class="left"></td>
-<td class="right">Landis+Gyr</td>
-</tr>
-<tr>
-<td class="left"></td>
-<td class="right">A. Minaburo</td>
+<td class="left">Expires: October 3, 2019</td>
+<td class="right">A. Pelov</td>
 </tr>
 <tr>
 <td class="left"></td>
@@ -374,7 +354,7 @@ li, p {
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">March 29, 2019</td>
+<td class="right">April 01, 2019</td>
 </tr>
 
     	
@@ -382,7 +362,7 @@ li, p {
   </table>
 
   <p class="title">CBOR Encoding of Data Modeled with YANG<br />
-  <span class="filename">draft-ietf-core-yang-cbor-08</span></p>
+  <span class="filename">draft-ietf-core-yang-cbor-09</span></p>
   
   <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
 <p>This document defines encoding rules for serializing configuration data, state data, RPC input and RPC output, Action input, Action output and notifications defined within YANG modules using the Concise Binary Object Representation (CBOR) <a href="#RFC7049" class="xref">[RFC7049]</a>.</p>
@@ -390,7 +370,7 @@ li, p {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on September 30, 2019.</p>
+<p>This Internet-Draft will expire on October 3, 2019.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -1327,7 +1307,7 @@ leaf enabled {
 <p id="rfc.section.6.5.p.4">CBOR diagnostic notation: true</p>
 <p id="rfc.section.6.5.p.5">CBOR encoding: F5</p>
 <h1 id="rfc.section.6.6">
-<a href="#rfc.section.6.6">6.6.</a> <a href="#the-enumeration-type" id="the-enumeration-type">The &#8216;enumeration&#8217; Type</a>
+<a href="#rfc.section.6.6">6.6.</a> <a href="#enumeration" id="enumeration">The &#8216;enumeration&#8217; Type</a>
 </h1>
 <p id="rfc.section.6.6.p.1">Leafs of type enumeration MUST be encoded using a CBOR unsigned integer (major type 0) or CBOR negative integer (major type 1), depending on the actual value. Enumeration values are either explicitly assigned using the YANG statement &#8216;value&#8217; or automatically assigned based on the algorithm defined in <a href="#RFC7950" class="xref">[RFC7950]</a> section 9.6.4.2.</p>
 <p id="rfc.section.6.6.p.2">The following example shows the encoding of an &#8216;oper-status&#8217; leaf instance set to &#8216;testing&#8217;.</p>
@@ -1347,30 +1327,59 @@ leaf oper-status {
 </pre>
 <p id="rfc.section.6.6.p.4">CBOR diagnostic notation: 3</p>
 <p id="rfc.section.6.6.p.5">CBOR encoding: 03</p>
-<h1 id="rfc.section.6.7">
-<a href="#rfc.section.6.7">6.7.</a> <a href="#the-bits-type" id="the-bits-type">The &#8216;bits&#8217; Type</a>
-</h1>
-<p id="rfc.section.6.7.p.1">Leafs of type bits MUST be encoded using a CBOR byte string data item (major type 2). Bits position are either explicitly assigned using the YANG statement &#8216;position&#8217; or automatically assigned based on the algorithm defined in <a href="#RFC7950" class="xref">[RFC7950]</a> section 9.7.4.2.</p>
-<p id="rfc.section.6.7.p.2">Bits position 0 to 7 are assigned to the first byte within the byte string, bits 8 to 15 to the second byte, and subsequent bytes are assigned similarly. Within each byte, bits are assigned from least to most significant.</p>
-<p id="rfc.section.6.7.p.3">The following example shows the encoding of a &#8216;mybits&#8217; leaf instance with the &#8216;disable-nagle&#8217; and &#8216;10-Mb-only&#8217; flags set.</p>
-<p id="rfc.section.6.7.p.4">Definition example from <a href="#RFC7950" class="xref">[RFC7950]</a>:</p>
+<p id="rfc.section.6.6.p.6">To avoid overlap of &#8216;value&#8217; defined in different &#8216;enumeration&#8217; statements, &#8216;enumeration&#8217; defined in a Leafs of type &#8216;union&#8217; MUST be encoded using a CBOR text string data item (major type 3) and MUST contain one of the names assigned by &#8216;enum&#8217; statements in YANG. The encoding MUST be prefixed with the enumeration CBOR tag as specified in <a href="#tag-registry" class="xref">Section 8.1</a>.</p>
+<p id="rfc.section.6.6.p.7">Definition example from <a href="#RFC7950" class="xref">[RFC7950]</a>:</p>
 <pre>
-leaf mybits {
-  type bits {
-    bit disable-nagle {
-      position 0;
-    }
-    bit auto-sense-speed {
-      position 1;
-    }
-    bit 10-Mb-only {
-      position 2;
-    }
+type union {
+  type int32;
+  type enumeration {
+    enum "unbounded";
   }
 }
 </pre>
-<p id="rfc.section.6.7.p.5">CBOR diagnostic notation: h&#8217;05&#8217;</p>
-<p id="rfc.section.6.7.p.6">CBOR encoding: 41 05</p>
+<p id="rfc.section.6.6.p.8">CBOR diagnostic notation: 99(&#8220;unbounded&#8221;)</p>
+<p id="rfc.section.6.6.p.9">CBOR encoding: D8 63 69 756E626F756E646564</p>
+<p id="rfc.section.6.6.p.10">// RFC Ed.: update 99 and D8 63 with the enumerator CBOR tag allocated.</p>
+<h1 id="rfc.section.6.7">
+<a href="#rfc.section.6.7">6.7.</a> <a href="#bits" id="bits">The &#8216;bits&#8217; Type</a>
+</h1>
+<p id="rfc.section.6.7.p.1">Leafs of type bits MUST be encoded using a CBOR byte string data item (major type 2). Bits position are either explicitly assigned using the YANG statement &#8216;position&#8217; or automatically assigned based on the algorithm defined in <a href="#RFC7950" class="xref">[RFC7950]</a> section 9.7.4.2.</p>
+<p id="rfc.section.6.7.p.2">Bits position 0 to 7 are assigned to the first byte within the byte string, bits 8 to 15 to the second byte, and subsequent bytes are assigned similarly. Within each byte, bits are assigned from least to most significant.</p>
+<p id="rfc.section.6.7.p.3">The following example shows the encoding of an &#8216;alarm-state&#8217; leaf instance with the &#8216;under-repair&#8217; and &#8216;critical&#8217; flags set.</p>
+<p id="rfc.section.6.7.p.4">Definition example from <a href="#RFC8348" class="xref">[RFC8348]</a>:</p>
+<pre>
+typedef alarm-state {
+  type bits {
+    bit unknown;
+    bit under-repair;
+    bit critical;
+    bit major;
+    bit minor;
+    bit warning;
+    bit indeterminate;
+  }
+}
+
+leaf alarm-state {
+  type alarm-state;
+}
+</pre>
+<p id="rfc.section.6.7.p.5">CBOR diagnostic notation: h&#8217;06&#8217;</p>
+<p id="rfc.section.6.7.p.6">CBOR encoding: 41 06</p>
+<p id="rfc.section.6.7.p.7">To avoid overlap of &#8216;bit&#8217; defined in different &#8216;bits&#8217; statement, &#8216;bits&#8217; defined in a Leafs of type &#8216;union&#8217; MUST be encoded using a CBOR text string data item (major type 3) and MUST contain a space-separated sequence of names of &#8216;bit&#8217; that are set. The encoding MUST be prefixed with the bits CBOR tag as specified in <a href="#tag-registry" class="xref">Section 8.1</a>.</p>
+<p id="rfc.section.6.7.p.8">The following example shows the encoding of an &#8216;alarm-state&#8217; leaf instance defined using a union type with the &#8216;under-repair&#8217; and &#8216;critical&#8217; flags set.</p>
+<p id="rfc.section.6.7.p.9">Definition example:</p>
+<pre>
+leaf alarm-state {
+  type type union {
+    type alarm-state;
+    type empty;
+  }
+}
+</pre>
+<p id="rfc.section.6.7.p.10">CBOR diagnostic notation: 99(&#8220;under-repair critical&#8221;)</p>
+<p id="rfc.section.6.7.p.11">CBOR encoding: D8 63 75 756E6465722D72657061697220637269746963616C</p>
+<p id="rfc.section.6.7.p.12">// RFC Ed.: update 99 and D8 63 with the bits CBOR tag allocated.</p>
 <h1 id="rfc.section.6.8">
 <a href="#rfc.section.6.8">6.8.</a> <a href="#the-binary-type" id="the-binary-type">The &#8216;binary&#8217; Type</a>
 </h1>
@@ -1464,7 +1473,7 @@ leaf is-router {
 <p id="rfc.section.6.11.p.4">CBOR diagnostic notation: null</p>
 <p id="rfc.section.6.11.p.5">CBOR encoding: F6</p>
 <h1 id="rfc.section.6.12">
-<a href="#rfc.section.6.12">6.12.</a> <a href="#the-union-type" id="the-union-type">The &#8216;union&#8217; Type</a>
+<a href="#rfc.section.6.12">6.12.</a> <a href="#union" id="union">The &#8216;union&#8217; Type</a>
 </h1>
 <p id="rfc.section.6.12.p.1">Leafs of type union MUST be encoded using the rules associated with one of the types listed.  When used in a union, the following YANG datatypes are prefixed by CBOR tag to avoid confusion between different YANG datatypes encoded using the same CBOR major type.</p>
 <p></p>
@@ -1476,8 +1485,9 @@ leaf is-router {
 <li>instance-identifier</li>
 </ul>
 <p id="rfc.section.6.12.p.3">See <a href="#tag-registry" class="xref">Section 8.1</a> for the assigned value of these CBOR tags.</p>
-<p id="rfc.section.6.12.p.4">The following example shows the encoding of an &#8216;ip-address&#8217; leaf instance when set to &#8220;2001:db8:a0b:12f0::1&#8221;.</p>
-<p id="rfc.section.6.12.p.5">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
+<p id="rfc.section.6.12.p.4">As mentioned in <a href="#enumeration" class="xref">Section 6.6</a> and in <a href="#bits" class="xref">Section 6.7</a>, &#8216;enumeration&#8217; and &#8216;bits&#8217; are encoded as CBOR text string data item (major type 3) when defined within a &#8216;union&#8217; type.</p>
+<p id="rfc.section.6.12.p.5">The following example shows the encoding of an &#8216;ip-address&#8217; leaf instance when set to &#8220;2001:db8:a0b:12f0::1&#8221;.</p>
+<p id="rfc.section.6.12.p.6">Definition example from <a href="#RFC7317" class="xref">[RFC7317]</a>:</p>
 <pre>
 typedef ipv4-address {
   type string {
@@ -1509,8 +1519,8 @@ leaf address {
   type inet:ip-address;
 }
 </pre>
-<p id="rfc.section.6.12.p.6">CBOR diagnostic notation: &#8220;2001:db8:a0b:12f0::1&#8221;</p>
-<p id="rfc.section.6.12.p.7">CBOR encoding: 74 323030313A6462383A6130623A313266303A3A31</p>
+<p id="rfc.section.6.12.p.7">CBOR diagnostic notation: &#8220;2001:db8:a0b:12f0::1&#8221;</p>
+<p id="rfc.section.6.12.p.8">CBOR encoding: 74 323030313A6462383A6130623A313266303A3A31</p>
 <h1 id="rfc.section.6.13">
 <a href="#rfc.section.6.13">6.13.</a> <a href="#the-instance-identifier-type" id="the-instance-identifier-type">The &#8216;instance-identifier&#8217; Type</a>
 </h1>
@@ -1784,6 +1794,11 @@ list user {
 <td class="top">
 <a>Bierman, A.</a>, <a>Bjorklund, M.</a> and <a>K. Watsen</a>, "<a href="https://tools.ietf.org/html/rfc8040">RESTCONF Protocol</a>", RFC 8040, DOI 10.17487/RFC8040, January 2017.</td>
 </tr>
+<tr>
+<td class="reference"><b id="RFC8348">[RFC8348]</b></td>
+<td class="top">
+<a>Bierman, A.</a>, <a>Bjorklund, M.</a>, <a>Dong, J.</a> and <a>D. Romascanu</a>, "<a href="https://tools.ietf.org/html/rfc8348">A YANG Data Model for Hardware Management</a>", RFC 8348, DOI 10.17487/RFC8348, March 2018.</td>
+</tr>
 </tbody></table>
 <h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
 <div class="avoidbreak">
@@ -1805,22 +1820,42 @@ list user {
 	  </span>
 	  <span class="country-name vcardline">Canada</span>
 	</span>
-	<span class="vcardline">Phone: +14503750556</span>
-
-<span class="vcardline">EMail: <a href="mailto:michel.veillette@trilliantinc.com">michel.veillette@trilliantinc.com</a></span>
+	<span class="vcardline">EMail: <a href="mailto:michel.veillette@trilliantinc.com">michel.veillette@trilliantinc.com</a></span>
 
   </address>
 </div><div class="avoidbreak">
   <address class="vcard">
 	<span class="vcardline">
-	  <span class="fn">Alexander Pelov</span> (editor)
+	  <span class="fn">Ivaylo Petrov</span> (editor)
+	  <span class="n hidden">
+		<span class="family-name">Petrov</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Acklio</span>
+	<span class="adr">
+	  <span class="vcardline">1137A avenue des Champs Blancs</span>
+
+	  <span class="vcardline">
+		<span class="locality">Cesson-Sevigne</span>,  
+		<span class="region">Bretagne</span> 
+		<span class="code">35510</span>
+	  </span>
+	  <span class="country-name vcardline">France</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:ivaylo@ackl.io">ivaylo@ackl.io</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Alexander Pelov</span> 
 	  <span class="n hidden">
 		<span class="family-name">Pelov</span>
 	  </span>
 	</span>
 	<span class="org vcardline">Acklio</span>
 	<span class="adr">
-	  <span class="vcardline">2bis rue de la Chataigneraie</span>
+	  <span class="vcardline">1137A avenue des Champs Blancs</span>
 
 	  <span class="vcardline">
 		<span class="locality">Cesson-Sevigne</span>,  
@@ -1830,79 +1865,6 @@ list user {
 	  <span class="country-name vcardline">France</span>
 	</span>
 	<span class="vcardline">EMail: <a href="mailto:a@ackl.io">a@ackl.io</a></span>
-
-  </address>
-</div><div class="avoidbreak">
-  <address class="vcard">
-	<span class="vcardline">
-	  <span class="fn">Abhinav Somaraju</span> 
-	  <span class="n hidden">
-		<span class="family-name">Somaraju</span>
-	  </span>
-	</span>
-	<span class="org vcardline">Tridonic GmbH & Co KG</span>
-	<span class="adr">
-	  <span class="vcardline">Farbergasse 15</span>
-
-	  <span class="vcardline">
-		<span class="locality">Dornbirn</span>,  
-		<span class="region">Vorarlberg</span> 
-		<span class="code">6850</span>
-	  </span>
-	  <span class="country-name vcardline">Austria</span>
-	</span>
-	<span class="vcardline">Phone: +43664808926169</span>
-
-<span class="vcardline">EMail: <a href="mailto:abhinav.somaraju@tridonic.com">abhinav.somaraju@tridonic.com</a></span>
-
-  </address>
-</div><div class="avoidbreak">
-  <address class="vcard">
-	<span class="vcardline">
-	  <span class="fn">Randy Turner</span> 
-	  <span class="n hidden">
-		<span class="family-name">Turner</span>
-	  </span>
-	</span>
-	<span class="org vcardline">Landis+Gyr</span>
-	<span class="adr">
-	  <span class="vcardline">30000 Mill Creek Ave</span>
-<span class="vcardline">Suite 100</span>
-
-	  <span class="vcardline">
-		<span class="locality">Alpharetta</span>,  
-		<span class="region">GA</span> 
-		<span class="code">30022</span>
-	  </span>
-	  <span class="country-name vcardline">US</span>
-	</span>
-	<span class="vcardline">Phone: ++16782581292</span>
-
-<span class="vcardline">EMail: <a href="mailto:randy.turner@landisgyr.com">randy.turner@landisgyr.com</a></span>
-
-<span class="vcardline">URI: <a href="http://www.landisgyr.com/">http://www.landisgyr.com/</a></span>
-
-  </address>
-</div><div class="avoidbreak">
-  <address class="vcard">
-	<span class="vcardline">
-	  <span class="fn">Ana Minaburo</span> 
-	  <span class="n hidden">
-		<span class="family-name">Minaburo</span>
-	  </span>
-	</span>
-	<span class="org vcardline">Acklio</span>
-	<span class="adr">
-	  <span class="vcardline">2bis rue de la ch&#226;taigneraie</span>
-
-	  <span class="vcardline">
-		<span class="locality">Cesson-S&#233;vign&#233;</span>,  
-		<span class="region">Bretagne</span> 
-		<span class="code">35510</span>
-	  </span>
-	  <span class="country-name vcardline">France</span>
-	</span>
-	<span class="vcardline">EMail: <a href="mailto:ana@ackl.io">ana@ackl.io</a></span>
 
   </address>
 </div>
